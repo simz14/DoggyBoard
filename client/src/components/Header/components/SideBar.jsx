@@ -11,7 +11,7 @@ const SideBarWrap = styled.div`
   min-height: 100vh;
   overflow-y: auto;
   width: 280px;
-  position: absolute;
+  position: relative;
   background-color: ${({ theme }) => theme.colors.darkBlue};
   z-index: 999;
   box-sizing: border-box;
@@ -19,6 +19,22 @@ const SideBarWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .cancelIcon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: ${({ theme }) => theme.colors.grey};
+    z-index: 9999;
+    display: none;
+  }
+
+  @media (max-width: 1000px) {
+    position: absolute;
+    .cancelIcon {
+      display: block;
+    }
+  }
 
   h2 {
     color: white;
@@ -28,13 +44,6 @@ const SideBarWrap = styled.div`
   p {
     color: white;
     font-size: 13px;
-  }
-  .cancelIcon {
-    position: absolute;
-    right: 0;
-    top: 0;
-    color: ${({ theme }) => theme.colors.grey};
-    z-index: 9999;
   }
 
   .MuiListItem-root {
@@ -62,10 +71,10 @@ const User = styled.div`
   }
 `;
 
-const SideBar = ({ showNavBar }) => {
+const SideBar = ({ setShowSideBar }) => {
   return (
     <SideBarWrap>
-      <IconButton onClick={() => showNavBar(false)} className="cancelIcon">
+      <IconButton onClick={() => setShowSideBar(false)} className="cancelIcon">
         <IoClose />
       </IconButton>
       <User>
