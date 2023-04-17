@@ -5,7 +5,7 @@ import {
   ListItemButton,
   TextField,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
@@ -13,6 +13,7 @@ import BasicButton from "../../../components/BasicButton";
 import { MdOutlineEmail, MdLockOutline } from "react-icons/md";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { loginService } from "../../../services/loginService";
+import { UserContext } from "../../../context/UserContext";
 
 const LoginWrap = styled.div`
   max-width: 20rem;
@@ -35,6 +36,7 @@ const LoginWrap = styled.div`
 `;
 
 const LoginForm = () => {
+  const { user, setUser } = useContext(UserContext);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const {
@@ -50,10 +52,17 @@ const LoginForm = () => {
     },
   });
 
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
   const handleClickSignIn = () => {
-    loginService(getValues());
-    navigate("/");
-    reset();
+    try {
+      loginService(getValues());
+      setUser(getValues());
+      navigate("/");
+      reset();
+    } catch (e) {}
   };
 
   return (
