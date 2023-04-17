@@ -1,11 +1,33 @@
 import React from "react";
 import styled from "styled-components";
+import LoginForm from "./components/LoginFrom";
+import bcgPaws from "../../assets/pawsBcg.jpg";
 
 const LoginWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100vw;
   height: 100vh;
+
+  .paws {
+    object-fit: cover;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.07;
+  }
+  .acivePaws {
+    display: none;
+  }
+
+  .formSide {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+  }
 
   .coloredSide {
     position: relative;
@@ -16,43 +38,40 @@ const LoginWrapper = styled.div`
     justify-content: center;
     align-items: center;
   }
-  .circle {
-    position: absolute;
 
-    width: 30rem;
-    height: 30rem;
-    border-radius: 100%;
-    border: 8rem solid white;
-    opacity: 0.1;
-  }
-  .top {
-    top: -20rem;
-    left: -20rem;
-  }
-  .bottom {
-    bottom: -20rem;
-    right: -20rem;
-  }
   .introText {
     z-index: 999;
     color: white;
     text-align: center;
   }
+
   @media (max-width: 1000px) {
     display: flex;
+    background-color: ${({ theme }) => theme.colors.lightBcgBlue};
+    .acivePaws {
+      display: block;
+    }
     .coloredSide {
       display: none;
     }
+    .formSide {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 600px) {
+    background-color: white;
   }
 `;
 
 const Login = () => {
   return (
     <LoginWrapper>
-      <div></div>
+      <div className="formSide">
+        <img className="paws acivePaws" src={bcgPaws} alt="paws" />
+        <LoginForm />
+      </div>
       <div className="coloredSide">
-        <div className="circle top"></div>
-        <div className="circle bottom"></div>
+        <img className="paws" src={bcgPaws} alt="paws" />
         <div className="introText">
           <h1>Welcome to Happytails dashboard</h1>
           <p>Please sign in to continue</p>
