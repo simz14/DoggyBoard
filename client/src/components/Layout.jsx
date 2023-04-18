@@ -38,7 +38,6 @@ const Layout = ({ children }) => {
     setShowSideBar(false);
   };
 
-  console.log(showSideBar);
   return (
     <LayoutWrap>
       <div className="sideBar">

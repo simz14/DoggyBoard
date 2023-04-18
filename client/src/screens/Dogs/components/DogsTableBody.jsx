@@ -2,8 +2,7 @@ import React from "react";
 import { TableBody, TableCell, TableRow } from "@mui/material";
 import useDogs from "../../../hooks/useDoga";
 
-const DogsTableBody = () => {
-  const { dogs } = useDogs();
+const DogsTableBody = ({ dogs }) => {
   return (
     <TableBody>
       {dogs.map((row) => (

@@ -2,12 +2,13 @@ import styled from "styled-components";
 import { Container } from "../../components/Container";
 import Layout from "../../components/Layout";
 import useDogs from "../../hooks/useDoga";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import DogsTableHead from "./components/DogsTableHead";
 import { InputAdornment, Table, TextField } from "@mui/material";
 import DogsTableBody from "./components/DogsTableBody";
 import TableWrapper from "../../components/TableWrapper";
 import { HiSearch } from "react-icons/hi";
+import { search } from "../../utils/search";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -31,9 +32,24 @@ const Wrapper = styled.div`
 
 const DogsTableScreen = () => {
   const { dogs, loading } = useDogs();
+  const [searchWord, setSearchWord] = useState("");
+  const [relevantDogsValues, setRelevantDogsValues] = useState([]);
+
+  const filteredDogs = search(relevantDogsValues, searchWord);
 
   useEffect(() => {
-    console.log(dogs, loading);
+    search(dogs, searchWord);
+    setRelevantDogsValues(
+      dogs.map((item) => {
+        return {
+          id: item.id,
+          name: item.name,
+          breed: item.breed,
+          age: item.age,
+          location: item.location,
+        };
+      })
+    );
   }, [dogs, loading]);
 
   return (
@@ -45,6 +61,7 @@ const DogsTableScreen = () => {
               <h2>Dogs</h2>
               <div>
                 <TextField
+                  onChange={(e) => setSearchWord(e.target.value)}
                   placeholder="Search"
                   variant="outlined"
                   InputProps={{
@@ -60,7 +77,7 @@ const DogsTableScreen = () => {
             <TableWrapper>
               <Table sx={{ minWidth: 700 }}>
                 <DogsTableHead />
-                <DogsTableBody />
+                <DogsTableBody dogs={filteredDogs} />
               </Table>
             </TableWrapper>
           </div>
