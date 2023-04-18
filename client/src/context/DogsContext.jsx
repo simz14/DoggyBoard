@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { fetchDogs } from "../services/dogs";
+import { fetchDogs } from "../services/dogsService";
 
 export const DogsContext = createContext({
   dogs: [],
