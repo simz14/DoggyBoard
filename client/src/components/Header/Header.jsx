@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import { IconButton } from "@mui/material";
+import { IconButton, Menu, MenuItem } from "@mui/material";
 import { HiMenu } from "react-icons/hi";
 import SideBar from "./components/SideBar";
+import { BiUserCircle, BiLogOutCircle } from "react-icons/bi";
 
 const HeaderWrap = styled.div`
   display: flex;
@@ -41,7 +42,7 @@ const MenuWrap = styled.div`
       font-size: 11px;
     }
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     justify-content: space-between;
     .show {
       display: block;
@@ -51,18 +52,31 @@ const MenuWrap = styled.div`
 
 const Header = () => {
   const [showSideBar, setShowSideBar] = useState(false);
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  const handleCklickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleCklickClose = () => {
+    setOpen(false);
+  };
+
+  const handleClickMenu = () => {
+    setShowSideBar((prev) => !prev);
+  };
+
   return (
     <HeaderWrap>
       {showSideBar && <SideBar setShowSideBar={setShowSideBar} />}
 
       <MenuWrap>
-        <IconButton
-          className="show"
-          onClick={() => setShowSideBar((prev) => !prev)}
-        >
+        <IconButton className="show" onClick={() => handleClickMenu()}>
           {<HiMenu />}
         </IconButton>
-        <div className="userOptions">
+
+        <div ref={ref} onClick={handleCklickOpen} className="userOptions">
           <div className="userData">
             <p>Abbott Keitch</p>
             <span>admin</span>
@@ -72,6 +86,27 @@ const Header = () => {
             alt="user"
           />
         </div>
+
+        <Menu
+          id="user-menu"
+          anchorEl={ref.current}
+          open={open}
+          onClose={handleCklickClose}
+        >
+          <MenuItem onClick={handleCklickClose}>
+            <IconButton>
+              <BiUserCircle />
+            </IconButton>
+            Profile
+          </MenuItem>
+
+          <MenuItem onClick={handleCklickClose}>
+            <IconButton>
+              <BiLogOutCircle />
+            </IconButton>
+            Logout
+          </MenuItem>
+        </Menu>
       </MenuWrap>
     </HeaderWrap>
   );

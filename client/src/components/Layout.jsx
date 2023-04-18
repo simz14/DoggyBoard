@@ -12,7 +12,7 @@ const LayoutWrap = styled.div`
     width: 100%;
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     .sideBar {
       display: none;
     }

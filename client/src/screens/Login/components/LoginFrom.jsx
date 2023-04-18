@@ -52,10 +52,6 @@ const LoginForm = () => {
     },
   });
 
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
-
   const handleClickSignIn = () => {
     try {
       loginService(getValues());

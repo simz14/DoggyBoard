@@ -29,7 +29,7 @@ const SideBarWrap = styled.div`
     display: none;
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     position: absolute;
     .cancelIcon {
       display: block;
