@@ -30,7 +30,7 @@ const SideBarWrap = styled.div`
     display: none;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1000px) {
     position: absolute;
     .cancelIcon {
       display: block;
@@ -72,10 +72,10 @@ const User = styled.div`
   }
 `;
 
-const SideBar = ({ setShowSideBar }) => {
+const SideBar = ({ handleClickMenu }) => {
   return (
     <SideBarWrap>
-      <IconButton onClick={() => setShowSideBar(false)} className="cancelIcon">
+      <IconButton onClick={handleClickMenu} className="cancelIcon">
         <IoClose />
       </IconButton>
       <User>

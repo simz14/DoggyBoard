@@ -50,8 +50,7 @@ const MenuWrap = styled.div`
   }
 `;
 
-const Header = () => {
-  const [showSideBar, setShowSideBar] = useState(false);
+const Header = ({ handleClickMenu }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
@@ -63,16 +62,10 @@ const Header = () => {
     setOpen(false);
   };
 
-  const handleClickMenu = () => {
-    setShowSideBar((prev) => !prev);
-  };
-
   return (
     <HeaderWrap>
-      {showSideBar && <SideBar setShowSideBar={setShowSideBar} />}
-
       <MenuWrap>
-        <IconButton className="show" onClick={() => handleClickMenu()}>
+        <IconButton className="show" onClick={handleClickMenu}>
           {<HiMenu />}
         </IconButton>
 

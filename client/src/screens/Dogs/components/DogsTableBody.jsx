@@ -8,11 +8,11 @@ const DogsTableBody = () => {
     <TableBody>
       {dogs.map((row) => (
         <TableRow key={row.id} sx={{ td: { border: 0 } }}>
-          <TableCell align="right">{row.id}</TableCell>
-          <TableCell align="right">{row.name}</TableCell>
-          <TableCell align="right">{row.breed}</TableCell>
-          <TableCell align="right">{row.age}</TableCell>
-          <TableCell align="right">{row.location}</TableCell>
+          <TableCell>{row.id}</TableCell>
+          <TableCell>{row.name}</TableCell>
+          <TableCell>{row.breed}</TableCell>
+          <TableCell>{row.age}</TableCell>
+          <TableCell>{row.location}</TableCell>
         </TableRow>
       ))}
     </TableBody>
