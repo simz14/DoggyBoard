@@ -11,6 +11,7 @@ const SideBarWrap = styled.div`
   min-height: 100vh;
   overflow-y: auto;
   width: 280px;
+  height: 100%;
   position: relative;
   background-color: ${({ theme }) => theme.colors.darkBlue};
   z-index: 999;
