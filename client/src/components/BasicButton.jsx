@@ -6,10 +6,11 @@ const StyledButton = styled.button`
   font-weight: ${({ theme }) => theme.typography.weight.s};
   font-size: ${({ theme }) => theme.typography.size.m};
   border-radius: ${({ theme }) => theme.border.radius.l};
-  padding: ${({ theme }) => theme.spacing.padding.m};
+  padding: ${({ theme }) => theme.spacing.padding.s};
   color: white;
   border: none;
   cursor: pointer;
+  min-width: 5rem;
   transition: 0.5s ease;
   :hover {
     background-color: ${({ theme }) => theme.colors.darkPurple};

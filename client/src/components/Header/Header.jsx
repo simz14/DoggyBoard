@@ -42,7 +42,7 @@ const MenuWrap = styled.div`
       font-size: 11px;
     }
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1000px) {
     justify-content: space-between;
     .show {
       display: block;
