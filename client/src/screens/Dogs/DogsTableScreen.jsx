@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import { Container } from "../../components/Container";
 import Layout from "../../components/Layout";
-import useDogs from "../../hooks/useDoga";
+import useDogs from "../../hooks/useDogs";
 import { useEffect, useState } from "react";
 import DogsTableHead from "./components/DogsTableHead";
-import { InputAdornment, Table, TextField } from "@mui/material";
+import {
+  CircularProgress,
+  InputAdornment,
+  Table,
+  TextField,
+} from "@mui/material";
 import DogsTableBody from "./components/DogsTableBody";
 import TableWrapper from "../../components/TableWrapper";
 import { HiSearch } from "react-icons/hi";
@@ -14,6 +19,9 @@ import bcgPaws from "../../assets/pawsBcg.jpg";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
+  position: relative;
+  min-height: 100vh;
+
   .paws {
     object-fit: cover;
     position: absolute;
@@ -27,6 +35,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 48px;
   }
 
   .tableWrap {
@@ -75,20 +84,22 @@ const DogsTableScreen = () => {
   const filteredDogs = search(relevantDogsValues, searchWord);
 
   useEffect(() => {
-    search(dogs, searchWord);
-    setRelevantDogsValues(
-      dogs.map((item) => {
-        return {
-          id: item.id,
-          name: item.name,
-          breed: item.breed,
-          age: item.age,
-          location: item.location,
-        };
-      })
-    );
-  }, [dogs, loading]);
-
+    if (dogs) {
+      console.log(dogs);
+      setRelevantDogsValues(
+        dogs.map((item) => {
+          return {
+            id: item.id,
+            name: item.name,
+            breed: item.breed,
+            age: item.age,
+            location: item.location,
+          };
+        })
+      );
+      search(relevantDogsValues, searchWord);
+    }
+  }, [dogs]);
   return (
     <Layout>
       <Wrapper>
@@ -118,12 +129,17 @@ const DogsTableScreen = () => {
                 </div>
               </div>
             </div>
-            <TableWrapper>
-              <Table sx={{ minWidth: 700 }}>
-                <DogsTableHead />
-                <DogsTableBody dogs={filteredDogs} />
-              </Table>
-            </TableWrapper>
+            {loading ? (
+              <CircularProgress />
+            ) : (
+              <TableWrapper>
+                <Table sx={{ minWidth: 700 }}>
+                  <DogsTableHead />
+
+                  <DogsTableBody dogs={filteredDogs} />
+                </Table>
+              </TableWrapper>
+            )}
           </div>
         </Container>
       </Wrapper>

@@ -10,6 +10,7 @@ const DogsTableHead = () => {
         <TableCell align="right">Breed</TableCell>
         <TableCell align="right">Age</TableCell>
         <TableCell align="right">Location</TableCell>
+        <TableCell align="right"></TableCell>
       </TableRow>
     </TableHead>
   );

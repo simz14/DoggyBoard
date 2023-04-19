@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import { HiMenu } from "react-icons/hi";
-import SideBar from "./components/SideBar";
 import { BiUserCircle, BiLogOutCircle } from "react-icons/bi";
 
 const HeaderWrap = styled.div`
@@ -11,15 +10,15 @@ const HeaderWrap = styled.div`
 `;
 
 const MenuWrap = styled.div`
-  background-color: white;
-  box-shadow: 0px 1px 4px -2px #888888;
-  position: sticky;
+  position: absolute;
   top: 0;
+  left: 0;
   min-height: 3rem;
   max-height: 3rem;
   display: flex;
   width: 100%;
   justify-content: end;
+  z-index: 99;
 
   .show {
     display: none;

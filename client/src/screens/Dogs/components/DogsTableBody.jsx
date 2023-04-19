@@ -1,19 +1,17 @@
 import React from "react";
-import { TableBody, TableCell, TableRow } from "@mui/material";
-import useDogs from "../../../hooks/useDoga";
+import { TableBody } from "@mui/material";
+import DogsTableRow from "./TableRow";
 
 const DogsTableBody = ({ dogs }) => {
   return (
     <TableBody>
-      {dogs.map((row) => (
-        <TableRow key={row.id} sx={{ td: { border: 0 } }}>
-          <TableCell>{row.id}</TableCell>
-          <TableCell>{row.name}</TableCell>
-          <TableCell>{row.breed}</TableCell>
-          <TableCell>{row.age}</TableCell>
-          <TableCell>{row.location}</TableCell>
-        </TableRow>
-      ))}
+      {dogs ? (
+        dogs.map((row) => {
+          return <DogsTableRow key={row.id} item={row} />;
+        })
+      ) : (
+        <></>
+      )}
     </TableBody>
   );
 };
