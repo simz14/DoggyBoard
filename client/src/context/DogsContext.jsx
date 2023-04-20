@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { fetchDogs } from "../services/dogsService";
+import { PropTypes } from "prop-types";
 
 export const DogsContext = createContext({
   dogs: [],
@@ -39,4 +40,7 @@ export const DogsProvider = ({ children }) => {
       {children}
     </DogsContext.Provider>
   );
+};
+DogsProvider.propTypes = {
+  children: PropTypes.node,
 };

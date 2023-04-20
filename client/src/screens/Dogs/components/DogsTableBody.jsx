@@ -1,6 +1,7 @@
 import React from "react";
 import { TableBody } from "@mui/material";
 import DogsTableRow from "./TableRow";
+import { PropTypes } from "prop-types";
 
 const DogsTableBody = ({ dogs }) => {
   return (
@@ -14,6 +15,9 @@ const DogsTableBody = ({ dogs }) => {
       )}
     </TableBody>
   );
+};
+DogsTableBody.propTypes = {
+  dogs: PropTypes.array,
 };
 
 export default DogsTableBody;

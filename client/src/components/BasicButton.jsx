@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { PropTypes } from "prop-types";
 
 const StyledButton = styled.button`
   background-color: ${({ theme }) => theme.colors.mediumPurple};
@@ -21,5 +22,8 @@ const StyledButton = styled.button`
 const BasicButton = ({ title, onClick }) => {
   return <StyledButton onClick={onClick}>{title}</StyledButton>;
 };
-
+BasicButton.propTypes = {
+  title: PropTypes.string,
+  onClick: PropTypes.func,
+};
 export default BasicButton;

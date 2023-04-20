@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import { HiMenu } from "react-icons/hi";
 import { BiUserCircle, BiLogOutCircle } from "react-icons/bi";
+import { PropTypes } from "prop-types";
 
 const HeaderWrap = styled.div`
   display: flex;
@@ -103,5 +104,7 @@ const Header = ({ handleClickMenu }) => {
     </HeaderWrap>
   );
 };
-
+Header.propTypes = {
+  handleClickMenu: PropTypes.func,
+};
 export default Header;

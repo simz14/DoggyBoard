@@ -6,6 +6,7 @@ import { TableCell, TableRow } from "@mui/material";
 import useDogs from "../../../hooks/useDogs";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { PropTypes } from "prop-types";
 
 const IconsWrapper = styled.div`
   display: flex;
@@ -69,5 +70,7 @@ const DogsTableRow = ({ item }) => {
     </TableRow>
   );
 };
-
+DogsTableRow.propTypes = {
+  item: PropTypes.object,
+};
 export default DogsTableRow;

@@ -97,7 +97,12 @@ const DogDetail = () => {
                 <DogTextField label="Name" setter={setName} value={name} />
                 <DogTextField label="Breed" setter={setBreed} value={breed} />
                 <DogTextField label="Sex" setter={setSex} value={sex} />
-                <DogTextField label="Age" setter={setAge} value={age} />
+                <DogTextField
+                  type="number"
+                  label="Age"
+                  setter={setAge}
+                  value={age}
+                />
                 <DogTextField
                   label="Location"
                   setter={setLocation}
@@ -105,12 +110,18 @@ const DogDetail = () => {
                 />
                 <DogTextField label="Color" setter={setColor} value={color} />
                 <DogTextField label="Size" setter={setSize} value={size} />
-                <DogTextField label="Pet Id" setter={setPetId} value={petId} />
+                <DogTextField
+                  type="number"
+                  label="Pet Id"
+                  setter={setPetId}
+                  value={petId}
+                />
                 <DogTextField
                   className="storyField"
                   label="Story"
                   setter={setStory}
                   value={story}
+                  multiline={true}
                 />
               </div>
             </Container>

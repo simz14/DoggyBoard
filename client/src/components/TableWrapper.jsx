@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { PropTypes } from "prop-types";
 
 const StyledWrapper = styled.div`
   overflow-x: auto;
@@ -9,6 +10,9 @@ const StyledWrapper = styled.div`
 
 const TableWrapper = ({ children }) => {
   return <StyledWrapper>{children}</StyledWrapper>;
+};
+TableWrapper.propTypes = {
+  children: PropTypes.node,
 };
 
 export default TableWrapper;

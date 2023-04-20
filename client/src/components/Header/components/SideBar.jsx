@@ -7,6 +7,7 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { HiHome } from "react-icons/hi";
 import { FaDog } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { PropTypes } from "prop-types";
 
 const SideBarWrap = styled.div`
   min-height: 100vh;
@@ -131,6 +132,10 @@ const SideBar = ({ handleClickMenu }) => {
       </List>
     </SideBarWrap>
   );
+};
+
+SideBar.propTypes = {
+  handleClickMenu: PropTypes.func,
 };
 
 export default SideBar;
