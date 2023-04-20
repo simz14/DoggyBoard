@@ -32,6 +32,9 @@ const DogsTableRow = ({ item }) => {
       navigate(`/dog/${id}`);
     }
   };
+  const removeDog = (id) => {
+    setDogs((prev) => prev.filter((item) => item.id != id));
+  };
 
   return (
     <TableRow
@@ -48,7 +51,9 @@ const DogsTableRow = ({ item }) => {
         <IconsWrapper>
           <div onClick={(e) => handleClickEdit(e, item.id)} ref={ref}>
             <MdDeleteOutline
-              onClick={() => handleClickDelete(item.id, setDogs)}
+              onClick={() =>
+                handleClickDelete(item.id, () => removeDog(item.id))
+              }
               className="delete"
             />
           </div>
