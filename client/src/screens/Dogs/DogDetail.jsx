@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import styled from "styled-components";
 import pawsBcg from "../../assets/pawsBcg.jpg";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useDogs from "../../hooks/useDogs";
 import { CircularProgress } from "@mui/material";
 import { Container } from "../../components/Container";
 import useDog from "../../hooks/useDog";
 import DogTextField from "./components/DogTextField";
+import BasicButton from "../../components/BasicButton";
+import { handleClickDelete } from "../../utils/deleteFunction";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -34,6 +36,11 @@ const ContentWrapper = styled.div`
   .intro {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    .buttons {
+      display: flex;
+      gap: 1rem;
+    }
   }
   .dogInfo {
     background-color: white;
@@ -50,8 +57,9 @@ const ContentWrapper = styled.div`
 
 const DogDetail = () => {
   const { id } = useParams();
-  const { loading } = useDogs();
+  const { setDogs, loading } = useDogs();
   const { dog } = useDog(id);
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
   const [sex, setSex] = useState("");
@@ -62,6 +70,12 @@ const DogDetail = () => {
   const [petId, setPetId] = useState("");
   const [story, setStory] = useState("");
 
+  const navigateToDogs = () => {
+    navigate("/dogs");
+  };
+  const removeDog = () => {
+    setDogs((prev) => prev.filter((item) => item.id != id));
+  };
   useEffect(() => {
     if (dog) {
       setName(dog.name);
@@ -91,7 +105,15 @@ const DogDetail = () => {
                   <h2>{dog?.name}</h2>
                   <p>Dog detail</p>
                 </div>
-                <div></div>
+                <div className="buttons">
+                  <BasicButton
+                    onClick={() =>
+                      handleClickDelete(id, removeDog, navigateToDogs)
+                    }
+                    title="Remove"
+                  />
+                  <BasicButton title="Save" />
+                </div>
               </div>
               <div className="dogInfo">
                 <DogTextField label="Name" setter={setName} value={name} />

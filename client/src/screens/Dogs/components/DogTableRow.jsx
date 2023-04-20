@@ -7,6 +7,7 @@ import useDogs from "../../../hooks/useDogs";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { PropTypes } from "prop-types";
+import { handleClickDelete } from "../../../utils/deleteFunction";
 
 const IconsWrapper = styled.div`
   display: flex;
@@ -25,21 +26,6 @@ const DogsTableRow = ({ item }) => {
   const { setDogs } = useDogs();
   const navigate = useNavigate();
   const ref = useRef(null);
-
-  const handleClickDelete = async (id) => {
-    const alertResult = await Swal.fire({
-      title: "Are you sure?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    });
-
-    if (alertResult.isConfirmed) {
-      setDogs((prev) => prev.filter((item) => item.id !== id));
-    }
-  };
 
   const handleClickEdit = (e, id) => {
     if (!ref.current.contains(e.target)) {
@@ -62,7 +48,7 @@ const DogsTableRow = ({ item }) => {
         <IconsWrapper>
           <div onClick={(e) => handleClickEdit(e, item.id)} ref={ref}>
             <MdDeleteOutline
-              onClick={() => handleClickDelete(item.id)}
+              onClick={() => handleClickDelete(item.id, setDogs)}
               className="delete"
             />
           </div>
