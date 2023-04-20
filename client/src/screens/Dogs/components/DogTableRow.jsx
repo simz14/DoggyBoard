@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Swal from "sweetalert2";
 import { MdDeleteOutline } from "react-icons/md";
 import { AiOutlineEdit } from "react-icons/ai";
@@ -24,6 +24,7 @@ const IconsWrapper = styled.div`
 const DogsTableRow = ({ item }) => {
   const { setDogs } = useDogs();
   const navigate = useNavigate();
+  const ref = useRef(null);
 
   const handleClickDelete = async (id) => {
     const alertResult = await Swal.fire({
@@ -40,13 +41,15 @@ const DogsTableRow = ({ item }) => {
     }
   };
 
-  const handleClickEdit = (id) => {
-    navigate(`/dog/${id}`);
+  const handleClickEdit = (e, id) => {
+    if (!ref.current.contains(e.target)) {
+      navigate(`/dog/${id}`);
+    }
   };
 
   return (
     <TableRow
-      onClick={() => handleClickEdit(item.id)}
+      onClick={(e) => handleClickEdit(e, item.id)}
       key={item?.id}
       sx={{ td: { border: 0 } }}
     >
@@ -57,14 +60,13 @@ const DogsTableRow = ({ item }) => {
       <TableCell>{item?.location}</TableCell>
       <TableCell>
         <IconsWrapper>
-          <MdDeleteOutline
-            onClick={() => handleClickDelete(item.id)}
-            className="delete"
-          />
-          <AiOutlineEdit
-            onClick={() => handleClickEdit(item.id)}
-            className="edit"
-          />
+          <div onClick={(e) => handleClickEdit(e, item.id)} ref={ref}>
+            <MdDeleteOutline
+              onClick={() => handleClickDelete(item.id)}
+              className="delete"
+            />
+          </div>
+          <AiOutlineEdit className="edit" />
         </IconsWrapper>
       </TableCell>
     </TableRow>

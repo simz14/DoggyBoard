@@ -1,6 +1,6 @@
 import React from "react";
 import { TableBody } from "@mui/material";
-import DogsTableRow from "./TableRow";
+import DogsTableRow from "./DogTableRow";
 import { PropTypes } from "prop-types";
 
 const DogsTableBody = ({ dogs }) => {
