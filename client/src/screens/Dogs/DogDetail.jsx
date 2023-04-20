@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Layout from "../../components/Layout";
 import styled from "styled-components";
 import pawsBcg from "../../assets/pawsBcg.jpg";
@@ -7,9 +7,10 @@ import useDogs from "../../hooks/useDogs";
 import { CircularProgress } from "@mui/material";
 import { Container } from "../../components/Container";
 import useDog from "../../hooks/useDog";
-import DogTextField from "./components/DogTextField";
 import BasicButton from "../../components/BasicButton";
 import { handleClickDelete } from "../../utils/deleteFunction";
+import { useForm } from "react-hook-form";
+import DogDetailForm from "./components/DogForm";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -42,33 +43,13 @@ const ContentWrapper = styled.div`
       gap: 1rem;
     }
   }
-  .dogInfo {
-    background-color: white;
-    border-radius: ${({ theme }) => theme.border.radius.s};
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    padding: ${({ theme }) => theme.spacing.padding.m};
-    .storyField {
-      grid-column: 1/3;
-    }
-  }
 `;
 
 const DogDetail = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { setDogs, loading } = useDogs();
   const { dog } = useDog(id);
-  const navigate = useNavigate();
-  const [name, setName] = useState("");
-  const [breed, setBreed] = useState("");
-  const [sex, setSex] = useState("");
-  const [age, setAge] = useState("");
-  const [location, setLocation] = useState("");
-  const [color, setColor] = useState("");
-  const [size, setSize] = useState("");
-  const [petId, setPetId] = useState("");
-  const [story, setStory] = useState("");
 
   const navigateToDogs = () => {
     navigate("/dogs");
@@ -76,20 +57,8 @@ const DogDetail = () => {
   const removeDog = () => {
     setDogs((prev) => prev.filter((item) => item.id != id));
   };
-  useEffect(() => {
-    if (dog) {
-      setName(dog.name);
-      setBreed(dog.breed);
-      setSex(dog.sex);
-      setAge(dog.age);
-      setLocation(dog.location);
-      setColor(dog.color);
-      setSize(dog.size);
-      setPetId(dog.petId);
-      setStory(dog.story);
-    }
-  }, [dog]);
 
+  console.log(dog);
   return (
     <Layout>
       <Wrapper>
@@ -116,35 +85,7 @@ const DogDetail = () => {
                 </div>
               </div>
               <div className="dogInfo">
-                <DogTextField label="Name" setter={setName} value={name} />
-                <DogTextField label="Breed" setter={setBreed} value={breed} />
-                <DogTextField label="Sex" setter={setSex} value={sex} />
-                <DogTextField
-                  type="number"
-                  label="Age"
-                  setter={setAge}
-                  value={age}
-                />
-                <DogTextField
-                  label="Location"
-                  setter={setLocation}
-                  value={location}
-                />
-                <DogTextField label="Color" setter={setColor} value={color} />
-                <DogTextField label="Size" setter={setSize} value={size} />
-                <DogTextField
-                  type="number"
-                  label="Pet Id"
-                  setter={setPetId}
-                  value={petId}
-                />
-                <DogTextField
-                  className="storyField"
-                  label="Story"
-                  setter={setStory}
-                  value={story}
-                  multiline={true}
-                />
+                <DogDetailForm dog={dog} />
               </div>
             </Container>
           )}
