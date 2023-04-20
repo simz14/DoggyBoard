@@ -7,6 +7,7 @@ import useDogs from "../../hooks/useDogs";
 import { CircularProgress, TextField } from "@mui/material";
 import { Container } from "../../components/Container";
 import { useForm } from "react-hook-form";
+import useDog from "../../hooks/useDog";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -38,13 +39,9 @@ const ContentWrapper = styled.div`
 
 const DogDetail = () => {
   const { id } = useParams();
-  const { dogs, loading } = useDogs();
-  const [dog, setDog] = useState({ name: "hello" });
+  const { loading } = useDogs();
+  const { dog } = useDog(id);
   const { register, handleSubmit, getValues } = useForm();
-
-  useEffect(() => {
-    setDog(dogs.find((dog) => dog.id == id));
-  }, [dogs]);
 
   console.log(dog);
   return (
