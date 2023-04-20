@@ -6,6 +6,7 @@ import { MdOutlinePermMedia } from "react-icons/md";
 import { GiReceiveMoney } from "react-icons/gi";
 import { HiHome } from "react-icons/hi";
 import { FaDog } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const SideBarWrap = styled.div`
   min-height: 100vh;
@@ -73,6 +74,10 @@ const User = styled.div`
 `;
 
 const SideBar = ({ handleClickMenu }) => {
+  const navigate = useNavigate();
+  const handleClickItem = (navigateTo) => {
+    navigate(navigateTo);
+  };
   return (
     <SideBarWrap>
       <IconButton onClick={handleClickMenu} className="cancelIcon">
@@ -96,25 +101,28 @@ const SideBar = ({ handleClickMenu }) => {
         }}
       >
         <h2>DASHBOARDS</h2>
-        <ListItem>
+        <ListItem onClick={() => handleClickItem("/dogs")}>
           <ListItemButton>
             <FaDog />
             <p>Dogs</p>
           </ListItemButton>
         </ListItem>
-        <ListItem>
+
+        <ListItem onClick={() => handleClickItem("/adoptions")}>
           <ListItemButton>
             <HiHome />
             <p>Adoptions</p>
           </ListItemButton>
         </ListItem>
-        <ListItem>
+
+        <ListItem onClick={() => handleClickItem("/donations")}>
           <ListItemButton>
             <GiReceiveMoney />
             <p>Donations</p>
           </ListItemButton>
         </ListItem>
-        <ListItem>
+
+        <ListItem onClick={() => handleClickItem("/media")}>
           <ListItemButton>
             <MdOutlinePermMedia />
             <p>Media</p>
