@@ -4,6 +4,7 @@ import Theme from "./utils/theme/Theme";
 import Login from "./screens/Login/Login";
 import { PrivateRoute } from "./components/PrivateRoute";
 import DogsTableScreen from "./screens/Dogs/DogsTableScreen";
+import DogDetail from "./screens/Dogs/DogDetail";
 
 function App() {
   return (
@@ -24,6 +25,15 @@ function App() {
           element={
             <PrivateRoute>
               <DogsTableScreen />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          exact
+          path="/dog/:id"
+          element={
+            <PrivateRoute>
+              <DogDetail />
             </PrivateRoute>
           }
         />

@@ -5,6 +5,7 @@ import { AiOutlineEdit } from "react-icons/ai";
 import { TableCell, TableRow } from "@mui/material";
 import useDogs from "../../../hooks/useDogs";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const IconsWrapper = styled.div`
   display: flex;
@@ -20,7 +21,8 @@ const IconsWrapper = styled.div`
 `;
 
 const DogsTableRow = ({ item }) => {
-  const { dogs, setDogs } = useDogs();
+  const { setDogs } = useDogs();
+  const navigate = useNavigate();
 
   const handleClickDelete = async (id) => {
     const alertResult = await Swal.fire({
@@ -37,8 +39,16 @@ const DogsTableRow = ({ item }) => {
     }
   };
 
+  const handleClickEdit = (id) => {
+    navigate(`/dog/${id}`);
+  };
+
   return (
-    <TableRow key={item?.id} sx={{ td: { border: 0 } }}>
+    <TableRow
+      onClick={() => handleClickEdit(item.id)}
+      key={item?.id}
+      sx={{ td: { border: 0 } }}
+    >
       <TableCell>{item?.id}</TableCell>
       <TableCell>{item?.name}</TableCell>
       <TableCell>{item?.breed}</TableCell>
@@ -50,7 +60,10 @@ const DogsTableRow = ({ item }) => {
             onClick={() => handleClickDelete(item.id)}
             className="delete"
           />
-          <AiOutlineEdit className="edit" />
+          <AiOutlineEdit
+            onClick={() => handleClickEdit(item.id)}
+            className="edit"
+          />
         </IconsWrapper>
       </TableCell>
     </TableRow>

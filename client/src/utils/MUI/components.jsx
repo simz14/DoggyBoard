@@ -16,6 +16,16 @@ export const theme = createTheme({
         },
       },
     },
+    MuiTableRow: {
+      styleOverrides: {
+        root: {
+          cursor: "pointer",
+          ":hover": {
+            backgroundColor: "#f1f5f9",
+          },
+        },
+      },
+    },
     MuiTableCell: {
       styleOverrides: {
         root: {
