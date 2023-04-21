@@ -16,21 +16,13 @@ import { HiSearch } from "react-icons/hi";
 import { search } from "../../utils/search";
 import BasicButton from "../../components/BasicButton";
 import bcgPaws from "../../assets/pawsBcg.jpg";
+import PawsBcg from "../../components/PawsBcg";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
   position: relative;
   min-height: 100vh;
 
-  .paws {
-    object-fit: cover;
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0.07;
-  }
   .contentWrap {
     display: flex;
     flex-direction: column;
@@ -100,45 +92,46 @@ const DogsTableScreen = () => {
   return (
     <Layout>
       <Wrapper>
-        <img className="paws" src={bcgPaws} alt="paws" />
-        <Container>
-          <div className="contentWrap">
-            <div className="introWrap">
-              <h2>Dogs</h2>
-              <div className="interact">
-                <div className="field">
-                  <TextField
-                    onChange={(e) => setSearchWord(e.target.value)}
-                    placeholder="Search"
-                    variant="outlined"
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <HiSearch />
-                        </InputAdornment>
-                      ),
-                    }}
-                  />
-                </div>
+        <PawsBcg>
+          <Container>
+            <div className="contentWrap">
+              <div className="introWrap">
+                <h2>Dogs</h2>
+                <div className="interact">
+                  <div className="field">
+                    <TextField
+                      onChange={(e) => setSearchWord(e.target.value)}
+                      placeholder="Search"
+                      variant="outlined"
+                      InputProps={{
+                        startAdornment: (
+                          <InputAdornment position="start">
+                            <HiSearch />
+                          </InputAdornment>
+                        ),
+                      }}
+                    />
+                  </div>
 
-                <div className="button">
-                  <BasicButton title="Add" />
+                  <div className="button">
+                    <BasicButton title="Add" />
+                  </div>
                 </div>
               </div>
-            </div>
-            {loading ? (
-              <CircularProgress />
-            ) : (
-              <TableWrapper>
-                <Table sx={{ minWidth: 700 }}>
-                  <DogsTableHead />
+              {loading ? (
+                <CircularProgress />
+              ) : (
+                <TableWrapper>
+                  <Table sx={{ minWidth: 700 }}>
+                    <DogsTableHead />
 
-                  <DogsTableBody dogs={filteredDogs} />
-                </Table>
-              </TableWrapper>
-            )}
-          </div>
-        </Container>
+                    <DogsTableBody dogs={filteredDogs} />
+                  </Table>
+                </TableWrapper>
+              )}
+            </div>
+          </Container>
+        </PawsBcg>
       </Wrapper>
     </Layout>
   );

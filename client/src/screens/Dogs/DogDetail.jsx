@@ -58,7 +58,6 @@ const DogDetail = () => {
     setDogs((prev) => prev.filter((item) => item.id != id));
   };
 
-  console.log(dog);
   return (
     <Layout>
       <Wrapper>
