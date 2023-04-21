@@ -105,7 +105,7 @@ const DogDetail = () => {
                 </div>
               </div>
               <div className="dogInfo">
-                <DogDetailForm register={register} dog={dog} />
+                <DogDetailForm error={errors} register={register} dog={dog} />
               </div>
             </Container>
           )}

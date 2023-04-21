@@ -1,5 +1,4 @@
 import { TextField } from "@mui/material";
-import { useForm } from "react-hook-form";
 import styled from "styled-components";
 
 const FormWrapper = styled.div`
@@ -14,8 +13,8 @@ const FormWrapper = styled.div`
   }
 `;
 
-const DogDetailForm = ({ register, dog }) => {
-  console.log(dog);
+const DogDetailForm = ({ register, dog, errors }) => {
+  console.log(errors);
   return (
     <FormWrapper>
       <TextField
