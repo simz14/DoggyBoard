@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../../components/Layout";
 import styled from "styled-components";
 import pawsBcg from "../../assets/pawsBcg.jpg";
@@ -50,6 +50,22 @@ const DogDetail = () => {
   const { id } = useParams();
   const { setDogs, loading } = useDogs();
   const { dog } = useDog(id);
+  const { register, errors, handleSubmit, getValues, reset } = useForm();
+
+  useEffect(() => {
+    reset({
+      id: dog?.id,
+      name: dog?.name,
+      breed: dog?.breed,
+      sex: dog?.sex,
+      age: dog?.age,
+      location: dog?.location,
+      color: dog?.color,
+      size: dog?.size,
+      petId: dog?.petId,
+      story: dog?.story,
+    });
+  }, [dog]);
 
   const navigateToDogs = () => {
     navigate("/dogs");
@@ -57,7 +73,9 @@ const DogDetail = () => {
   const removeDog = () => {
     setDogs((prev) => prev.filter((item) => item.id != id));
   };
-
+  const handleSaveDog = () => {
+    console.log(getValues());
+  };
   return (
     <Layout>
       <Wrapper>
@@ -80,11 +98,14 @@ const DogDetail = () => {
                     }
                     title="Remove"
                   />
-                  <BasicButton title="Save" />
+                  <BasicButton
+                    onClick={handleSubmit(handleSaveDog)}
+                    title="Save"
+                  />
                 </div>
               </div>
               <div className="dogInfo">
-                <DogDetailForm dog={dog} />
+                <DogDetailForm register={register} dog={dog} />
               </div>
             </Container>
           )}

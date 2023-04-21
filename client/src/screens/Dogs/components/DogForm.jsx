@@ -14,9 +14,8 @@ const FormWrapper = styled.div`
   }
 `;
 
-const DogDetailForm = ({ dog }) => {
-  const { register, errors, handleSubmit } = useForm();
-
+const DogDetailForm = ({ register, dog }) => {
+  console.log(dog);
   return (
     <FormWrapper>
       <TextField

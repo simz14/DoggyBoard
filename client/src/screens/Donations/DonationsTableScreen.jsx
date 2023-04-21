@@ -28,7 +28,7 @@ const DonationsTableScreen = () => {
       <Wrapper>
         <PawsBcg>
           <Container>
-            <div className="contentWrap">
+            <div className="contentWrapper">
               <div className="introWrap">
                 <h2>Donations</h2>
               </div>
