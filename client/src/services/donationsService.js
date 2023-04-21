@@ -46,14 +46,14 @@ export const fetchDonations = () => {
       {
         id: 7,
         firstName: "John",
-        lastName: "Smith",
+        lastName: "Cary",
         phone: "202-555-0117",
         amount: "250",
       },
       {
         id: 8,
-        firstName: "John",
-        lastName: "Smith",
+        firstName: "Andrew",
+        lastName: "Brown",
         phone: "202-555-0117",
         amount: "50",
       },
@@ -95,7 +95,7 @@ export const fetchDonations = () => {
       {
         id: 14,
         firstName: "John",
-        lastName: "Smith",
+        lastName: "Brown",
         phone: "202-555-0117",
         amount: "250",
       },
