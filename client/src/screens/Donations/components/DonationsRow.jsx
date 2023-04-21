@@ -3,7 +3,7 @@ import { TableCell, TableRow } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
-const DogsTableRow = ({ item }) => {
+const DonationsRow = ({ item }) => {
   const navigate = useNavigate();
 
   const handleClickRow = (e, id) => {
@@ -17,14 +17,14 @@ const DogsTableRow = ({ item }) => {
       sx={{ td: { border: 0 } }}
     >
       <TableCell>{item?.id}</TableCell>
-      <TableCell>{item?.name}</TableCell>
-      <TableCell>{item?.breed}</TableCell>
-      <TableCell>{item?.age}</TableCell>
-      <TableCell>{item?.location}</TableCell>
+      <TableCell>{item?.firstName}</TableCell>
+      <TableCell>{item?.lastName}</TableCell>
+      <TableCell>{item?.phone}</TableCell>
+      <TableCell>{item?.amount}</TableCell>
     </TableRow>
   );
 };
-DogsTableRow.propTypes = {
+DonationsRow.propTypes = {
   item: PropTypes.object,
 };
-export default DogsTableRow;
+export default DonationsRow;

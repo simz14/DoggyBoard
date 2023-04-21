@@ -4,6 +4,10 @@ import Layout from "../../components/Layout";
 import PawsBcg from "../../components/PawsBcg";
 import DonationsHead from "./components/DonationsHead";
 import DonationsBody from "./components/DonationsBody";
+import { useContext } from "react";
+import { DonationsContext } from "../../context/DonationsContext";
+import TableWrapper from "../../components/TableWrapper";
+import { CircularProgress, Table } from "@mui/material";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -18,6 +22,7 @@ const Wrapper = styled.div`
 `;
 
 const DonationsTableScreen = () => {
+  const { donations, loading } = useContext(DonationsContext);
   return (
     <Layout>
       <Wrapper>
