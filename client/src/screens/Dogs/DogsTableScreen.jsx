@@ -15,7 +15,6 @@ import TableWrapper from "../../components/TableWrapper";
 import { HiSearch } from "react-icons/hi";
 import { search } from "../../utils/search";
 import BasicButton from "../../components/BasicButton";
-import bcgPaws from "../../assets/pawsBcg.jpg";
 import PawsBcg from "../../components/PawsBcg";
 
 const Wrapper = styled.div`

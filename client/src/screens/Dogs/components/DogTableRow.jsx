@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import Swal from "sweetalert2";
 import { MdDeleteOutline } from "react-icons/md";
 import { AiOutlineEdit } from "react-icons/ai";
 import { TableCell, TableRow } from "@mui/material";
