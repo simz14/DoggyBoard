@@ -11,7 +11,6 @@ export const handleClickDelete = async (id, setItems, navigateTo) => {
   });
 
   if (alertResult.isConfirmed) {
-    console.log(navigateTo);
     setItems();
     if (navigateTo) {
       navigateTo();

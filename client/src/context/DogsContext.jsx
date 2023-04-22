@@ -32,7 +32,6 @@ export const DogsProvider = ({ children }) => {
   useEffect(() => {
     setData();
   }, []);
-  console.log(dogs);
   return (
     <DogsContext.Provider
       value={{ dogs, setDogs, error, setError, loading, setLoading }}

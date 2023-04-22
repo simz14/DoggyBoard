@@ -32,7 +32,6 @@ export const DonationsProvider = ({ children }) => {
   useEffect(() => {
     setData();
   }, []);
-  console.log(donations);
   return (
     <DonationsContext.Provider
       value={{ donations, setDonations, error, setError, loading, setLoading }}

@@ -11,6 +11,8 @@ import BasicButton from "../../components/BasicButton";
 import { handleClickDelete } from "../../utils/deleteFunction";
 import { useForm } from "react-hook-form";
 import DogDetailForm from "./components/DogForm";
+import { BsArrowLeft } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -38,6 +40,16 @@ const ContentWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .backToDogs {
+      display: flex;
+      align-items: center;
+      transition: 0.5s ease;
+      cursor: pointer;
+      :hover {
+        transition: 0.5s ease;
+        transform: translateY(-10px);
+      }
+    }
     .buttons {
       display: flex;
       gap: 1rem;
@@ -73,8 +85,21 @@ const DogDetail = () => {
   const removeDog = () => {
     setDogs((prev) => prev.filter((item) => item.id != id));
   };
+
   const handleSaveDog = () => {
-    console.log(getValues());
+    setDogs((prev) =>
+      prev.map((item) => {
+        if (item.id == id) {
+          return getValues();
+        }
+        return item;
+      })
+    );
+    Swal.fire({
+      title: "Saved",
+      timer: 2000,
+      showConfirmButton: false,
+    });
   };
   return (
     <Layout>
@@ -88,8 +113,14 @@ const DogDetail = () => {
             <Container>
               <div className="intro">
                 <div>
+                  <span
+                    onClick={() => navigate("/dogs")}
+                    className="backToDogs"
+                  >
+                    <BsArrowLeft />
+                    Dogs
+                  </span>
                   <h2>{dog?.name}</h2>
-                  <p>Dog detail</p>
                 </div>
                 <div className="buttons">
                   <BasicButton

@@ -75,17 +75,20 @@ const DogsTableScreen = () => {
   const filteredDogs = search(relevantDogsValues, searchWord);
 
   useEffect(() => {
-    setRelevantDogsValues(
-      dogs.map((item) => {
-        return {
-          id: item.id,
-          name: item.name,
-          breed: item.breed,
-          age: item.age,
-          location: item.location,
-        };
-      })
-    );
+    if (dogs) {
+      setRelevantDogsValues(
+        dogs.map((item) => {
+          return {
+            id: item.id,
+            name: item.name,
+            breed: item.breed,
+            age: item.age,
+            location: item.location,
+          };
+        })
+      );
+    }
+
     search(relevantDogsValues, searchWord);
   }, [dogs]);
   return (
