@@ -13,14 +13,22 @@ const StyledButton = styled.button`
   cursor: pointer;
   min-width: 5rem;
   transition: 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   :hover {
     background-color: ${({ theme }) => theme.colors.darkPurple};
     transition: 0.5s ease;
   }
 `;
 
-const BasicButton = ({ title, onClick }) => {
-  return <StyledButton onClick={onClick}>{title}</StyledButton>;
+const BasicButton = ({ icon, title, onClick }) => {
+  return (
+    <StyledButton onClick={onClick}>
+      {icon && icon}
+      {title}
+    </StyledButton>
+  );
 };
 BasicButton.propTypes = {
   title: PropTypes.string,

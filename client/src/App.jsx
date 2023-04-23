@@ -6,6 +6,7 @@ import { PrivateRoute } from "./components/PrivateRoute";
 import DogsTableScreen from "./screens/Dogs/DogsTableScreen";
 import DogDetail from "./screens/Dogs/DogDetail";
 import DonationsTableScreen from "./screens/Donations/DonationsTableScreen";
+import NewDog from "./screens/Dogs/NewDog";
 
 function App() {
   return (
@@ -35,6 +36,15 @@ function App() {
           element={
             <PrivateRoute>
               <DogDetail />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          exact
+          path="/dogs/new"
+          element={
+            <PrivateRoute>
+              <NewDog />
             </PrivateRoute>
           }
         />

@@ -16,6 +16,8 @@ import { HiSearch } from "react-icons/hi";
 import { search } from "../../utils/search";
 import BasicButton from "../../components/BasicButton";
 import PawsBcg from "../../components/PawsBcg";
+import { BsPlusLg } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -68,6 +70,7 @@ const Wrapper = styled.div`
 `;
 
 const DogsTableScreen = () => {
+  const navigate = useNavigate();
   const { dogs, loading } = useDogs();
   const [searchWord, setSearchWord] = useState("");
   const [relevantDogsValues, setRelevantDogsValues] = useState([]);
@@ -116,7 +119,11 @@ const DogsTableScreen = () => {
                   </div>
 
                   <div className="button">
-                    <BasicButton title="Add" />
+                    <BasicButton
+                      onClick={() => navigate("/dogs/new")}
+                      icon={<BsPlusLg />}
+                      title={"Add"}
+                    />
                   </div>
                 </div>
               </div>

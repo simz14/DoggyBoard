@@ -13,6 +13,7 @@ import { useForm } from "react-hook-form";
 import DogDetailForm from "./components/DogForm";
 import { BsArrowLeft } from "react-icons/bs";
 import Swal from "sweetalert2";
+import GetBack from "../../components/getBack";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -40,16 +41,7 @@ const ContentWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .backToDogs {
-      display: flex;
-      align-items: center;
-      transition: 0.5s ease;
-      cursor: pointer;
-      :hover {
-        transition: 0.5s ease;
-        transform: translateY(-10px);
-      }
-    }
+
     .buttons {
       display: flex;
       gap: 1rem;
@@ -113,13 +105,7 @@ const DogDetail = () => {
             <Container>
               <div className="intro">
                 <div>
-                  <span
-                    onClick={() => navigate("/dogs")}
-                    className="backToDogs"
-                  >
-                    <BsArrowLeft />
-                    Dogs
-                  </span>
+                  <GetBack naviageTo="/dogs" backPage="Dogs" />
                   <h2>{dog?.name}</h2>
                 </div>
                 <div className="buttons">
