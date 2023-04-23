@@ -3,14 +3,14 @@ import { Container } from "../../components/Container";
 import Layout from "../../components/Layout";
 import useDogs from "../../hooks/useDogs";
 import { useEffect, useState } from "react";
-import DogsTableHead from "./components/DogsTableHead";
+import DogsTableHead from "./components/DogDetail/DogsTableHead";
 import {
   CircularProgress,
   InputAdornment,
   Table,
   TextField,
 } from "@mui/material";
-import DogsTableBody from "./components/DogsTableBody";
+import DogsTableBody from "./components/DogDetail/DogsTableBody";
 import TableWrapper from "../../components/TableWrapper";
 import { HiSearch } from "react-icons/hi";
 import { search } from "../../utils/search";

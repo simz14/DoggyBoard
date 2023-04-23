@@ -2,11 +2,11 @@ import React, { useRef } from "react";
 import { MdDeleteOutline } from "react-icons/md";
 import { AiOutlineEdit } from "react-icons/ai";
 import { TableCell, TableRow } from "@mui/material";
-import useDogs from "../../../hooks/useDogs";
+import useDogs from "../../../../hooks/useDogs";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { PropTypes } from "prop-types";
-import { handleClickDelete } from "../../../utils/deleteFunction";
+import { handleClickDelete } from "../../../../utils/deleteFunction";
 
 const IconsWrapper = styled.div`
   display: flex;
