@@ -16,9 +16,16 @@ const FormWrapper = styled.div`
   background-color: white;
   padding: ${({ theme }) => theme.spacing.padding.m};
   gap: 1rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   border-radius: ${({ theme }) => theme.border.radius.s};
+  justify-content: center;
+  .storyField {
+    grid-column: 1/3;
+  }
+  button {
+    grid-column: 1/3;
+  }
 `;
 
 const NewDogForm = () => {
@@ -110,10 +117,11 @@ const NewDogForm = () => {
         {...register("story", { required: "Story is required!" })}
         className="storyField"
         label="Story"
+        multiline
+        minRows={3}
         error={errors.story ? true : false}
         helperText={errors.story?.message}
       />
-      <BasicButton onClick={handleSubmit(handleClickAdd)} title="Add dog" />
     </FormWrapper>
   );
 };
