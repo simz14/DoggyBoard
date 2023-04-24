@@ -28,6 +28,12 @@ const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
   }
+  @media (max-width: 600px) {
+    .introWrap {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 `;
 
 const DonationsTableScreen = () => {

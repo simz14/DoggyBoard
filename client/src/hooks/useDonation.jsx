@@ -23,7 +23,7 @@ const useDonation = (id) => {
         })
       );
     }
-  }, [donations]);
+  }, [donations, id]);
 
   return { donationsByPhone, donation };
 };
