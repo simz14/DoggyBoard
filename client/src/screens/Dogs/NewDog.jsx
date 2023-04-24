@@ -4,6 +4,7 @@ import Layout from "../../components/Layout";
 import PawsBcg from "../../components/PawsBcg";
 import GetBack from "../../components/getBack";
 import DogsTableBody from "./components/DogDetail/DogsTableBody";
+import NewDogForm from "./components/NewDog/NewDogForms";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -23,7 +24,9 @@ const NewDog = () => {
             <div className="content">
               <GetBack naviageTo="/dogs" backPage="Dogs" />
               <h2>New Dog</h2>
-              <div></div>
+              <div>
+                <NewDogForm />
+              </div>
             </div>
           </Container>
         </PawsBcg>
