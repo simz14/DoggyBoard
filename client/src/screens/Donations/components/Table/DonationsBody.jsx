@@ -18,6 +18,8 @@ const DonationsBody = ({ donations, sliceStart, sliceEnd }) => {
 };
 DonationsBody.propTypes = {
   donations: PropTypes.array,
+  sliceStart: PropTypes.number,
+  sliceEnd: PropTypes.number,
 };
 
 export default DonationsBody;

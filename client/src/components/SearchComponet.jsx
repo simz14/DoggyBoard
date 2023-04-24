@@ -2,6 +2,7 @@ import React from "react";
 import { InputAdornment, TextField } from "@mui/material";
 import { HiSearch } from "react-icons/hi";
 import styled from "styled-components";
+import { PropTypes } from "prop-types";
 
 const Wrapper = styled.div`
   .MuiInputBase-root {
@@ -30,6 +31,10 @@ const SearchComponent = ({ setWord }) => {
       />
     </Wrapper>
   );
+};
+
+SearchComponent.propTypes = {
+  setWord: PropTypes.func,
 };
 
 export default SearchComponent;
