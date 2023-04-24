@@ -4,10 +4,9 @@ import Layout from "../../components/Layout";
 import useDogs from "../../hooks/useDogs";
 import { useEffect, useState } from "react";
 import DogsTableHead from "./components/DogDetail/DogsTableHead";
-import { CircularProgress, Table } from "@mui/material";
+import { CircularProgress, Table, TablePagination } from "@mui/material";
 import DogsTableBody from "./components/DogDetail/DogsTableBody";
 import TableWrapper from "../../components/TableWrapper";
-import { HiSearch } from "react-icons/hi";
 import { search } from "../../utils/search";
 import BasicButton from "../../components/BasicButton";
 import PawsBcg from "../../components/PawsBcg";
@@ -64,8 +63,19 @@ const DogsTableScreen = () => {
   const { dogs, loading } = useDogs();
   const [searchWord, setSearchWord] = useState("");
   const [relevantDogsValues, setRelevantDogsValues] = useState([]);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const filteredDogs = search(relevantDogsValues, searchWord);
+
+  const handleChangePage = (e, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (e) => {
+    setRowsPerPage(e.target.value);
+    setPage(0);
+  };
 
   useEffect(() => {
     if (dogs) {
@@ -113,8 +123,21 @@ const DogsTableScreen = () => {
                   <Table sx={{ minWidth: 700 }}>
                     <DogsTableHead />
 
-                    <DogsTableBody dogs={filteredDogs} />
+                    <DogsTableBody
+                      rowsPerPage={rowsPerPage}
+                      page={page}
+                      dogs={filteredDogs}
+                    />
                   </Table>
+                  <TablePagination
+                    rowsPerPageOptions={[10, 25, 100]}
+                    component="div"
+                    count={dogs.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                  />
                 </TableWrapper>
               )}
             </div>
