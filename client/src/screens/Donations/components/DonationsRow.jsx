@@ -20,7 +20,7 @@ const DonationsRow = ({ item }) => {
       <TableCell>{item?.firstName}</TableCell>
       <TableCell>{item?.lastName}</TableCell>
       <TableCell>{item?.phone}</TableCell>
-      <TableCell>{item?.amount}</TableCell>
+      <TableCell>{item?.amount}$</TableCell>
     </TableRow>
   );
 };

@@ -21,7 +21,23 @@ export const DonationsProvider = ({ children }) => {
       setLoading(true);
       const donationsData = await fetchDonations();
       setTimeout(() => {
-        setDonations(donationsData);
+        setDonations(
+          donationsData.map((donation) => {
+            const dateFormat = new Date(Number(donation.date));
+            const date =
+              dateFormat.getDate() +
+              "." +
+              (dateFormat.getMonth() + 1) +
+              "." +
+              dateFormat.getFullYear() +
+              " " +
+              dateFormat.getHours() +
+              ":" +
+              dateFormat.getMinutes();
+
+            return { ...donation, date: date };
+          })
+        );
         setLoading(false);
       }, 2000);
     } catch (e) {
