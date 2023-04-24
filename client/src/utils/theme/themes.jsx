@@ -14,6 +14,7 @@ export const typography = {
     s: "12px",
     m: "14px",
     l: "16px",
+    xl: "20px",
   },
   weight: {
     s: "500",
