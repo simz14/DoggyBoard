@@ -7,6 +7,7 @@ import NewDogForm from "./components/NewDog/NewDogForms";
 import BasicButton from "../../components/BasicButton";
 import { useForm } from "react-hook-form";
 import useDogs from "../../hooks/useDogs";
+import Swal from "sweetalert2";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -53,6 +54,8 @@ const NewDog = () => {
     setDogs((prev) => {
       return [...prev, { id: getLastId + 1, ...getValues() }];
     });
+    Swal.fire({ title: "New dog has been added", icon: "success" });
+    reset();
   };
 
   return (

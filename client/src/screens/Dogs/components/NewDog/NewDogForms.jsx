@@ -65,6 +65,7 @@ const NewDogForm = ({ register, errors }) => {
       <TextField
         {...register("age", { required: "Age is required!" })}
         label="Age"
+        type="number"
         variant="outlined"
         error={errors.age ? true : false}
         helperText={errors.age?.message}
@@ -89,6 +90,7 @@ const NewDogForm = ({ register, errors }) => {
           endAdornment: <InputAdornment position="end">kg</InputAdornment>,
         }}
         label="Size"
+        type="number"
         variant="outlined"
         error={errors.size ? true : false}
         helperText={errors.size?.message}
@@ -97,6 +99,7 @@ const NewDogForm = ({ register, errors }) => {
         {...register("petId", { required: "Pet id is required!" })}
         label="PetId"
         variant="outlined"
+        type="number"
         error={errors.petId ? true : false}
         helperText={errors.petId?.message}
       />
