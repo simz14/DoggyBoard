@@ -13,6 +13,7 @@ import PawsBcg from "../../components/PawsBcg";
 import { BsPlusLg } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import SearchComponent from "../../components/SearchComponet";
+import usePagination from "../../hooks/usePagination";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -63,19 +64,15 @@ const DogsTableScreen = () => {
   const { dogs, loading } = useDogs();
   const [searchWord, setSearchWord] = useState("");
   const [relevantDogsValues, setRelevantDogsValues] = useState([]);
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
-
+  const {
+    page,
+    rowsPerPage,
+    handleChangePage,
+    handleChangeRowsPerPage,
+    sliceStart,
+    sliceEnd,
+  } = usePagination();
   const filteredDogs = search(relevantDogsValues, searchWord);
-
-  const handleChangePage = (e, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (e) => {
-    setRowsPerPage(e.target.value);
-    setPage(0);
-  };
 
   useEffect(() => {
     if (dogs) {
@@ -124,8 +121,8 @@ const DogsTableScreen = () => {
                     <DogsTableHead />
 
                     <DogsTableBody
-                      rowsPerPage={rowsPerPage}
-                      page={page}
+                      sliceStart={sliceStart}
+                      sliceEnd={sliceEnd}
                       dogs={filteredDogs}
                     />
                   </Table>

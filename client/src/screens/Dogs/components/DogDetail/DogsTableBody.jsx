@@ -3,16 +3,13 @@ import { TableBody } from "@mui/material";
 import DogsTableRow from "./DogTableRow";
 import { PropTypes } from "prop-types";
 
-const DogsTableBody = ({ dogs, page, rowsPerPage }) => {
-  console.log(rowsPerPage);
+const DogsTableBody = ({ dogs, sliceStart, sliceEnd }) => {
   return (
     <TableBody>
       {dogs ? (
-        dogs
-          .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-          .map((row) => {
-            return <DogsTableRow key={row.id} item={row} />;
-          })
+        dogs.slice(sliceStart, sliceEnd).map((row) => {
+          return <DogsTableRow key={row.id} item={row} />;
+        })
       ) : (
         <></>
       )}

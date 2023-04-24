@@ -5,12 +5,13 @@ import PawsBcg from "../../components/PawsBcg";
 import DonationsHead from "./components/Table/DonationsHead";
 import DonationsBody from "./components/Table/DonationsBody";
 import TableWrapper from "../../components/TableWrapper";
-import { CircularProgress, Table } from "@mui/material";
+import { CircularProgress, Table, TablePagination } from "@mui/material";
 import useDonations from "../../hooks/useDonations";
 import SearchComponent from "../../components/SearchComponet";
 import { useState } from "react";
 import { useEffect } from "react";
 import { search } from "../../utils/search";
+import usePagination from "../../hooks/usePagination";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -40,7 +41,14 @@ const DonationsTableScreen = () => {
   const { donations, loading } = useDonations();
   const [searchWord, setSearchWord] = useState("");
   const [relevantDonations, setRelevantDonations] = useState([]);
-
+  const {
+    page,
+    rowsPerPage,
+    handleChangePage,
+    handleChangeRowsPerPage,
+    sliceStart,
+    sliceEnd,
+  } = usePagination();
   const filteredDonations = search(relevantDonations, searchWord);
 
   useEffect(() => {
@@ -78,9 +86,21 @@ const DonationsTableScreen = () => {
                 <TableWrapper>
                   <Table sx={{ minWidth: 700 }}>
                     <DonationsHead />
-
-                    <DonationsBody donations={filteredDonations} />
+                    <DonationsBody
+                      sliceStart={sliceStart}
+                      sliceEnd={sliceEnd}
+                      donations={filteredDonations}
+                    />
                   </Table>
+                  <TablePagination
+                    rowsPerPageOptions={[10, 25, 100]}
+                    component="div"
+                    count={donations.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onPageChange={handleChangePage}
+                    onRowsPerPageChange={handleChangeRowsPerPage}
+                  />
                 </TableWrapper>
               )}
             </div>
