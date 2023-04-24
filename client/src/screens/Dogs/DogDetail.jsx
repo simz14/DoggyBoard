@@ -10,7 +10,7 @@ import useDog from "../../hooks/useDog";
 import BasicButton from "../../components/BasicButton";
 import { handleClickDelete } from "../../utils/deleteFunction";
 import { useForm } from "react-hook-form";
-import DogDetailForm from "./components/DogDetail/DogForm";
+import DogDetailForm from "./components/Table/DogForm";
 import Swal from "sweetalert2";
 import GetBack from "../../components/getBack";
 

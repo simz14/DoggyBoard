@@ -3,9 +3,9 @@ import { Container } from "../../components/Container";
 import Layout from "../../components/Layout";
 import useDogs from "../../hooks/useDogs";
 import { useEffect, useState } from "react";
-import DogsTableHead from "./components/DogDetail/DogsTableHead";
+import DogsTableHead from "./components/Table/DogsTableHead";
 import { CircularProgress, Table, TablePagination } from "@mui/material";
-import DogsTableBody from "./components/DogDetail/DogsTableBody";
+import DogsTableBody from "./components/Table/DogsTableBody";
 import TableWrapper from "../../components/TableWrapper";
 import { search } from "../../utils/search";
 import BasicButton from "../../components/BasicButton";
@@ -64,6 +64,9 @@ const DogsTableScreen = () => {
   const { dogs, loading } = useDogs();
   const [searchWord, setSearchWord] = useState("");
   const [relevantDogsValues, setRelevantDogsValues] = useState([]);
+  const [sortBy, setSortBy] = useState(["random", "asc", "desc"]);
+  const [sort, setSort] = useState("");
+
   const {
     page,
     rowsPerPage,
@@ -91,6 +94,7 @@ const DogsTableScreen = () => {
 
     search(relevantDogsValues, searchWord);
   }, [dogs]);
+
   return (
     <Layout>
       <Wrapper>
@@ -118,9 +122,14 @@ const DogsTableScreen = () => {
               ) : (
                 <TableWrapper>
                   <Table sx={{ minWidth: 700 }}>
-                    <DogsTableHead />
-
+                    <DogsTableHead
+                      sortBy={sortBy}
+                      setSort={setSort}
+                      setSortBy={setSortBy}
+                    />
                     <DogsTableBody
+                      sort={sort}
+                      sortBy={sortBy}
                       sliceStart={sliceStart}
                       sliceEnd={sliceEnd}
                       dogs={filteredDogs}
