@@ -1,4 +1,5 @@
 import { BsArrowLeft } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.span`
@@ -13,6 +14,7 @@ const Wrapper = styled.span`
 `;
 
 const GetBack = ({ naviageTo, backPage }) => {
+  const navigate = useNavigate();
   return (
     <Wrapper onClick={() => navigate(naviageTo)} className="backTo">
       <BsArrowLeft />

@@ -9,8 +9,6 @@ import {
 } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
-import { useForm } from "react-hook-form";
-import BasicButton from "../../../../components/BasicButton";
 
 const FormWrapper = styled.div`
   background-color: white;
@@ -28,18 +26,7 @@ const FormWrapper = styled.div`
   }
 `;
 
-const NewDogForm = () => {
-  const {
-    register,
-    formState: { errors },
-    getValues,
-    handleSubmit,
-  } = useForm();
-
-  const handleClickAdd = () => {
-    console.log(getValues());
-  };
-
+const NewDogForm = ({ register, errors }) => {
   return (
     <FormWrapper>
       <TextField
@@ -60,7 +47,7 @@ const NewDogForm = () => {
       <FormControl>
         <InputLabel sx={errors.sex && { color: "#d32f2f" }}>Sex</InputLabel>
         <Select
-          defaultValue={""}
+          defaultValue=""
           {...register("sex", { required: "Sex is required!" })}
           label="Sex"
           error={errors.sex ? true : false}

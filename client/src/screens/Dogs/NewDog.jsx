@@ -3,9 +3,10 @@ import { Container } from "../../components/Container";
 import Layout from "../../components/Layout";
 import PawsBcg from "../../components/PawsBcg";
 import GetBack from "../../components/getBack";
-import DogsTableBody from "./components/DogDetail/DogsTableBody";
 import NewDogForm from "./components/NewDog/NewDogForms";
 import BasicButton from "../../components/BasicButton";
+import { useForm } from "react-hook-form";
+import useDogs from "../../hooks/useDogs";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -26,6 +27,34 @@ const Wrapper = styled.div`
 `;
 
 const NewDog = () => {
+  const { dogs, setDogs } = useDogs();
+  const {
+    reset,
+    register,
+    formState: { errors },
+    getValues,
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      name: "",
+      breed: "",
+      sex: "",
+      age: "",
+      location: "",
+      color: "",
+      size: "",
+      petId: "",
+      story: "",
+    },
+  });
+
+  const handleClickAdd = () => {
+    const getLastId = dogs.at(-1).id;
+    setDogs((prev) => {
+      return [...prev, { id: getLastId + 1, ...getValues() }];
+    });
+  };
+
   return (
     <Layout>
       <Wrapper>
@@ -39,13 +68,16 @@ const NewDog = () => {
                 </div>
 
                 <div className="buttons">
-                  <BasicButton title="Remove" />
-                  <BasicButton title="Save" />
+                  <BasicButton onClick={() => reset()} title="Remove" />
+                  <BasicButton
+                    onClick={handleSubmit(handleClickAdd)}
+                    title="Add"
+                  />
                 </div>
               </div>
 
               <div>
-                <NewDogForm />
+                <NewDogForm register={register} errors={errors} />
               </div>
             </div>
           </Container>
