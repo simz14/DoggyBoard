@@ -4,12 +4,7 @@ import Layout from "../../components/Layout";
 import useDogs from "../../hooks/useDogs";
 import { useEffect, useState } from "react";
 import DogsTableHead from "./components/DogDetail/DogsTableHead";
-import {
-  CircularProgress,
-  InputAdornment,
-  Table,
-  TextField,
-} from "@mui/material";
+import { CircularProgress, Table } from "@mui/material";
 import DogsTableBody from "./components/DogDetail/DogsTableBody";
 import TableWrapper from "../../components/TableWrapper";
 import { HiSearch } from "react-icons/hi";
@@ -18,6 +13,7 @@ import BasicButton from "../../components/BasicButton";
 import PawsBcg from "../../components/PawsBcg";
 import { BsPlusLg } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
+import SearchComponent from "../../components/SearchComponet";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -48,13 +44,7 @@ const Wrapper = styled.div`
     .field {
       grid-column: 1/3;
     }
-    .MuiInputBase-root {
-      border-radius: 30px;
-      background-color: white;
-      input {
-        padding: 5.5px 14px;
-      }
-    }
+
     @media (max-width: 600px) {
       justify-items: center;
       grid-template-columns: 1fr;
@@ -104,18 +94,7 @@ const DogsTableScreen = () => {
                 <h2>Dogs</h2>
                 <div className="interact">
                   <div className="field">
-                    <TextField
-                      onChange={(e) => setSearchWord(e.target.value)}
-                      placeholder="Search"
-                      variant="outlined"
-                      InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <HiSearch />
-                          </InputAdornment>
-                        ),
-                      }}
-                    />
+                    <SearchComponent setWord={setSearchWord} />
                   </div>
 
                   <div className="button">

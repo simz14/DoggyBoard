@@ -7,6 +7,10 @@ import DonationsBody from "./components/DonationsBody";
 import TableWrapper from "../../components/TableWrapper";
 import { CircularProgress, Table } from "@mui/material";
 import useDonations from "../../hooks/useDonations";
+import SearchComponent from "../../components/SearchComponet";
+import { useState } from "react";
+import { useEffect } from "react";
+import { search } from "../../utils/search";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -18,10 +22,38 @@ const Wrapper = styled.div`
     align-items: center;
     padding-top: 48px;
   }
+  .introWrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 const DonationsTableScreen = () => {
   const { donations, loading } = useDonations();
+  const [searchWord, setSearchWord] = useState("");
+  const [relevantDonations, setRelevantDonations] = useState([]);
+
+  const filteredDonations = search(relevantDonations, searchWord);
+
+  useEffect(() => {
+    if (donations) {
+      setRelevantDonations(
+        donations.map((item) => {
+          return {
+            id: item.id,
+            firstName: item.firstName,
+            lastName: item.lastName,
+            phone: item.phone,
+            amount: item.amount,
+          };
+        })
+      );
+    }
+
+    search(relevantDonations, searchWord);
+  }, [donations]);
   return (
     <Layout>
       <Wrapper>
@@ -30,6 +62,9 @@ const DonationsTableScreen = () => {
             <div className="contentWrapper">
               <div className="introWrap">
                 <h2>Donations</h2>
+                <div className="field">
+                  <SearchComponent setWord={setSearchWord} />
+                </div>
               </div>
               {loading ? (
                 <CircularProgress />
@@ -38,7 +73,7 @@ const DonationsTableScreen = () => {
                   <Table sx={{ minWidth: 700 }}>
                     <DonationsHead />
 
-                    <DonationsBody donations={donations} />
+                    <DonationsBody donations={filteredDonations} />
                   </Table>
                 </TableWrapper>
               )}
