@@ -1,15 +1,12 @@
 import React from "react";
 import { TableCell, TableHead, TableRow } from "@mui/material";
-import styled from "styled-components";
 
 import HeadCell from "../../../../components/Table/HeadCell";
-
-const StyledRow = styled(TableRow)``;
 
 const DogsTableHead = ({ sortBy, sort, setSortBy, setSort }) => {
   return (
     <TableHead>
-      <StyledRow>
+      <TableRow>
         <HeadCell
           name="Id"
           setSortBy={setSortBy}
@@ -46,7 +43,7 @@ const DogsTableHead = ({ sortBy, sort, setSortBy, setSort }) => {
           sort={sort}
         />
         <TableCell align="right"></TableCell>
-      </StyledRow>
+      </TableRow>
     </TableHead>
   );
 };

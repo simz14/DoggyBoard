@@ -2,21 +2,20 @@ import React from "react";
 import { TableBody } from "@mui/material";
 import DogsTableRow from "../Table/DogTableRow";
 import { PropTypes } from "prop-types";
+import { sortObjects } from "../../../../utils/sortObjects";
 
 const DogsTableBody = ({ dogs, sliceStart, sliceEnd, sort, sortBy }) => {
   return (
     <TableBody>
       {dogs ? (
         sortBy[0] === "asc" ? (
-          dogs
-            .sort((a, b) => a[sort] - b[sort])
+          sortObjects(dogs, sort, true)
             .slice(sliceStart, sliceEnd)
             .map((row) => {
               return <DogsTableRow key={row.id} item={row} />;
             })
         ) : sortBy[0] === "desc" ? (
-          dogs
-            .sort((a, b) => b[sort] - a[sort])
+          sortObjects(dogs, sort, false)
             .slice(sliceStart, sliceEnd)
             .map((row) => {
               return <DogsTableRow key={row.id} item={row} />;
