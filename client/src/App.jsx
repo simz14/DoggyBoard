@@ -9,6 +9,7 @@ import DonationsTableScreen from "./screens/Donations/DonationsTableScreen";
 import NewDog from "./screens/Dogs/NewDog";
 import DonationDetail from "./screens/Donations/DonationsDetail";
 import AdoptionsTableScreen from "./screens/Adoptions/AdoptionsTableScreen";
+import AdoptionDetail from "./screens/Adoptions/components/AdoptionDetail";
 
 function App() {
   return (
@@ -67,13 +68,22 @@ function App() {
               <DonationDetail />
             </PrivateRoute>
           }
-        />{" "}
+        />
         <Route
           exact
           path="/adoptions"
           element={
             <PrivateRoute>
               <AdoptionsTableScreen />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          exact
+          path="/adoption/:id"
+          element={
+            <PrivateRoute>
+              <AdoptionDetail />
             </PrivateRoute>
           }
         />

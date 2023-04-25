@@ -43,7 +43,7 @@ export const fetchAdoptions = () => {
         phone: "545-557-5556",
         age: 45,
         reasonForAdopting: "I fell in love with him.",
-        petId: 85936145,
+        petId: 11183424,
         status: "declined",
       },
       {
@@ -89,7 +89,7 @@ export const fetchAdoptions = () => {
         phone: "545-557-5556",
         age: 45,
         reasonForAdopting: "I fell in love with her.",
-        petId: 11183424,
+        petId: 85923424,
         status: "approved",
       },
     ]);

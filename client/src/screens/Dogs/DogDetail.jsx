@@ -88,6 +88,7 @@ const DogDetail = () => {
     );
     Swal.fire({
       title: "Saved",
+      icon: "success",
       timer: 2000,
       showConfirmButton: false,
     });

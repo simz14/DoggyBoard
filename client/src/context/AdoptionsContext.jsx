@@ -35,7 +35,7 @@ export const AdoptionsProvider = ({ children }) => {
               reasonForAdopting: adopter.reasonForAdopting,
               status: adopter.status,
             },
-            dog: [...dogs.filter((dog) => dog.petId === adopter.petId)],
+            dog: dogs.find((dog) => dog.petId === adopter.petId),
           };
         })
       );
