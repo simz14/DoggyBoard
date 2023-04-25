@@ -68,7 +68,7 @@ const AdoptionsTableScreen = () => {
   const [sort, setSort] = useState("");
   const [relevantAdoptionsValues, setRelevantAdoptionsValues] = useState([]);
   const filteredAdoptions = search(relevantAdoptionsValues, searchWord);
-  console.log(adoptions);
+
   const {
     page,
     rowsPerPage,
@@ -80,13 +80,14 @@ const AdoptionsTableScreen = () => {
   useEffect(() => {
     if (adoptions) {
       setRelevantAdoptionsValues(
-        adoptions.map((item) => {
+        adoptions.map(({ id, adopter }) => {
           return {
-            id: item.id,
-            firstName: item.firstName,
-            lastName: item.lastName,
-            email: item.email,
-            petId: item.petId,
+            id: id,
+            firstName: adopter.firstName,
+            lastName: adopter.lastName,
+            email: adopter.email,
+            petId: adopter.petId,
+            status: adopter.status,
           };
         })
       );

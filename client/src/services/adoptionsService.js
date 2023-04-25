@@ -10,6 +10,7 @@ export const fetchAdoptions = () => {
         age: 30,
         reasonForAdopting: "I wanted a companion for my lonely days. ",
         petId: 39983224,
+        status: "pending",
       },
       {
         id: 2,
@@ -21,6 +22,7 @@ export const fetchAdoptions = () => {
         reasonForAdopting:
           "I have a family of 5 and we wanted a 6th member that can play with us and we can take care of him.",
         petId: 85983424,
+        status: "approved",
       },
       {
         id: 3,
@@ -31,6 +33,7 @@ export const fetchAdoptions = () => {
         age: 25,
         reasonForAdopting: "I wanted a companion for my lonely days. ",
         petId: 36473424,
+        status: "pending",
       },
       {
         id: 4,
@@ -41,6 +44,7 @@ export const fetchAdoptions = () => {
         age: 45,
         reasonForAdopting: "I fell in love with him.",
         petId: 85936145,
+        status: "declined",
       },
       {
         id: 5,
@@ -52,6 +56,7 @@ export const fetchAdoptions = () => {
         age: 30,
         reasonForAdopting: "I wanted a companion for my lonely days. ",
         petId: 85234524,
+        status: "pending",
       },
       {
         id: 6,
@@ -63,6 +68,7 @@ export const fetchAdoptions = () => {
         reasonForAdopting:
           "I have a family of 5 and we wanted a 6th member that can play with us and we can take care of him.",
         petId: 25973423,
+        status: "declined",
       },
       {
         id: 7,
@@ -73,6 +79,7 @@ export const fetchAdoptions = () => {
         age: 25,
         reasonForAdopting: "I wanted a companion for my lonely days. ",
         petId: 85983555,
+        status: "approved",
       },
       {
         id: 8,
@@ -83,6 +90,7 @@ export const fetchAdoptions = () => {
         age: 45,
         reasonForAdopting: "I fell in love with her.",
         petId: 11183424,
+        status: "approved",
       },
     ]);
   });

@@ -11,15 +11,15 @@ import { AdoptionsProvider } from "./context/AdoptionsContext";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <AdoptionsProvider>
-        <DonationsProvider>
-          <DogsProvider>
+      <DonationsProvider>
+        <DogsProvider>
+          <AdoptionsProvider>
             <UserProvider>
               <App />
             </UserProvider>
-          </DogsProvider>
-        </DonationsProvider>
-      </AdoptionsProvider>
+          </AdoptionsProvider>
+        </DogsProvider>
+      </DonationsProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

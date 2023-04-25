@@ -7,6 +7,11 @@ import { useNavigate } from "react-router-dom";
 import { PropTypes } from "prop-types";
 import { handleClickDelete } from "../../../../utils/deleteFunction";
 import useAdoptions from "../../../../hooks/useAdoptions";
+import {
+  HiOutlineCheckCircle,
+  HiOutlineClock,
+  HiOutlineMinusCircle,
+} from "react-icons/hi";
 
 const IconsWrapper = styled.div`
   display: flex;
@@ -18,6 +23,15 @@ const IconsWrapper = styled.div`
   .edit {
     color: orange;
     cursor: pointer;
+  }
+  .approved {
+    color: green;
+  }
+  .declined {
+    color: red;
+  }
+  .pending {
+    color: orange;
   }
 `;
 
@@ -46,6 +60,17 @@ const AdoptionsTableRow = ({ item }) => {
       <TableCell>{item?.lastName}</TableCell>
       <TableCell>{item?.email}</TableCell>
       <TableCell>{item?.petId}</TableCell>
+      <TableCell>
+        <IconsWrapper>
+          {item?.status === "approved" ? (
+            <HiOutlineCheckCircle className="approved" />
+          ) : item?.status === "declined" ? (
+            <HiOutlineMinusCircle className="declined" />
+          ) : (
+            <HiOutlineClock className="pending" />
+          )}
+        </IconsWrapper>
+      </TableCell>
       <TableCell>
         <IconsWrapper>
           <div onClick={(e) => handleClickEdit(e, item.id)} ref={ref}>

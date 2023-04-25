@@ -46,6 +46,14 @@ const AdoptionsTableHead = ({ sortBy, sort, setSortBy, setSort }) => {
           setSort={setSort}
           sort={sort}
         />
+        <HeadCell
+          title="Status"
+          name="status"
+          setSortBy={setSortBy}
+          sortBy={sortBy}
+          setSort={setSort}
+          sort={sort}
+        />
         <TableCell align="right"></TableCell>
       </TableRow>
     </TableHead>

@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { PropTypes } from "prop-types";
 import { fetchAdoptions } from "../services/adoptionsService";
+import useDogs from "../hooks/useDogs";
 
 export const AdoptionsContext = createContext({
   adoptions: [],
@@ -13,15 +14,40 @@ export const AdoptionsContext = createContext({
 
 export const AdoptionsProvider = ({ children }) => {
   const [adoptions, setAdoptions] = useState([]);
+  const [adopters, setAdopters] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const { dogs, loading: load } = useDogs();
+
+  const setDogsInfo = () => {
+    if (dogs) {
+      setAdoptions(
+        adopters.map((adopter) => {
+          return {
+            id: adopter.id,
+            adopter: {
+              age: adopter.age,
+              email: adopter.email,
+              firstName: adopter?.firstName,
+              lastName: adopter.lastName,
+              petId: adopter.petId,
+              phone: adopter.phone,
+              reasonForAdopting: adopter.reasonForAdopting,
+              status: adopter.status,
+            },
+            dog: [...dogs.filter((dog) => dog.petId === adopter.petId)],
+          };
+        })
+      );
+    }
+  };
 
   const setData = async () => {
     try {
       setLoading(true);
-      const adoptionsData = await fetchAdoptions();
+      const adoptersData = await fetchAdoptions();
       setTimeout(() => {
-        setAdoptions(adoptionsData);
+        setAdopters(adoptersData);
         setLoading(false);
       }, 2000);
     } catch (e) {
@@ -31,7 +57,9 @@ export const AdoptionsProvider = ({ children }) => {
 
   useEffect(() => {
     setData();
-  }, []);
+    setDogsInfo();
+  }, [dogs]);
+
   return (
     <AdoptionsContext.Provider
       value={{ adoptions, setAdoptions, error, setError, loading, setLoading }}

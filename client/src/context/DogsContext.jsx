@@ -3,7 +3,7 @@ import { fetchDogs } from "../services/dogsService";
 import { PropTypes } from "prop-types";
 
 export const DogsContext = createContext({
-  dogs: [],
+  dogs: null,
   setDogs: () => {},
   error: "",
   setError: () => {},
@@ -12,7 +12,7 @@ export const DogsContext = createContext({
 });
 
 export const DogsProvider = ({ children }) => {
-  const [dogs, setDogs] = useState([]);
+  const [dogs, setDogs] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
