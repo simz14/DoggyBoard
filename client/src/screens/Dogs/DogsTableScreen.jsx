@@ -123,6 +123,7 @@ const DogsTableScreen = () => {
                 <TableWrapper>
                   <Table sx={{ minWidth: 700 }}>
                     <DogsTableHead
+                      sort={sort}
                       sortBy={sortBy}
                       setSort={setSort}
                       setSortBy={setSortBy}

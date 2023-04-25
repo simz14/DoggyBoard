@@ -1,46 +1,50 @@
-import React, { useState } from "react";
+import React from "react";
 import { TableCell, TableHead, TableRow } from "@mui/material";
 import styled from "styled-components";
 
-const StyledRow = styled(TableRow)`
-  .active {
-    background-color: red;
-  }
-`;
+import HeadCell from "../../../../components/Table/HeadCell";
 
-const DogsTableHead = ({ sortBy, setSortBy, setSort }) => {
-  const [ref, setRef] = useState(null);
+const StyledRow = styled(TableRow)``;
 
-  const handleClickColumn = (e, sort) => {
-    if (!e.target.contains(ref)) {
-      setRef(e.target);
-      setSort(sort);
-      console.log(ref);
-      // ref.className = "active";
-    }
-    setSortBy([sortBy.at(1), sortBy.at(2), sortBy.at(0)]);
-  };
+const DogsTableHead = ({ sortBy, sort, setSortBy, setSort }) => {
   return (
     <TableHead>
       <StyledRow>
-        <TableCell onClick={(e) => handleClickColumn(e, "id")} align="right">
-          Id
-        </TableCell>
-        <TableCell onClick={(e) => handleClickColumn(e, "name")} align="right">
-          Name
-        </TableCell>
-        <TableCell onClick={(e) => handleClickColumn(e, "breed")} align="right">
-          Breed
-        </TableCell>
-        <TableCell onClick={(e) => handleClickColumn(e, "age")} align="right">
-          Age
-        </TableCell>
-        <TableCell
-          onClick={(e) => handleClickColumn(e, "location")}
-          align="right"
-        >
-          Location
-        </TableCell>
+        <HeadCell
+          name="Id"
+          setSortBy={setSortBy}
+          sortBy={sortBy}
+          setSort={setSort}
+          sort={sort}
+        />
+        <HeadCell
+          name="Name"
+          setSortBy={setSortBy}
+          sortBy={sortBy}
+          setSort={setSort}
+          sort={sort}
+        />
+        <HeadCell
+          name="Breed"
+          setSortBy={setSortBy}
+          sortBy={sortBy}
+          setSort={setSort}
+          sort={sort}
+        />
+        <HeadCell
+          name="Age"
+          setSortBy={setSortBy}
+          sortBy={sortBy}
+          setSort={setSort}
+          sort={sort}
+        />
+        <HeadCell
+          name="Location"
+          setSortBy={setSortBy}
+          sortBy={sortBy}
+          setSort={setSort}
+          sort={sort}
+        />
         <TableCell align="right"></TableCell>
       </StyledRow>
     </TableHead>
