@@ -1,13 +1,7 @@
-import {
-  FormControl,
-  FormHelperText,
-  InputAdornment,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-} from "@mui/material";
+import { Popover, TextField, Typography } from "@mui/material";
 import React from "react";
+import { useState } from "react";
+import { useRef } from "react";
 import {
   HiOutlineCheckCircle,
   HiOutlineClock,
@@ -34,6 +28,8 @@ const FormWrapper = styled.div`
     grid-column: 1 / 3;
     display: flex;
     justify-content: center;
+    justify-self: center;
+    width: auto;
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -63,6 +59,9 @@ const NewAdoptionForm = ({
   register,
   errors,
 }) => {
+  const [showPopover, setShowPopover] = useState(false);
+  const ref = useRef(null);
+
   return (
     <FormWrapper>
       <TextField
@@ -81,7 +80,13 @@ const NewAdoptionForm = ({
         helperText={errors.lastName?.message}
       />
       <TextField
-        {...register("email", { required: "Email is required!" })}
+        {...register("email", {
+          required: "Email is required!",
+          pattern: {
+            value: /^\S+@\S+$/,
+            message: "Email is not valid!",
+          },
+        })}
         label="Email"
         multiline
         error={errors.email ? true : false}
@@ -97,7 +102,7 @@ const NewAdoptionForm = ({
       <TextField
         {...register("age", { required: "Age is required!" })}
         label="Age"
-        multiline
+        type="number"
         error={errors.age ? true : false}
         helperText={errors.age?.message}
       />
@@ -106,7 +111,7 @@ const NewAdoptionForm = ({
           required: "Pet Id is required!",
         })}
         label="Pet Id"
-        multiline
+        type="number"
         error={errors.petId ? true : false}
         helperText={errors.petId?.message}
       />
@@ -121,7 +126,13 @@ const NewAdoptionForm = ({
         error={errors.reasonForAdopting ? true : false}
         helperText={errors.reasonForAdopting?.message}
       />
-      <div className="iconsWrapper">
+      <div
+        ref={ref}
+        onMouseEnter={() => setShowPopover(true)}
+        onMouseLeave={() => setShowPopover(false)}
+        onClick={() => setShowPopover(false)}
+        className="iconsWrapper"
+      >
         <HiOutlineCheckCircle
           onClick={() => setAdoptionStatus("approved")}
           className={`approved ${adoptionStatus === "approved" && "active"}`}
@@ -134,6 +145,28 @@ const NewAdoptionForm = ({
           onClick={() => setAdoptionStatus("pending")}
           className={`pending ${adoptionStatus === "pending" && "active"}`}
         />
+        <Popover
+          sx={{
+            pointerEvents: "none",
+            paddingLeft: "50",
+          }}
+          open={showPopover}
+          anchorEl={ref.current}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+          onClose={() => setShowPopover(false)}
+          disableRestoreFocus
+        >
+          <Typography sx={{ p: 1, fontSize: "13px" }}>
+            You can approve, decline or let adoption pending.
+          </Typography>
+        </Popover>
       </div>
     </FormWrapper>
   );

@@ -49,6 +49,8 @@ const AdoptionDetailForm = ({
   adoptionStatus,
   setAdoptionStatus,
 }) => {
+  const [showPopover, setShowPopover] = useState(false);
+  const ref = useRef(null);
   return (
     <FormWrapper>
       <TextField
@@ -69,7 +71,13 @@ const AdoptionDetailForm = ({
         helperText={errors.lastName?.message}
       />
       <TextField
-        {...register("email", { required: "Email is required!" })}
+        {...register("email", {
+          required: "Email is required!",
+          pattern: {
+            value: /^\S+@\S+$/,
+            message: "Email is not valid!",
+          },
+        })}
         label="Email"
         defaultValue={adopter?.email}
         multiline
@@ -87,8 +95,8 @@ const AdoptionDetailForm = ({
       <TextField
         {...register("age", { required: "Age is required!" })}
         label="Age"
+        type="number"
         defaultValue={adopter?.age}
-        multiline
         error={errors.age ? true : false}
         helperText={errors.age?.message}
       />
@@ -98,7 +106,7 @@ const AdoptionDetailForm = ({
         })}
         label="Pet Id"
         defaultValue={adopter?.petId}
-        multiline
+        type="number"
         error={errors.petId ? true : false}
         helperText={errors.petId?.message}
       />
@@ -114,7 +122,13 @@ const AdoptionDetailForm = ({
         error={errors.reasonForAdopting ? true : false}
         helperText={errors.reasonForAdopting?.message}
       />
-      <div className="iconsWrapper">
+      <div
+        ref={ref}
+        onMouseEnter={() => setShowPopover(true)}
+        onMouseLeave={() => setShowPopover(false)}
+        onClick={() => setShowPopover(false)}
+        className="iconsWrapper"
+      >
         <HiOutlineCheckCircle
           onClick={() => setAdoptionStatus("approved")}
           className={`approved ${adoptionStatus === "approved" && "active"}`}
@@ -127,6 +141,28 @@ const AdoptionDetailForm = ({
           onClick={() => setAdoptionStatus("pending")}
           className={`pending ${adoptionStatus === "pending" && "active"}`}
         />
+        <Popover
+          sx={{
+            pointerEvents: "none",
+            paddingLeft: "50",
+          }}
+          open={showPopover}
+          anchorEl={ref.current}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+          onClose={() => setShowPopover(false)}
+          disableRestoreFocus
+        >
+          <Typography sx={{ p: 1, fontSize: "13px" }}>
+            You can approve, decline or let adoption pending.
+          </Typography>
+        </Popover>
       </div>
     </FormWrapper>
   );
