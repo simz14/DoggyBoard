@@ -1,6 +1,7 @@
 import { BsArrowLeft } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { PropTypes } from "prop-types";
 
 const Wrapper = styled.span`
   display: flex;
@@ -21,6 +22,11 @@ const GetBack = ({ naviageTo, backPage }) => {
       {backPage}
     </Wrapper>
   );
+};
+
+GetBack.propTypes = {
+  naviageTo: PropTypes.string,
+  backPage: PropTypes.string,
 };
 
 export default GetBack;

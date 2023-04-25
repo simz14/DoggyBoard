@@ -13,7 +13,6 @@ import { useForm } from "react-hook-form";
 import GetBack from "../../components/getBack";
 import AdoptionDetailForm from "./components/Detail/AdoptionForm";
 import Swal from "sweetalert2";
-import DogsTableRow from "../Dogs/components/Table/DogTableRow";
 import TableWrapper from "../../components/TableWrapper";
 import AdoptionDogHead from "./components/Detail/AdoptionDogHead";
 import AdoptionTableRow from "./components/Detail/AdoptionTableRow";

@@ -172,4 +172,10 @@ const NewAdoptionForm = ({
   );
 };
 
+NewAdoptionForm.propTypes = {
+  register: PropTypes.func,
+  errors: PropTypes.object,
+  adoptionStatus: PropTypes.string,
+  setAdoptionStatus: PropTypes.func,
+};
 export default NewAdoptionForm;

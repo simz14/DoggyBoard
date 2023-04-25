@@ -1,4 +1,5 @@
 import { Popover, TableCell, TableSortLabel, Typography } from "@mui/material";
+import { PropTypes } from "prop-types";
 import { useRef, useState } from "react";
 import { BsArrowUpShort, BsArrowDownShort } from "react-icons/bs";
 
@@ -53,6 +54,15 @@ const HeadCell = ({ title, name, setSortBy, sortBy, setSort, sort }) => {
       </Popover>
     </TableCell>
   );
+};
+
+HeadCell.propTypes = {
+  title: PropTypes.string,
+  name: PropTypes.string,
+  setSortBy: PropTypes.func,
+  sortBy: PropTypes.string,
+  setSort: PropTypes.func,
+  sort: PropTypes.string,
 };
 
 export default HeadCell;

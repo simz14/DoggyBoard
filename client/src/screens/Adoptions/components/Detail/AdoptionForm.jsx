@@ -1,5 +1,7 @@
-import { TextField } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Popover, TextField, Typography } from "@mui/material";
+import { PropTypes } from "prop-types";
+import { useRef } from "react";
+import { useState } from "react";
 import {
   HiOutlineCheckCircle,
   HiOutlineClock,
@@ -166,6 +168,14 @@ const AdoptionDetailForm = ({
       </div>
     </FormWrapper>
   );
+};
+
+AdoptionDetailForm.propTypes = {
+  register: PropTypes.func,
+  adopter: PropTypes.object,
+  errors: PropTypes.object,
+  adoptionStatus: PropTypes.string,
+  setAdoptionStatus: PropTypes.func,
 };
 
 export default AdoptionDetailForm;

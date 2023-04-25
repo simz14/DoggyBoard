@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import pawsBcg from "../assets/pawsBcg.jpg";
+import { PropTypes } from "prop-types";
 
 const PawsWrapper = styled.div`
   .paws {
@@ -21,6 +22,10 @@ const PawsBcg = ({ children }) => {
       {children}
     </PawsWrapper>
   );
+};
+
+PawsBcg.propTypes = {
+  childre: PropTypes.node,
 };
 
 export default PawsBcg;
