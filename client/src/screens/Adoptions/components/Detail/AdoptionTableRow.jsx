@@ -5,7 +5,6 @@ import { PropTypes } from "prop-types";
 
 const AdoptionTableRow = ({ item }) => {
   const navigate = useNavigate();
-  const ref = useRef(null);
 
   const handleClickEdit = (e, id) => {
     navigate(`/dog/${id}`);
