@@ -76,7 +76,7 @@ const DogsTableScreen = () => {
     sliceEnd,
   } = usePagination();
   const filteredDogs = search(relevantDogsValues, searchWord);
-
+  console.log(page);
   useEffect(() => {
     if (dogs) {
       setRelevantDogsValues(
@@ -139,7 +139,7 @@ const DogsTableScreen = () => {
                   <TablePagination
                     rowsPerPageOptions={[10, 25, 100]}
                     component="div"
-                    count={dogs.length}
+                    count={dogs ? dogs.length : 0}
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}

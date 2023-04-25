@@ -8,6 +8,7 @@ import {
   HiOutlineMinusCircle,
 } from "react-icons/hi";
 import styled from "styled-components";
+import { PropTypes } from "prop-types";
 
 const FormWrapper = styled.div`
   background-color: white;

@@ -60,7 +60,7 @@ HeadCell.propTypes = {
   title: PropTypes.string,
   name: PropTypes.string,
   setSortBy: PropTypes.func,
-  sortBy: PropTypes.string,
+  sortBy: PropTypes.array,
   setSort: PropTypes.func,
   sort: PropTypes.string,
 };
