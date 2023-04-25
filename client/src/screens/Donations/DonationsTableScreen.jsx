@@ -41,6 +41,8 @@ const DonationsTableScreen = () => {
   const { donations, loading } = useDonations();
   const [searchWord, setSearchWord] = useState("");
   const [relevantDonations, setRelevantDonations] = useState([]);
+  const [sortBy, setSortBy] = useState(["random", "asc", "desc"]);
+  const [sort, setSort] = useState("");
   const {
     page,
     rowsPerPage,
@@ -57,8 +59,8 @@ const DonationsTableScreen = () => {
         donations.map((item) => {
           return {
             id: item.id,
-            firstName: item.firstName,
-            lastName: item.lastName,
+            firstname: item.firstname,
+            lastname: item.lastname,
             phone: item.phone,
             amount: item.amount,
           };
@@ -85,11 +87,18 @@ const DonationsTableScreen = () => {
               ) : (
                 <TableWrapper>
                   <Table sx={{ minWidth: 700 }}>
-                    <DonationsHead />
+                    <DonationsHead
+                      setSortBy={setSortBy}
+                      sortBy={sortBy}
+                      setSort={setSort}
+                      sort={sort}
+                    />
                     <DonationsBody
                       sliceStart={sliceStart}
                       sliceEnd={sliceEnd}
                       donations={filteredDonations}
+                      sortBy={sortBy}
+                      sort={sort}
                     />
                   </Table>
                   <TablePagination

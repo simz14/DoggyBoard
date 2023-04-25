@@ -16,8 +16,8 @@ const DonationsRow = ({ item }) => {
       sx={{ td: { border: 0 } }}
     >
       <TableCell>{item?.id}</TableCell>
-      <TableCell>{item?.firstName}</TableCell>
-      <TableCell>{item?.lastName}</TableCell>
+      <TableCell>{item?.firstname}</TableCell>
+      <TableCell>{item?.lastname}</TableCell>
       <TableCell>{item?.phone}</TableCell>
       <TableCell>{item?.amount}$</TableCell>
     </TableRow>

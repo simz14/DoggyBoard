@@ -102,7 +102,7 @@ const DonationDetail = () => {
                     <div className="info">
                       <span className="id">Donation id:{donation?.id}</span>
                       <p>
-                        From: {donation?.firstName} {donation?.lastName}
+                        From: {donation?.firstname} {donation?.lastname}
                       </p>
                     </div>
                   </div>

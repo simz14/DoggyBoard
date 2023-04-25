@@ -1,17 +1,18 @@
 import { TableCell, TableSortLabel } from "@mui/material";
 import { BsArrowUpShort, BsArrowDownShort } from "react-icons/bs";
 
-const HeadCell = ({ name, setSortBy, sortBy, setSort, sort }) => {
-  const handleClickColumn = (e, sort) => {
+const HeadCell = ({ title, name, setSortBy, sortBy, setSort, sort }) => {
+  const handleClickColumn = (sort) => {
     setSort(sort);
     setSortBy([sortBy.at(1), sortBy.at(2), sortBy.at(0)]);
   };
 
   return (
     <TableCell
-      onClick={(e) => handleClickColumn(e, name.toLowerCase())}
+      onClick={() => handleClickColumn(name.toLowerCase())}
       align="right"
     >
+      {title ? title : name}
       <TableSortLabel
         active={sort === name.toLowerCase()}
         IconComponent={
@@ -21,9 +22,7 @@ const HeadCell = ({ name, setSortBy, sortBy, setSort, sort }) => {
             ? BsArrowDownShort
             : null
         }
-      >
-        {name}
-      </TableSortLabel>
+      ></TableSortLabel>
     </TableCell>
   );
 };
