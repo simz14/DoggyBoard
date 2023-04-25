@@ -1,54 +1,55 @@
 import React from "react";
 import { TableCell, TableHead, TableRow } from "@mui/material";
+
 import HeadCell from "../../../../components/Table/HeadCell";
 
-const DonationsHead = ({ setSortBy, sortBy, setSort, sort }) => {
+const AdoptionsTableHead = ({ sortBy, sort, setSortBy, setSort }) => {
   return (
     <TableHead>
       <TableRow>
         <HeadCell
-          title="Id"
-          name="id"
+          name="Id"
           setSortBy={setSortBy}
           sortBy={sortBy}
           setSort={setSort}
           sort={sort}
         />
         <HeadCell
-          title="First Name"
-          name="firstname"
+          title="First name"
+          name="firstName"
           setSortBy={setSortBy}
           sortBy={sortBy}
           setSort={setSort}
           sort={sort}
         />
         <HeadCell
-          title="Last Name"
-          name="lastname"
+          title="Last name"
+          name="lastName"
           setSortBy={setSortBy}
           sortBy={sortBy}
           setSort={setSort}
           sort={sort}
         />
         <HeadCell
-          title="Phone"
-          name="phone"
+          title="Email"
+          name="email"
           setSortBy={setSortBy}
           sortBy={sortBy}
           setSort={setSort}
           sort={sort}
         />
         <HeadCell
-          title="Amount"
-          name="amount"
+          title="Pet Id"
+          name="petId"
           setSortBy={setSortBy}
           sortBy={sortBy}
           setSort={setSort}
           sort={sort}
         />
+        <TableCell align="right"></TableCell>
       </TableRow>
     </TableHead>
   );
 };
 
-export default DonationsHead;
+export default AdoptionsTableHead;

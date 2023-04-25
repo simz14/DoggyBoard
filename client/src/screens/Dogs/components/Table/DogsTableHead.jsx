@@ -8,35 +8,40 @@ const DogsTableHead = ({ sortBy, sort, setSortBy, setSort }) => {
     <TableHead>
       <TableRow>
         <HeadCell
-          name="Id"
+          title="Id"
+          name="id"
           setSortBy={setSortBy}
           sortBy={sortBy}
           setSort={setSort}
           sort={sort}
         />
         <HeadCell
-          name="Name"
+          title="Name"
+          name="name"
           setSortBy={setSortBy}
           sortBy={sortBy}
           setSort={setSort}
           sort={sort}
         />
         <HeadCell
-          name="Breed"
+          title="Breed"
+          name="breed"
           setSortBy={setSortBy}
           sortBy={sortBy}
           setSort={setSort}
           sort={sort}
         />
         <HeadCell
-          name="Age"
+          title="Age"
+          name="age"
           setSortBy={setSortBy}
           sortBy={sortBy}
           setSort={setSort}
           sort={sort}
         />
         <HeadCell
-          name="Location"
+          title="Location"
+          name="location"
           setSortBy={setSortBy}
           sortBy={sortBy}
           setSort={setSort}

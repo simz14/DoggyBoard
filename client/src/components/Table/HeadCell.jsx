@@ -8,13 +8,10 @@ const HeadCell = ({ title, name, setSortBy, sortBy, setSort, sort }) => {
   };
 
   return (
-    <TableCell
-      onClick={() => handleClickColumn(name.toLowerCase())}
-      align="right"
-    >
+    <TableCell onClick={() => handleClickColumn(name)} align="right">
       {title ? title : name}
       <TableSortLabel
-        active={sort === name.toLowerCase()}
+        active={sort === name}
         IconComponent={
           sortBy[0] === "desc"
             ? BsArrowUpShort
