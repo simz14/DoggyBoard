@@ -9,7 +9,8 @@ import DonationsTableScreen from "./screens/Donations/DonationsTableScreen";
 import NewDog from "./screens/Dogs/NewDog";
 import DonationDetail from "./screens/Donations/DonationsDetail";
 import AdoptionsTableScreen from "./screens/Adoptions/AdoptionsTableScreen";
-import AdoptionDetail from "./screens/Adoptions/components/AdoptionDetail";
+import AdoptionDetail from "./screens/Adoptions/AdoptionDetail";
+import NewAdoption from "./screens/Adoptions/components/NewAdoption";
 
 function App() {
   return (
@@ -84,6 +85,15 @@ function App() {
           element={
             <PrivateRoute>
               <AdoptionDetail />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          exact
+          path="/adoptions/new"
+          element={
+            <PrivateRoute>
+              <NewAdoption />
             </PrivateRoute>
           }
         />

@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../../../components/Layout";
+import Layout from "../../components/Layout";
 import styled from "styled-components";
-import PawsBcg from "../../../components/PawsBcg";
+import PawsBcg from "../../components/PawsBcg";
 import { useNavigate, useParams } from "react-router-dom";
-import useAdoptions from "../../../hooks/useAdoptions";
-import useAdoption from "../../../hooks/useAdoption";
+import useAdoptions from "../../hooks/useAdoptions";
+import useAdoption from "../../hooks/useAdoption";
 import { CircularProgress, Table, TableBody } from "@mui/material";
-import { Container } from "../../../components/Container";
-import BasicButton from "../../../components/BasicButton";
-import { handleClickDelete } from "../../../utils/deleteFunction";
+import { Container } from "../../components/Container";
+import BasicButton from "../../components/BasicButton";
+import { handleClickDelete } from "../../utils/deleteFunction";
 import { useForm } from "react-hook-form";
-import GetBack from "../../../components/getBack";
-import AdoptionDetailForm from "./Detail/AdoptionForm";
+import GetBack from "../../components/getBack";
+import AdoptionDetailForm from "./components/Detail/AdoptionForm";
 import Swal from "sweetalert2";
-import DogsTableRow from "../../Dogs/components/Table/DogTableRow";
-import TableWrapper from "../../../components/TableWrapper";
-import AdoptionDogHead from "./Detail/AdoptionDogHead";
-import AdoptionTableRow from "./Detail/AdoptionTableRow";
+import DogsTableRow from "../Dogs/components/Table/DogTableRow";
+import TableWrapper from "../../components/TableWrapper";
+import AdoptionDogHead from "./components/Detail/AdoptionDogHead";
+import AdoptionTableRow from "./components/Detail/AdoptionTableRow";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -47,8 +47,14 @@ const AdoptionDetail = () => {
   const { setAdoptions, loading } = useAdoptions();
   const { adoption } = useAdoption(id);
   const [adoptionStatus, setAdoptionStatus] = useState("");
-  const { register, errors, handleSubmit, setValue, getValues, reset } =
-    useForm();
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    setValue,
+    getValues,
+    reset,
+  } = useForm();
 
   const adopter = adoption?.adopter;
   const dog = adoption?.dog;
@@ -114,7 +120,10 @@ const AdoptionDetail = () => {
                       }
                       title="Remove"
                     />
-                    <BasicButton onClick={handleSaveAdoption} title="Save" />
+                    <BasicButton
+                      onClick={handleSubmit(handleSaveAdoption)}
+                      title="Save"
+                    />
                   </div>
                 </div>
                 <div className="adoptionInfo">

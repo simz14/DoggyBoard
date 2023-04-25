@@ -1,5 +1,13 @@
-import { TextField } from "@mui/material";
-import { useEffect, useState } from "react";
+import {
+  FormControl,
+  FormHelperText,
+  InputAdornment,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+} from "@mui/material";
+import React from "react";
 import {
   HiOutlineCheckCircle,
   HiOutlineClock,
@@ -9,16 +17,23 @@ import styled from "styled-components";
 
 const FormWrapper = styled.div`
   background-color: white;
-  border-radius: ${({ theme }) => theme.border.radius.s};
+  padding: ${({ theme }) => theme.spacing.padding.m};
+  gap: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  padding: ${({ theme }) => theme.spacing.padding.m};
+  border-radius: ${({ theme }) => theme.border.radius.s};
+  justify-content: center;
+
+  button {
+    grid-column: 1/3;
+  }
   .reasonField {
     grid-column: 1/3;
   }
   .iconsWrapper {
-    grid-column: 1/3;
+    grid-column: 1 / 3;
+    display: flex;
+    justify-content: center;
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -42,19 +57,17 @@ const FormWrapper = styled.div`
   }
 `;
 
-const AdoptionDetailForm = ({
-  register,
-  adopter,
-  errors,
+const NewAdoptionForm = ({
   adoptionStatus,
   setAdoptionStatus,
+  register,
+  errors,
 }) => {
   return (
     <FormWrapper>
       <TextField
         {...register("firstName", { required: "First Name is required!" })}
         label="First Name"
-        defaultValue={adopter?.firstName}
         multiline
         error={errors.firstName ? true : false}
         helperText={errors.firstName?.message}
@@ -63,7 +76,6 @@ const AdoptionDetailForm = ({
       <TextField
         {...register("lastName", { required: "Last Name is required!" })}
         label="Last Name"
-        defaultValue={adopter?.lastName}
         multiline
         error={errors.lastName ? true : false}
         helperText={errors.lastName?.message}
@@ -71,7 +83,6 @@ const AdoptionDetailForm = ({
       <TextField
         {...register("email", { required: "Email is required!" })}
         label="Email"
-        defaultValue={adopter?.email}
         multiline
         error={errors.email ? true : false}
         helperText={errors.email?.message}
@@ -79,7 +90,6 @@ const AdoptionDetailForm = ({
       <TextField
         {...register("phone", { required: "Phone is required!" })}
         label="Phone"
-        defaultValue={adopter?.phone}
         multiline
         error={errors.phone ? true : false}
         helperText={errors.phone?.message}
@@ -87,7 +97,6 @@ const AdoptionDetailForm = ({
       <TextField
         {...register("age", { required: "Age is required!" })}
         label="Age"
-        defaultValue={adopter?.age}
         multiline
         error={errors.age ? true : false}
         helperText={errors.age?.message}
@@ -97,7 +106,6 @@ const AdoptionDetailForm = ({
           required: "Pet Id is required!",
         })}
         label="Pet Id"
-        defaultValue={adopter?.petId}
         multiline
         error={errors.petId ? true : false}
         helperText={errors.petId?.message}
@@ -108,7 +116,6 @@ const AdoptionDetailForm = ({
           required: "Reason For Adopting is required!",
         })}
         label="Reason For Adopting"
-        defaultValue={adopter?.reasonForAdopting}
         minRows={2}
         multiline
         error={errors.reasonForAdopting ? true : false}
@@ -132,4 +139,4 @@ const AdoptionDetailForm = ({
   );
 };
 
-export default AdoptionDetailForm;
+export default NewAdoptionForm;
