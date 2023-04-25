@@ -1,4 +1,10 @@
 import { TextField } from "@mui/material";
+import { useEffect, useState } from "react";
+import {
+  HiOutlineCheckCircle,
+  HiOutlineClock,
+  HiOutlineMinusCircle,
+} from "react-icons/hi";
 import styled from "styled-components";
 
 const FormWrapper = styled.div`
@@ -11,9 +17,38 @@ const FormWrapper = styled.div`
   .reasonField {
     grid-column: 1/3;
   }
+  .iconsWrapper {
+    grid-column: 1/3;
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      cursor: pointer;
+    }
+    .approved {
+      color: green;
+      opacity: 0.3;
+    }
+    .declined {
+      color: red;
+      opacity: 0.3;
+    }
+    .pending {
+      color: orange;
+      opacity: 0.3;
+    }
+    .active {
+      opacity: 1;
+    }
+  }
 `;
 
-const AdoptionDetailForm = ({ register, adopter, errors }) => {
+const AdoptionDetailForm = ({
+  register,
+  adopter,
+  errors,
+  adoptionStatus,
+  setAdoptionStatus,
+}) => {
   return (
     <FormWrapper>
       <TextField
@@ -64,6 +99,20 @@ const AdoptionDetailForm = ({ register, adopter, errors }) => {
         minRows={2}
         multiline
       />
+      <div className="iconsWrapper">
+        <HiOutlineCheckCircle
+          onClick={() => setAdoptionStatus("approved")}
+          className={`approved ${adoptionStatus === "approved" && "active"}`}
+        />
+        <HiOutlineMinusCircle
+          onClick={() => setAdoptionStatus("declined")}
+          className={`declined ${adoptionStatus === "declined" && "active"}`}
+        />
+        <HiOutlineClock
+          onClick={() => setAdoptionStatus("pending")}
+          className={`pending ${adoptionStatus === "pending" && "active"}`}
+        />
+      </div>
     </FormWrapper>
   );
 };

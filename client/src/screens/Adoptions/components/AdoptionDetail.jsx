@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "../../../components/Layout";
 import styled from "styled-components";
 import PawsBcg from "../../../components/PawsBcg";
 import { useNavigate, useParams } from "react-router-dom";
 import useAdoptions from "../../../hooks/useAdoptions";
 import useAdoption from "../../../hooks/useAdoption";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Table, TableBody } from "@mui/material";
 import { Container } from "../../../components/Container";
 import BasicButton from "../../../components/BasicButton";
 import { handleClickDelete } from "../../../utils/deleteFunction";
@@ -13,6 +13,10 @@ import { useForm } from "react-hook-form";
 import GetBack from "../../../components/getBack";
 import AdoptionDetailForm from "./Detail/AdoptionForm";
 import Swal from "sweetalert2";
+import DogsTableRow from "../../Dogs/components/Table/DogTableRow";
+import TableWrapper from "../../../components/TableWrapper";
+import AdoptionDogHead from "./Detail/AdoptionDogHead";
+import AdoptionTableRow from "./Detail/AdoptionTableRow";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -42,7 +46,9 @@ const AdoptionDetail = () => {
   const { id } = useParams();
   const { setAdoptions, loading } = useAdoptions();
   const { adoption } = useAdoption(id);
-  const { register, errors, handleSubmit, getValues, reset } = useForm();
+  const [adoptionStatus, setAdoptionStatus] = useState("");
+  const { register, errors, handleSubmit, setValue, getValues, reset } =
+    useForm();
 
   const adopter = adoption?.adopter;
   const dog = adoption?.dog;
@@ -56,8 +62,8 @@ const AdoptionDetail = () => {
       phone: adopter?.phone,
       age: adopter?.age,
       reasonForAdopting: adopter?.reasonForAdopting,
-      status: adopter?.status,
     });
+    setAdoptionStatus(adopter?.status);
   }, [adoption]);
 
   const navigateToAdoptions = () => {
@@ -71,7 +77,7 @@ const AdoptionDetail = () => {
     setAdoptions((prev) =>
       prev.map((item) => {
         if (item.id == id) {
-          item.adopter = getValues();
+          item.adopter = { ...getValues(), status: adoptionStatus };
         }
         return item;
       })
@@ -113,10 +119,24 @@ const AdoptionDetail = () => {
                 </div>
                 <div className="adoptionInfo">
                   <AdoptionDetailForm
+                    adoptionStatus={adoptionStatus}
+                    setAdoptionStatus={setAdoptionStatus}
                     register={register}
                     adopter={adopter}
                     errors={errors}
+                    setValue={setValue}
                   />
+                </div>
+                <div className="dogInfo">
+                  <h2>Dog for adoption</h2>
+                  <TableWrapper>
+                    <Table sx={{ minWidth: 700 }}>
+                      <AdoptionDogHead />
+                      <TableBody>
+                        <AdoptionTableRow item={dog} />
+                      </TableBody>
+                    </Table>
+                  </TableWrapper>
                 </div>
               </Container>
             )}
