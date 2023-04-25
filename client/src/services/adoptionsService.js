@@ -1,4 +1,4 @@
-export const fetchDogs = () => {
+export const fetchAdoptions = () => {
   const response = new Promise((res, rej) => {
     res([
       {
@@ -151,7 +151,7 @@ export const fetchDogs = () => {
           email: "mikesmith@example.com",
           phone: "545-557-5556",
           age: 45,
-          reasonForAdopting: "I fell in love with him.",
+          reasonForAdopting: "I fell in love with her.",
         },
         dog: {
           name: "Gilbert",
@@ -164,6 +164,6 @@ export const fetchDogs = () => {
         },
       },
     ]);
-    return response;
   });
+  return response;
 };
