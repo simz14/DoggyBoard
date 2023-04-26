@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Layout from "../../components/Layout";
 import PawsBcg from "../../components/PawsBcg";
 import { Container } from "../../components/Container";
@@ -9,6 +9,7 @@ import { HiChevronRight } from "react-icons/hi";
 import { useParams } from "react-router-dom";
 import useFolder from "../../hooks/useFolder";
 import GetBack from "../../components/GetBack";
+import { MediaContext } from "../../context/MediaContext";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -62,8 +63,10 @@ const Wrapper = styled.div`
 
 const FolderScreen = () => {
   const { loading } = useFolders();
+  const { media } = useContext(MediaContext);
   const { id } = useParams();
   const { folder } = useFolder(id);
+  console.log(media);
   return (
     <Layout>
       <Wrapper>
