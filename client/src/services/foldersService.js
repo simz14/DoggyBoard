@@ -3,14 +3,26 @@ export const fetchFolders = () => {
     res([
       {
         id: 1,
-        name: "Dogs",
+        name: "Mei Mei",
       },
       {
         id: 2,
-        name: "Volunteer",
+        name: "Gilbert",
       },
       {
         id: 3,
+        name: "Puppy Back",
+      },
+      {
+        id: 4,
+        name: "Spencer",
+      },
+      {
+        id: 5,
+        name: "Volunteer",
+      },
+      {
+        id: 6,
         name: "Other",
       },
     ]);

@@ -12,6 +12,7 @@ import AdoptionsTableScreen from "./screens/Adoptions/AdoptionsTableScreen";
 import AdoptionDetail from "./screens/Adoptions/AdoptionDetail";
 import NewAdoption from "./screens/Adoptions/components/NewAdoption";
 import MediaScreen from "./screens/Media/MediaScreen";
+import FolderScreen from "./screens/Media/FolderScreen";
 
 function App() {
   return (
@@ -104,6 +105,15 @@ function App() {
           element={
             <PrivateRoute>
               <MediaScreen />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          exact
+          path="/media/:id"
+          element={
+            <PrivateRoute>
+              <FolderScreen />
             </PrivateRoute>
           }
         />

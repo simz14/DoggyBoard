@@ -73,7 +73,7 @@ const MeidaScreen = () => {
                       <h3>Folders</h3>
                       <div className="folders">
                         {folders.map((folder) => {
-                          return <FolderBox folder={folder} />;
+                          return <FolderBox key={folder.id} folder={folder} />;
                         })}
                       </div>
                     </div>

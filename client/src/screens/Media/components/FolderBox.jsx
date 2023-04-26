@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { HiOutlineFolder } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
 
 const FolderBoxWrapper = styled.div`
   padding: ${({ theme }) => theme.spacing.padding.xl};
@@ -33,8 +34,9 @@ const FolderBoxWrapper = styled.div`
 `;
 
 const FolderBox = ({ folder }) => {
+  const navigate = useNavigate();
   return (
-    <FolderBoxWrapper>
+    <FolderBoxWrapper onClick={() => navigate(`/media/${folder.id}`)}>
       <div className="icon">
         <HiOutlineFolder />
       </div>
