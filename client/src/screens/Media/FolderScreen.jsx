@@ -57,6 +57,17 @@ const Wrapper = styled.div`
     .files {
       display: flex;
       flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .imageWrapper {
+      background-color: white;
+      padding: ${({ theme }) => theme.spacing.padding.s};
+      border-radius: ${({ theme }) => theme.border.radius.m};
+      img {
+        width: auto;
+        height: 10rem;
+        border-radius: ${({ theme }) => theme.border.radius.m};
+      }
     }
   }
 `;
@@ -66,7 +77,7 @@ const FolderScreen = () => {
   const { id } = useParams();
   const { folder } = useFolder(id);
   const { mediaById } = useMediaByFodlerId(id);
-  console.log(mediaById);
+
   return (
     <Layout>
       <Wrapper>
@@ -89,7 +100,15 @@ const FolderScreen = () => {
                   <div className="contentWrapper">
                     <div className="filesWrapper">
                       <h3>Files</h3>
-                      <div className="files"></div>
+                      <div className="files">
+                        {mediaById?.map((item) => {
+                          return (
+                            <div className="imageWrapper" key={item.id}>
+                              <img src={item.src} alt="photo" />
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
                   </div>
                 </div>
