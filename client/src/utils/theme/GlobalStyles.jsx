@@ -14,5 +14,9 @@ const GlobalStyles = createGlobalStyle`
     font-size: 12px;
     font-weight: 500;
   }
+  span{
+    font-size: 14px;
+    color: gray;
+  }
 `;
 export default GlobalStyles;
