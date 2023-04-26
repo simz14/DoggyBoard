@@ -1,9 +1,11 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { IconButton, Menu, MenuItem } from "@mui/material";
+import { IconButton } from "@mui/material";
 import { HiMenu } from "react-icons/hi";
-import { BiUserCircle, BiLogOutCircle } from "react-icons/bi";
+import { AiOutlineLogout } from "react-icons/ai";
 import { PropTypes } from "prop-types";
+import { FaUserAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const HeaderWrap = styled.div`
   display: flex;
@@ -20,26 +22,27 @@ const MenuWrap = styled.div`
   width: 100%;
   justify-content: end;
   z-index: 99;
-
   .show {
     display: none;
   }
+
   .userOptions {
     display: flex;
     justify-content: end;
     gap: 1rem;
+    align-items: center;
+    padding: 5px;
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: ${({ theme }) => theme.colors.darkBlue};
+    }
     .userData {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: end;
+      gap: 0.5rem;
     }
-    p {
-      font-size: 14px;
-      margin: 0;
-    }
-    span {
-      font-size: 11px;
+    .logout {
+      cursor: pointer;
     }
   }
   @media (max-width: 1000px) {
@@ -51,17 +54,7 @@ const MenuWrap = styled.div`
 `;
 
 const Header = ({ handleClickMenu }) => {
-  const [open, setOpen] = useState(false);
-  const ref = useRef(null);
-
-  const handleCklickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleCklickClose = () => {
-    setOpen(false);
-  };
-
+  const navigate = useNavigate();
   return (
     <HeaderWrap>
       <MenuWrap>
@@ -69,37 +62,17 @@ const Header = ({ handleClickMenu }) => {
           {<HiMenu />}
         </IconButton>
 
-        <div ref={ref} onClick={handleCklickOpen} className="userOptions">
+        <div className="userOptions">
+          <FaUserAlt />
           <div className="userData">
-            <p>Abbott Keitch</p>
-            <span>admin</span>
+            <span>James</span>
+            <span>Smith</span>
           </div>
-          <img
-            src="https://react-material.fusetheme.com/assets/images/avatars/brian-hughes.jpg"
-            alt="user"
+          <AiOutlineLogout
+            className={"logout"}
+            onClick={() => navigate("/login")}
           />
         </div>
-
-        <Menu
-          id="user-menu"
-          anchorEl={ref.current}
-          open={open}
-          onClose={handleCklickClose}
-        >
-          <MenuItem onClick={handleCklickClose}>
-            <IconButton>
-              <BiUserCircle />
-            </IconButton>
-            Profile
-          </MenuItem>
-
-          <MenuItem onClick={handleCklickClose}>
-            <IconButton>
-              <BiLogOutCircle />
-            </IconButton>
-            Logout
-          </MenuItem>
-        </Menu>
       </MenuWrap>
     </HeaderWrap>
   );

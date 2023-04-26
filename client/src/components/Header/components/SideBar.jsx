@@ -5,7 +5,7 @@ import { IconButton, List, ListItem, ListItemButton } from "@mui/material";
 import { MdOutlinePermMedia } from "react-icons/md";
 import { GiReceiveMoney } from "react-icons/gi";
 import { HiHome } from "react-icons/hi";
-import { FaDog } from "react-icons/fa";
+import { FaDog, FaHome } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { PropTypes } from "prop-types";
 
@@ -102,6 +102,13 @@ const SideBar = ({ handleClickMenu }) => {
         }}
       >
         <h2>DASHBOARDS</h2>
+        <ListItem onClick={() => handleClickItem("/")}>
+          <ListItemButton>
+            <FaHome />
+            <p>Home</p>
+          </ListItemButton>
+        </ListItem>
+
         <ListItem onClick={() => handleClickItem("/dogs")}>
           <ListItemButton>
             <FaDog />
