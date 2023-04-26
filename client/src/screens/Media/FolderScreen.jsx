@@ -11,8 +11,8 @@ import useFolder from "../../hooks/useFolder";
 import GetBack from "../../components/GetBack";
 import useMediaByFodlerId from "../../hooks/useMediaByFolderId";
 import Masonry from "@mui/lab/Masonry";
-import BasicButton from "../../components/BasicButton";
-import { BsPlusLg } from "react-icons/bs";
+import { HiUpload } from "react-icons/hi";
+import StyledLabel from "../../components/StyledLabel";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -100,7 +100,9 @@ const FolderScreen = () => {
                       </div>
                     </div>
                     <div>
-                      <BasicButton icon={<BsPlusLg />} title={"Upload image"} />
+                      <StyledLabel icon={<HiUpload />} title={"Upload image"}>
+                        <input hidden accept="image/*" multiple type="file" />
+                      </StyledLabel>
                     </div>
                   </div>
                   <div className="contentWrapper">
