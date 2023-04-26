@@ -8,10 +8,12 @@ import { DogsProvider } from "./context/DogsContext";
 import { DonationsProvider } from "./context/DonationsContext";
 import { AdoptionsProvider } from "./context/AdoptionsContext";
 import { FoldersProvider } from "./context/FoldersContext";
+import GlobalStyles from "./utils/theme/GlobalStyles";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
+      <GlobalStyles />
       <FoldersProvider>
         <DonationsProvider>
           <DogsProvider>

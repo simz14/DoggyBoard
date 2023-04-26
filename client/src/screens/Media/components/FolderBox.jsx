@@ -4,17 +4,18 @@ import styled from "styled-components";
 import { HiOutlineFolder } from "react-icons/hi";
 
 const FolderBoxWrapper = styled.div`
-  padding: ${({ theme }) => theme.spacing.padding.l};
+  padding: ${({ theme }) => theme.spacing.padding.xl};
   margin: 8px;
   background-color: white;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
-  border-radius: ${({ theme }) => theme.border.radius.s};
+  border-radius: ${({ theme }) => theme.border.radius.m};
   width: 5rem;
   height: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   .icon {
     display: flex;
     width: 100%;
