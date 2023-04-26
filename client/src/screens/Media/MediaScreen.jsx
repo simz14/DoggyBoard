@@ -4,12 +4,14 @@ import PawsBcg from "../../components/PawsBcg";
 import { Container } from "../../components/Container";
 import styled from "styled-components";
 import useFolders from "../../hooks/useFolders";
+import FolderBox from "./components/FolderBox";
+import { CircularProgress } from "@mui/material";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
   position: relative;
   min-height: 100vh;
-  .contentWrapper {
+  .screenWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,6 +23,9 @@ const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
   }
+  .contentWrapper {
+    width: 100%;
+  }
   @media (max-width: 600px) {
     .introWrap {
       display: flex;
@@ -29,27 +34,43 @@ const Wrapper = styled.div`
   }
   .mediaWrapper {
     background-color: white;
+    border-radius: ${({ theme }) => theme.border.radius.m};
+    padding: 2rem;
   }
   .folders {
-    border-color: ${({ theme }) => theme.colors.lightBcgBlue};
+    background-color: ${({ theme }) => theme.colors.lightBcgBlue};
+    border-radius: ${({ theme }) => theme.border.radius.m};
+
+    border: 1px solid ${({ theme }) => theme.colors.borderLighBlue};
+    padding: 1rem;
   }
 `;
 
 const MeidaScreen = () => {
-  const { folders } = useFolders();
+  const { folders, loading } = useFolders();
   console.log(folders);
   return (
     <Layout>
       <Wrapper>
         <PawsBcg>
           <Container>
-            <div className="contentWrapper">
-              <div className="introWrap">
-                <h2>Media</h2>
-              </div>
-              <div className="mediaWrapper">
-                <div className="folders"></div>
-              </div>
+            <div className="screenWrapper">
+              {loading ? (
+                <CircularProgress />
+              ) : (
+                <div className="contentWrapper">
+                  <div className="introWrap">
+                    <h2>Media</h2>
+                  </div>
+                  <div className="mediaWrapper">
+                    <div className="folders">
+                      {folders.map((folder) => {
+                        return <FolderBox folder={folder} />;
+                      })}
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </Container>
         </PawsBcg>

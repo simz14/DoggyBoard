@@ -7,6 +7,7 @@ export const colors = {
   mediumBlue: "#334155",
   darkBlue: "#1e293b",
   grey: "#a8a8a8",
+  borderLighBlue: "#e2e8f0",
 };
 
 export const typography = {
