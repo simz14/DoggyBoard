@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../../components/Layout";
 import PawsBcg from "../../components/PawsBcg";
 import { Container } from "../../components/Container";
@@ -6,6 +6,9 @@ import styled from "styled-components";
 import useFolders from "../../hooks/useFolders";
 import FolderBox from "./components/FolderBox";
 import { CircularProgress } from "@mui/material";
+import BasicButton from "../../components/BasicButton";
+import { BsPlusLg } from "react-icons/bs";
+import NewFolder from "./components/NewFolder";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -54,7 +57,8 @@ const Wrapper = styled.div`
 
 const MeidaScreen = () => {
   const { folders, loading } = useFolders();
-  console.log(folders);
+  const [showAddFolder, setShowFolder] = useState(false);
+
   return (
     <Layout>
       <Wrapper>
@@ -67,6 +71,11 @@ const MeidaScreen = () => {
                 <div className="contentWrapper">
                   <div className="introWrap">
                     <h2>Media</h2>
+                    <BasicButton
+                      onClick={() => setShowFolder(true)}
+                      icon={<BsPlusLg />}
+                      title="New folder"
+                    />
                   </div>
                   <div className="mediaWrapper">
                     <div className="foldersWrapper">
@@ -81,6 +90,7 @@ const MeidaScreen = () => {
                 </div>
               )}
             </div>
+            {showAddFolder && <NewFolder setShowFolder={setShowFolder} />}
           </Container>
         </PawsBcg>
       </Wrapper>
