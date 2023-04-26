@@ -9,7 +9,7 @@ import { HiChevronRight } from "react-icons/hi";
 import { useParams } from "react-router-dom";
 import useFolder from "../../hooks/useFolder";
 import GetBack from "../../components/GetBack";
-import { MediaContext } from "../../context/MediaContext";
+import useMediaByFodlerId from "../../hooks/useMediaByFolderId";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -63,10 +63,10 @@ const Wrapper = styled.div`
 
 const FolderScreen = () => {
   const { loading } = useFolders();
-  const { media } = useContext(MediaContext);
   const { id } = useParams();
   const { folder } = useFolder(id);
-  console.log(media);
+  const { mediaById } = useMediaByFodlerId(id);
+  console.log(mediaById);
   return (
     <Layout>
       <Wrapper>
