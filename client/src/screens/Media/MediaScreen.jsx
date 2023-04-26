@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Layout from "../../components/Layout";
 import PawsBcg from "../../components/PawsBcg";
 import { Container } from "../../components/Container";
 import styled from "styled-components";
+import { FoldersContext } from "../../context/FoldersContext";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -35,6 +36,8 @@ const Wrapper = styled.div`
 `;
 
 const MeidaScreen = () => {
+  const { folders } = useContext(FoldersContext);
+  console.log(folders);
   return (
     <Layout>
       <Wrapper>
