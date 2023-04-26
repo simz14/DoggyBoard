@@ -11,6 +11,7 @@ import DonationDetail from "./screens/Donations/DonationsDetail";
 import AdoptionsTableScreen from "./screens/Adoptions/AdoptionsTableScreen";
 import AdoptionDetail from "./screens/Adoptions/AdoptionDetail";
 import NewAdoption from "./screens/Adoptions/components/NewAdoption";
+import MediaScreen from "./screens/Media/MediaScreen";
 
 function App() {
   return (
@@ -94,6 +95,15 @@ function App() {
           element={
             <PrivateRoute>
               <NewAdoption />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          exact
+          path="/media"
+          element={
+            <PrivateRoute>
+              <MediaScreen />
             </PrivateRoute>
           }
         />
