@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Layout from "../../components/Layout";
 import PawsBcg from "../../components/PawsBcg";
 import { Container } from "../../components/Container";
@@ -10,6 +10,9 @@ import { useParams } from "react-router-dom";
 import useFolder from "../../hooks/useFolder";
 import GetBack from "../../components/GetBack";
 import useMediaByFodlerId from "../../hooks/useMediaByFolderId";
+import Masonry from "@mui/lab/Masonry";
+import BasicButton from "../../components/BasicButton";
+import { BsPlusLg } from "react-icons/bs";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -24,8 +27,8 @@ const Wrapper = styled.div`
   .introWrap {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: space-between;
 
     .titleIcon {
       display: flex;
@@ -34,12 +37,6 @@ const Wrapper = styled.div`
   }
   .boxWrapper {
     width: 100%;
-  }
-  @media (max-width: 600px) {
-    .introWrap {
-      display: flex;
-      flex-direction: column;
-    }
   }
   .contentWrapper {
     background-color: white;
@@ -59,15 +56,19 @@ const Wrapper = styled.div`
       flex-wrap: wrap;
       gap: 1rem;
     }
-    .imageWrapper {
+    .image {
       background-color: white;
       padding: ${({ theme }) => theme.spacing.padding.s};
       border-radius: ${({ theme }) => theme.border.radius.m};
-      img {
-        width: auto;
-        height: 10rem;
-        border-radius: ${({ theme }) => theme.border.radius.m};
-      }
+    }
+  }
+  @media (max-width: 600px) {
+    .introWrap {
+      display: flex;
+      flex-direction: column;
+    }
+    .image {
+      width: 100%;
     }
   }
 `;
@@ -89,25 +90,37 @@ const FolderScreen = () => {
               ) : (
                 <div className="boxWrapper">
                   <div className="introWrap">
-                    <GetBack naviageTo="/media" backPage="Back to media" />
-                    <div className="titleIcon">
-                      <h2>Media</h2>
-                      <span>
-                        <HiChevronRight /> {folder?.name}
-                      </span>
+                    <div>
+                      <GetBack naviageTo="/media" backPage="Back to media" />
+                      <div className="titleIcon">
+                        <h2>Media</h2>
+                        <span>
+                          <HiChevronRight /> {folder?.name}
+                        </span>
+                      </div>
+                    </div>
+                    <div>
+                      <BasicButton icon={<BsPlusLg />} title={"Upload image"} />
                     </div>
                   </div>
                   <div className="contentWrapper">
                     <div className="filesWrapper">
                       <h3>Files</h3>
                       <div className="files">
-                        {mediaById?.map((item) => {
-                          return (
-                            <div className="imageWrapper" key={item.id}>
-                              <img src={item.src} alt="photo" />
-                            </div>
-                          );
-                        })}
+                        {mediaById && (
+                          <Masonry columns={{ sx: 1, sm: 3 }} spacing={2}>
+                            {mediaById.map((item) => {
+                              return (
+                                <img
+                                  className="image"
+                                  key={item.id}
+                                  src={item.src}
+                                  alt="photo"
+                                />
+                              );
+                            })}
+                          </Masonry>
+                        )}
                       </div>
                     </div>
                   </div>

@@ -16,6 +16,7 @@ export const fetchMedia = () => {
         folderId: 1,
         src: "https://img.freepik.com/premium-photo/small-cocker-spaniel-dog-with-beautiful-blonde-hair-green-grass_58409-24609.jpg?w=996",
       },
+
       {
         id: 4,
         folderId: 4,
@@ -30,6 +31,11 @@ export const fetchMedia = () => {
         id: 6,
         folderId: 4,
         src: "https://www.rover.com/blog/wp-content/uploads/2018/11/dachshund-1519374_1920.jpg",
+      },
+      {
+        id: 7,
+        folderId: 1,
+        src: "https://www.about-cocker-spaniels.com/images/golden-cocker-spaniels-4.jpg",
       },
     ]);
   });

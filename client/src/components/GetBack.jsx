@@ -8,9 +8,15 @@ const Wrapper = styled.span`
   align-items: center;
   transition: 0.5s ease;
   cursor: pointer;
+  span {
+    display: flex;
+    align-items: center;
+  }
   :hover {
-    transition: 0.5s ease;
-    transform: translateY(-10px);
+    span {
+      transition: 0.5s ease;
+      transform: translateY(-10px);
+    }
   }
 `;
 
@@ -18,8 +24,10 @@ const GetBack = ({ naviageTo, backPage }) => {
   const navigate = useNavigate();
   return (
     <Wrapper onClick={() => navigate(naviageTo)} className="backTo">
-      <BsArrowLeft />
-      {backPage}
+      <span>
+        <BsArrowLeft />
+        {backPage}
+      </span>
     </Wrapper>
   );
 };

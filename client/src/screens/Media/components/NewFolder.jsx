@@ -12,7 +12,7 @@ const NewFolderWrapper = styled.div`
   left: 0px;
   background-color: #0000003c;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   z-index: 99999999;
   display: flex;
   justify-content: center;
