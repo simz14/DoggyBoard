@@ -35,14 +35,15 @@ const Wrapper = styled.div`
   .mediaWrapper {
     background-color: white;
     border-radius: ${({ theme }) => theme.border.radius.m};
-    padding: 2rem;
+    padding: ${({ theme }) => theme.spacing.padding.l};
   }
   .folders {
+    display: flex;
+    flex-wrap: wrap;
     background-color: ${({ theme }) => theme.colors.lightBcgBlue};
     border-radius: ${({ theme }) => theme.border.radius.m};
-
     border: 1px solid ${({ theme }) => theme.colors.borderLighBlue};
-    padding: 1rem;
+    padding: ${({ theme }) => theme.spacing.padding.m};
   }
 `;
 
@@ -63,6 +64,7 @@ const MeidaScreen = () => {
                     <h2>Media</h2>
                   </div>
                   <div className="mediaWrapper">
+                    <h3>Folders</h3>
                     <div className="folders">
                       {folders.map((folder) => {
                         return <FolderBox folder={folder} />;
