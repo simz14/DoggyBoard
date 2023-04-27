@@ -79,7 +79,7 @@ const FolderScreen = () => {
   const { id } = useParams();
   const { folder } = useFolder(id);
   const { mediaById } = useMediaByFodlerId(id);
-  const [showSwiper, setShowSwiper] = useState(false);
+  const [showSwiper, setShowSwiper] = useState(null);
 
   return (
     <Layout>
@@ -117,10 +117,10 @@ const FolderScreen = () => {
                       <div className="files">
                         {mediaById && (
                           <Masonry columns={{ sx: 1, sm: 3 }} spacing={2}>
-                            {mediaById.map((item) => {
+                            {mediaById.map((item, index) => {
                               return (
                                 <img
-                                  onClick={() => setShowSwiper(true)}
+                                  onClick={() => setShowSwiper(index + 1)}
                                   className="image"
                                   key={item.id}
                                   src={item.src}
@@ -137,7 +137,12 @@ const FolderScreen = () => {
               )}
             </div>
             {showSwiper && (
-              <SwiperComp images={mediaById} swiperName={`gallery${id}`} />
+              <SwiperComp
+                imageIndex={showSwiper - 1}
+                setShowSwiper={setShowSwiper}
+                images={mediaById}
+                swiperName={`gallery${showSwiper}`}
+              />
             )}
           </Container>
         </PawsBcg>

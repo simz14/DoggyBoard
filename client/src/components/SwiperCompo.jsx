@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
 import Swiper, { Navigation } from "swiper";
@@ -14,7 +14,7 @@ const BckWrap = styled.div`
   top: 0;
   left: 0;
   background-color: #00000078;
-  z-index: 9999;
+  z-index: 99999999;
 `;
 
 const SwiperWrap = styled.div`
@@ -49,24 +49,39 @@ const SwiperWrap = styled.div`
   }
 `;
 
-const SwiperComp = ({ images, swiperName }) => {
+const SwiperComp = ({ images, swiperName, imageIndex }) => {
+  const [swiper, setSwiper] = useState();
+  const refImg = useRef(null);
+  const refBcg = useRef(null);
+  console.log(images);
   useEffect(() => {
-    const swiper = new Swiper(`.${swiperName}`, {
-      loop: true,
-      slidesPerView: "1",
-      centeredSlides: true,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      modules: [Navigation],
-    });
+    setSwiper(
+      new Swiper(refImg.current, {
+        loop: true,
+        slidesPerView: "1",
+        centeredSlides: true,
+
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        modules: [Navigation],
+      })
+    );
   }, []);
+
+  const handleClickAway = (e) => {
+    console.log(e.target, refImg.current, refBcg.current);
+  };
 
   return (
     <BckWrap>
-      <SwiperWrap swiperName={swiperName}>
-        <div className={swiperName}>
+      <SwiperWrap
+        ref={refBcg}
+        onClick={(e) => handleClickAway(e)}
+        swiperName={swiperName}
+      >
+        <div ref={refImg} className={swiperName}>
           <div className="swiper-wrapper">
             {images?.map((image) => {
               return (
