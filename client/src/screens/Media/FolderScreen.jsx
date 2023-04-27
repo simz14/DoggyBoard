@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../../components/Layout";
 import PawsBcg from "../../components/PawsBcg";
 import { Container } from "../../components/Container";
@@ -13,6 +13,7 @@ import useMediaByFodlerId from "../../hooks/useMediaByFolderId";
 import Masonry from "@mui/lab/Masonry";
 import { HiUpload } from "react-icons/hi";
 import StyledLabel from "../../components/StyledLabel";
+import SwiperComp from "../../components/SwiperCompo";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -78,6 +79,7 @@ const FolderScreen = () => {
   const { id } = useParams();
   const { folder } = useFolder(id);
   const { mediaById } = useMediaByFodlerId(id);
+  const [showSwiper, setShowSwiper] = useState(false);
 
   return (
     <Layout>
@@ -118,6 +120,7 @@ const FolderScreen = () => {
                             {mediaById.map((item) => {
                               return (
                                 <img
+                                  onClick={() => setShowSwiper(true)}
                                   className="image"
                                   key={item.id}
                                   src={item.src}
@@ -133,6 +136,9 @@ const FolderScreen = () => {
                 </div>
               )}
             </div>
+            {showSwiper && (
+              <SwiperComp images={mediaById} swiperName={`gallery${id}`} />
+            )}
           </Container>
         </PawsBcg>
       </Wrapper>
