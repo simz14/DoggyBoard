@@ -7,7 +7,10 @@ import PawsBcg from "../../components/PawsBcg";
 import useDogs from "../../hooks/useDogs";
 import useAdoptions from "../../hooks/useAdoptions";
 import useDonations from "../../hooks/useDonations";
+import useMedia from "../../hooks/useMedia";
 import BasicChartComponent from "../../components/BasicChartComponent";
+import Masonry from "@mui/lab/Masonry/Masonry";
+import GetBack from "../../components/GetBack";
 
 const HomeWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -25,6 +28,18 @@ const HomeWrapper = styled.div`
       flex-direction: column;
       gap: 2rem;
     }
+
+    .image {
+      max-height: 10rem;
+      object-fit: cover;
+    }
+  }
+  @media (max-width: 600px) {
+    .screenWrapper {
+      .image {
+        width: 100%;
+      }
+    }
   }
 `;
 
@@ -32,6 +47,7 @@ const Home = () => {
   const { dogs } = useDogs();
   const { adoptions } = useAdoptions();
   const { donations } = useDonations();
+  const { media } = useMedia();
 
   const getDataForChart = (data) => {
     if (data) {
@@ -79,6 +95,25 @@ const Home = () => {
                   shadowColor="#2e7d32"
                   navigateTo="/donations"
                 />
+                <div className="galery">
+                  <Masonry
+                    sx={{ justifyContent: "center" }}
+                    columns={{ sx: 1, sm: 2 }}
+                    spacing={2}
+                  >
+                    {media.slice(0, 6).map((item) => {
+                      return (
+                        <img
+                          className="image"
+                          key={item.id}
+                          src={item.src}
+                          alt="photo"
+                        />
+                      );
+                    })}
+                  </Masonry>
+                  <GetBack naviageTo="/media" backPage="Media" toArrow={true} />
+                </div>
               </div>
             </div>
           </Container>
