@@ -110,7 +110,7 @@ const AdoptionDetail = () => {
                       naviageTo="/adoptions"
                       backPage="Adoptions"
                     />
-                    <h3>Adoption id: {id}</h3>
+                    <h2>Adoption id: {id}</h2>
                   </div>
                   <div className="buttons">
                     <BasicButton

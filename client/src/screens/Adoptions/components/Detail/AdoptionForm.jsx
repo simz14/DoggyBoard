@@ -95,9 +95,15 @@ const AdoptionDetailForm = ({
         helperText={errors.phone?.message}
       />
       <TextField
-        {...register("age", { required: "Age is required!" })}
+        {...register("age", {
+          required: "Age is required!",
+          pattern: {
+            value: /^[0-9]+$/,
+            message: "Age is not valid!",
+          },
+        })}
         label="Age"
-        type="number"
+        multiline
         defaultValue={adopter?.age}
         error={errors.age ? true : false}
         helperText={errors.age?.message}
@@ -105,10 +111,14 @@ const AdoptionDetailForm = ({
       <TextField
         {...register("petId", {
           required: "Pet Id is required!",
+          pattern: {
+            value: /^[0-9]+$/,
+            message: "PetId is not valid!",
+          },
         })}
         label="Pet Id"
         defaultValue={adopter?.petId}
-        type="number"
+        multiline
         error={errors.petId ? true : false}
         helperText={errors.petId?.message}
       />

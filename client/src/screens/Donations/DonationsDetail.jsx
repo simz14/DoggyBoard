@@ -33,10 +33,7 @@ const ContentWrapper = styled.div`
       flex-direction: column;
       gap: 1rem;
     }
-    .id {
-      font-weight: ${({ theme }) => theme.typography.weight.s};
-      font-size: ${({ theme }) => theme.typography.size.xl};
-    }
+
     p {
       font-size: ${({ theme }) => theme.typography.size.s};
     }
@@ -104,7 +101,7 @@ const DonationDetail = () => {
                       backPage="Donations"
                     />
                     <div className="info">
-                      <span className="id">Donation id:{donation?.id}</span>
+                      <h2 className="id">Donation id:{donation?.id}</h2>
                       <p>
                         From: {donation?.firstname} {donation?.lastname}
                       </p>
