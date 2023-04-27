@@ -11,7 +11,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "11kg",
         petId: 39983224,
-        arrived: 1674809976000,
+        date: 1674809976000,
         story:
           "Velfire is a young dog who had been abandoned by his previous owners. Velfire is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Velfire the love and attention he deserved.",
       },
@@ -25,7 +25,7 @@ export const fetchDogs = () => {
         color: "Gray",
         size: "8kg",
         petId: 85983424,
-        arrived: 1674809976000,
+        date: 1674809976000,
         story:
           "Gilbert is a loyal companion who would make a great addition to any family. He is a senior dog with a gentle disposition and a lot of love to give. Gilbert had been surrendered by his previous owner, but he didn't let that bring him down. He is always wagging his tail and ready to make new friends. Gilbert enjoys going for walks and lounging in the sun. He also loves to be petted and would nuzzle his head into her human's lap. Gilbert is being fostered by a family who had fallen in love with her, but they knew that he needed a permanent home.",
       },
@@ -39,7 +39,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "5kg",
         petId: 36473424,
-        arrived: 1674809976000,
+        date: 1674809976000,
         story:
           "Puppy Back is a sweet and playful pup who is looking for his forever home. Puppy Back loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Puppy Back had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -53,7 +53,7 @@ export const fetchDogs = () => {
         color: "Black",
         size: "11kg",
         petId: 85936145,
-        arrived: 1677488376000,
+        date: 1677488376000,
         story:
           "Spencer is a sweet and playful pup who is looking for his forever home. Spencer loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Spencer had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -67,7 +67,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "15kg",
         petId: 85234524,
-        arrived: 1677488376000,
+        date: 1677488376000,
         story:
           "Mei Mei is a loyal companion who would make a great addition to any family. Mei Mei had been surrendered by her previous owner, but she didn't let that bring her down. She is always wagging her tail and ready to make new friends. Mei Mei enjoys going for walks and lounging in the sun. She also loves to be petted and would nuzzle her head into her human's lap. Mei Mei is being fostered by a family who had fallen in love with her, but they know that she needs a permanent home. ",
       },
@@ -81,7 +81,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "5kg",
         petId: 25973423,
-        arrived: 1679907576000,
+        date: 1679907576000,
         story:
           "Revela is a sweet and playful pup who is looking for his forever home. Revela loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Revela had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -95,7 +95,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "16kg",
         petId: 85983555,
-        arrived: 1682585976000,
+        date: 1682585976000,
         story:
           "Paxton is a young dog who had been abandoned by his previous owners. Paxton is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Paxton the love and attention he deserved.",
       },
@@ -109,7 +109,7 @@ export const fetchDogs = () => {
         color: "Black",
         size: "25kg",
         petId: 11183424,
-        arrived: 1685177976000,
+        date: 1685177976000,
         story:
           "Merrelyn is a loyal companion who would make a great addition to any family. Merrelyn had been surrendered by her previous owner, but she didn't let that bring her down. She is always wagging her tail and ready to make new friends. Merrelyn enjoys going for walks and lounging in the sun. She also loves to be petted and would nuzzle her head into her human's lap. Merrelyn is being fostered by a family who had fallen in love with her, but they know that she needs a permanent home.",
       },
@@ -123,7 +123,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "20kg",
         petId: 85923424,
-        arrived: 1687856376000,
+        date: 1687856376000,
         story:
           "Ramon is a young dog who had been abandoned by his previous owners. Ramon is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Ramon the love and attention he deserved.",
       },
@@ -137,7 +137,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "11kg",
         petId: 39983224,
-        arrived: 1687856376000,
+        date: 1687856376000,
         story:
           "Velfire is a young dog who had been abandoned by his previous owners. Velfire is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Velfire the love and attention he deserved.",
       },
@@ -151,7 +151,7 @@ export const fetchDogs = () => {
         color: "Gray",
         size: "8kg",
         petId: 85983424,
-        arrived: 1687856376000,
+        date: 1687856376000,
         story:
           "Gilbert is a loyal companion who would make a great addition to any family. He is a senior dog with a gentle disposition and a lot of love to give. Gilbert had been surrendered by his previous owner, but he didn't let that bring him down. He is always wagging his tail and ready to make new friends. Gilbert enjoys going for walks and lounging in the sun. He also loves to be petted and would nuzzle his head into her human's lap. Gilbert is being fostered by a family who had fallen in love with her, but they knew that he needed a permanent home.",
       },
@@ -165,7 +165,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "5kg",
         petId: 36473424,
-        arrived: 1690448376000,
+        date: 1690448376000,
         story:
           "Puppy Back is a sweet and playful pup who is looking for his forever home. Puppy Back loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Puppy Back had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -179,7 +179,7 @@ export const fetchDogs = () => {
         color: "Black",
         size: "11kg",
         petId: 85936145,
-        arrived: 1690448376000,
+        date: 1690448376000,
         story:
           "Spencer is a sweet and playful pup who is looking for his forever home. Spencer loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Spencer had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -193,7 +193,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "15kg",
         petId: 85234524,
-        arrived: 1690448376000,
+        date: 1690448376000,
         story:
           "Mei Mei is a loyal companion who would make a great addition to any family. Mei Mei had been surrendered by her previous owner, but she didn't let that bring her down. She is always wagging her tail and ready to make new friends. Mei Mei enjoys going for walks and lounging in the sun. She also loves to be petted and would nuzzle her head into her human's lap. Mei Mei is being fostered by a family who had fallen in love with her, but they know that she needs a permanent home. ",
       },
@@ -207,7 +207,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "5kg",
         petId: 25973423,
-        arrived: 1690448376000,
+        date: 1690448376000,
         story:
           "Revela is a sweet and playful pup who is looking for his forever home. Revela loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Revela had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -221,7 +221,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "16kg",
         petId: 85983555,
-        arrived: 1690448376000,
+        date: 1690448376000,
         story:
           "Paxton is a young dog who had been abandoned by his previous owners. Paxton is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Paxton the love and attention he deserved.",
       },
@@ -235,7 +235,7 @@ export const fetchDogs = () => {
         color: "Black",
         size: "25kg",
         petId: 11183424,
-        arrived: 1693126776000,
+        date: 1693126776000,
         story:
           "Merrelyn is a loyal companion who would make a great addition to any family. Merrelyn had been surrendered by her previous owner, but she didn't let that bring her down. She is always wagging her tail and ready to make new friends. Merrelyn enjoys going for walks and lounging in the sun. She also loves to be petted and would nuzzle her head into her human's lap. Merrelyn is being fostered by a family who had fallen in love with her, but they know that she needs a permanent home.",
       },
@@ -249,7 +249,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "20kg",
         petId: 85923424,
-        arrived: 1695805176000,
+        date: 1695805176000,
         story:
           "Ramon is a young dog who had been abandoned by his previous owners. Ramon is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Ramon the love and attention he deserved.",
       },
@@ -263,7 +263,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "11kg",
         petId: 39983224,
-        arrived: 1698397176000,
+        date: 1698397176000,
         story:
           "Velfire is a young dog who had been abandoned by his previous owners. Velfire is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Velfire the love and attention he deserved.",
       },
@@ -277,7 +277,7 @@ export const fetchDogs = () => {
         color: "Gray",
         size: "8kg",
         petId: 85983424,
-        arrived: 1701075576000,
+        date: 1701075576000,
         story:
           "Gilbert is a loyal companion who would make a great addition to any family. He is a senior dog with a gentle disposition and a lot of love to give. Gilbert had been surrendered by his previous owner, but he didn't let that bring him down. He is always wagging his tail and ready to make new friends. Gilbert enjoys going for walks and lounging in the sun. He also loves to be petted and would nuzzle his head into her human's lap. Gilbert is being fostered by a family who had fallen in love with her, but they knew that he needed a permanent home.",
       },
@@ -291,7 +291,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "5kg",
         petId: 36473424,
-        arrived: 1703667576000,
+        date: 1703667576000,
         story:
           "Puppy Back is a sweet and playful pup who is looking for his forever home. Puppy Back loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Puppy Back had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -305,7 +305,7 @@ export const fetchDogs = () => {
         color: "Black",
         size: "11kg",
         petId: 85936145,
-        arrived: 1701075576000,
+        date: 1701075576000,
         story:
           "Spencer is a sweet and playful pup who is looking for his forever home. Spencer loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Spencer had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -319,7 +319,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "15kg",
         petId: 85234524,
-        arrived: 1701075576000,
+        date: 1701075576000,
         story:
           "Mei Mei is a loyal companion who would make a great addition to any family. Mei Mei had been surrendered by her previous owner, but she didn't let that bring her down. She is always wagging her tail and ready to make new friends. Mei Mei enjoys going for walks and lounging in the sun. She also loves to be petted and would nuzzle her head into her human's lap. Mei Mei is being fostered by a family who had fallen in love with her, but they know that she needs a permanent home. ",
       },
@@ -333,7 +333,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "5kg",
         petId: 25973423,
-        arrived: 1679907576000,
+        date: 1679907576000,
         story:
           "Revela is a sweet and playful pup who is looking for his forever home. Revela loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Revela had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -347,7 +347,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "16kg",
         petId: 85983555,
-        arrived: 1679907576000,
+        date: 1679907576000,
         story:
           "Paxton is a young dog who had been abandoned by his previous owners. Paxton is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Paxton the love and attention he deserved.",
       },
@@ -361,7 +361,7 @@ export const fetchDogs = () => {
         color: "Black",
         size: "25kg",
         petId: 11183424,
-        arrived: 1679907576000,
+        date: 1679907576000,
         story:
           "Merrelyn is a loyal companion who would make a great addition to any family. Merrelyn had been surrendered by her previous owner, but she didn't let that bring her down. She is always wagging her tail and ready to make new friends. Merrelyn enjoys going for walks and lounging in the sun. She also loves to be petted and would nuzzle her head into her human's lap. Merrelyn is being fostered by a family who had fallen in love with her, but they know that she needs a permanent home.",
       },
@@ -375,7 +375,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "20kg",
         petId: 85923424,
-        arrived: 1679907576000,
+        date: 1679907576000,
         story:
           "Ramon is a young dog who had been abandoned by his previous owners. Ramon is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Ramon the love and attention he deserved.",
       },
@@ -389,7 +389,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "11kg",
         petId: 39983224,
-        arrived: 1674809976000,
+        date: 1674809976000,
         story:
           "Velfire is a young dog who had been abandoned by his previous owners. Velfire is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Velfire the love and attention he deserved.",
       },
@@ -403,7 +403,7 @@ export const fetchDogs = () => {
         color: "Gray",
         size: "8kg",
         petId: 85983424,
-        arrived: 1674809976000,
+        date: 1674809976000,
         story:
           "Gilbert is a loyal companion who would make a great addition to any family. He is a senior dog with a gentle disposition and a lot of love to give. Gilbert had been surrendered by his previous owner, but he didn't let that bring him down. He is always wagging his tail and ready to make new friends. Gilbert enjoys going for walks and lounging in the sun. He also loves to be petted and would nuzzle his head into her human's lap. Gilbert is being fostered by a family who had fallen in love with her, but they knew that he needed a permanent home.",
       },
@@ -417,7 +417,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "5kg",
         petId: 36473424,
-        arrived: 1674809976000,
+        date: 1674809976000,
         story:
           "Puppy Back is a sweet and playful pup who is looking for his forever home. Puppy Back loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Puppy Back had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -431,7 +431,7 @@ export const fetchDogs = () => {
         color: "Black",
         size: "11kg",
         petId: 85936145,
-        arrived: 1677488376000,
+        date: 1677488376000,
         story:
           "Spencer is a sweet and playful pup who is looking for his forever home. Spencer loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Spencer had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -445,7 +445,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "15kg",
         petId: 85234524,
-        arrived: 1677488376000,
+        date: 1677488376000,
         story:
           "Mei Mei is a loyal companion who would make a great addition to any family. Mei Mei had been surrendered by her previous owner, but she didn't let that bring her down. She is always wagging her tail and ready to make new friends. Mei Mei enjoys going for walks and lounging in the sun. She also loves to be petted and would nuzzle her head into her human's lap. Mei Mei is being fostered by a family who had fallen in love with her, but they know that she needs a permanent home. ",
       },
@@ -459,7 +459,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "5kg",
         petId: 25973423,
-        arrived: 1679907576000,
+        date: 1679907576000,
         story:
           "Revela is a sweet and playful pup who is looking for his forever home. Revela loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Revela had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -473,7 +473,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "16kg",
         petId: 85983555,
-        arrived: 1682585976000,
+        date: 1682585976000,
         story:
           "Paxton is a young dog who had been abandoned by his previous owners. Paxton is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Paxton the love and attention he deserved.",
       },
@@ -487,7 +487,7 @@ export const fetchDogs = () => {
         color: "Black",
         size: "25kg",
         petId: 11183424,
-        arrived: 1685177976000,
+        date: 1685177976000,
         story:
           "Merrelyn is a loyal companion who would make a great addition to any family. Merrelyn had been surrendered by her previous owner, but she didn't let that bring her down. She is always wagging her tail and ready to make new friends. Merrelyn enjoys going for walks and lounging in the sun. She also loves to be petted and would nuzzle her head into her human's lap. Merrelyn is being fostered by a family who had fallen in love with her, but they know that she needs a permanent home.",
       },
@@ -501,7 +501,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "20kg",
         petId: 85923424,
-        arrived: 1687856376000,
+        date: 1687856376000,
         story:
           "Ramon is a young dog who had been abandoned by his previous owners. Ramon is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Ramon the love and attention he deserved.",
       },
@@ -515,7 +515,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "11kg",
         petId: 39983224,
-        arrived: 1687856376000,
+        date: 1687856376000,
         story:
           "Velfire is a young dog who had been abandoned by his previous owners. Velfire is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Velfire the love and attention he deserved.",
       },
@@ -529,7 +529,7 @@ export const fetchDogs = () => {
         color: "Gray",
         size: "8kg",
         petId: 85983424,
-        arrived: 1687856376000,
+        date: 1687856376000,
         story:
           "Gilbert is a loyal companion who would make a great addition to any family. He is a senior dog with a gentle disposition and a lot of love to give. Gilbert had been surrendered by his previous owner, but he didn't let that bring him down. He is always wagging his tail and ready to make new friends. Gilbert enjoys going for walks and lounging in the sun. He also loves to be petted and would nuzzle his head into her human's lap. Gilbert is being fostered by a family who had fallen in love with her, but they knew that he needed a permanent home.",
       },
@@ -543,7 +543,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "5kg",
         petId: 36473424,
-        arrived: 1690448376000,
+        date: 1690448376000,
         story:
           "Puppy Back is a sweet and playful pup who is looking for his forever home. Puppy Back loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Puppy Back had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -557,7 +557,7 @@ export const fetchDogs = () => {
         color: "Black",
         size: "11kg",
         petId: 85936145,
-        arrived: 1690448376000,
+        date: 1690448376000,
         story:
           "Spencer is a sweet and playful pup who is looking for his forever home. Spencer loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Spencer had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -571,7 +571,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "15kg",
         petId: 85234524,
-        arrived: 1690448376000,
+        date: 1690448376000,
         story:
           "Mei Mei is a loyal companion who would make a great addition to any family. Mei Mei had been surrendered by her previous owner, but she didn't let that bring her down. She is always wagging her tail and ready to make new friends. Mei Mei enjoys going for walks and lounging in the sun. She also loves to be petted and would nuzzle her head into her human's lap. Mei Mei is being fostered by a family who had fallen in love with her, but they know that she needs a permanent home. ",
       },
@@ -585,7 +585,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "5kg",
         petId: 25973423,
-        arrived: 1690448376000,
+        date: 1690448376000,
         story:
           "Revela is a sweet and playful pup who is looking for his forever home. Revela loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Revela had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -599,7 +599,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "16kg",
         petId: 85983555,
-        arrived: 1690448376000,
+        date: 1690448376000,
         story:
           "Paxton is a young dog who had been abandoned by his previous owners. Paxton is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Paxton the love and attention he deserved.",
       },
@@ -613,7 +613,7 @@ export const fetchDogs = () => {
         color: "Black",
         size: "25kg",
         petId: 11183424,
-        arrived: 1693126776000,
+        date: 1693126776000,
         story:
           "Merrelyn is a loyal companion who would make a great addition to any family. Merrelyn had been surrendered by her previous owner, but she didn't let that bring her down. She is always wagging her tail and ready to make new friends. Merrelyn enjoys going for walks and lounging in the sun. She also loves to be petted and would nuzzle her head into her human's lap. Merrelyn is being fostered by a family who had fallen in love with her, but they know that she needs a permanent home.",
       },
@@ -627,7 +627,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "20kg",
         petId: 85923424,
-        arrived: 1695805176000,
+        date: 1695805176000,
         story:
           "Ramon is a young dog who had been abandoned by his previous owners. Ramon is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Ramon the love and attention he deserved.",
       },
@@ -641,7 +641,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "11kg",
         petId: 39983224,
-        arrived: 1698397176000,
+        date: 1698397176000,
         story:
           "Velfire is a young dog who had been abandoned by his previous owners. Velfire is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Velfire the love and attention he deserved.",
       },
@@ -655,7 +655,7 @@ export const fetchDogs = () => {
         color: "Gray",
         size: "8kg",
         petId: 85983424,
-        arrived: 1701075576000,
+        date: 1701075576000,
         story:
           "Gilbert is a loyal companion who would make a great addition to any family. He is a senior dog with a gentle disposition and a lot of love to give. Gilbert had been surrendered by his previous owner, but he didn't let that bring him down. He is always wagging his tail and ready to make new friends. Gilbert enjoys going for walks and lounging in the sun. He also loves to be petted and would nuzzle his head into her human's lap. Gilbert is being fostered by a family who had fallen in love with her, but they knew that he needed a permanent home.",
       },
@@ -669,7 +669,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "5kg",
         petId: 36473424,
-        arrived: 1703667576000,
+        date: 1703667576000,
         story:
           "Puppy Back is a sweet and playful pup who is looking for his forever home. Puppy Back loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Puppy Back had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -683,7 +683,7 @@ export const fetchDogs = () => {
         color: "Black",
         size: "11kg",
         petId: 85936145,
-        arrived: 1701075576000,
+        date: 1701075576000,
         story:
           "Spencer is a sweet and playful pup who is looking for his forever home. Spencer loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Spencer had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -697,7 +697,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "15kg",
         petId: 85234524,
-        arrived: 1701075576000,
+        date: 1701075576000,
         story:
           "Mei Mei is a loyal companion who would make a great addition to any family. Mei Mei had been surrendered by her previous owner, but she didn't let that bring her down. She is always wagging her tail and ready to make new friends. Mei Mei enjoys going for walks and lounging in the sun. She also loves to be petted and would nuzzle her head into her human's lap. Mei Mei is being fostered by a family who had fallen in love with her, but they know that she needs a permanent home. ",
       },
@@ -711,7 +711,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "5kg",
         petId: 25973423,
-        arrived: 1679907576000,
+        date: 1679907576000,
         story:
           "Revela is a sweet and playful pup who is looking for his forever home. Revela loves to play and is always up for a game of tug-of-war or fetch. She is also very affectionate and enjoyes cuddling with her human friends. Revela had been rescued from a shelter and is being fostered by a family who adores her, but they know that he needs a family of his own. ",
       },
@@ -725,7 +725,7 @@ export const fetchDogs = () => {
         color: "Brown",
         size: "16kg",
         petId: 85983555,
-        arrived: 1679907576000,
+        date: 1679907576000,
         story:
           "Paxton is a young dog who had been abandoned by his previous owners. Paxton is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Paxton the love and attention he deserved.",
       },
@@ -739,7 +739,7 @@ export const fetchDogs = () => {
         color: "Black",
         size: "25kg",
         petId: 11183424,
-        arrived: 1679907576000,
+        date: 1679907576000,
         story:
           "Merrelyn is a loyal companion who would make a great addition to any family. Merrelyn had been surrendered by her previous owner, but she didn't let that bring her down. She is always wagging her tail and ready to make new friends. Merrelyn enjoys going for walks and lounging in the sun. She also loves to be petted and would nuzzle her head into her human's lap. Merrelyn is being fostered by a family who had fallen in love with her, but they know that she needs a permanent home.",
       },
@@ -753,7 +753,7 @@ export const fetchDogs = () => {
         color: "Blonde",
         size: "20kg",
         petId: 85923424,
-        arrived: 1679907576000,
+        date: 1679907576000,
         story:
           "Ramon is a young dog who had been abandoned by his previous owners. Ramon is a playful pup who loved to run and play fetch. Despite his energy, he is well-behaved and responded well to commands. He is also very friendly and enjoyed meeting new people and other dogs. He is currently being fostered by a family who loved him dearly, but they knew that he needed a permanent home. They hope that someone would come along soon and give Ramon the love and attention he deserved.",
       },

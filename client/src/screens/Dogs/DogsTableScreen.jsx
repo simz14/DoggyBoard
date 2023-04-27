@@ -76,7 +76,7 @@ const DogsTableScreen = () => {
     sliceEnd,
   } = usePagination();
   const filteredDogs = search(relevantDogsValues, searchWord);
-  console.log(page);
+
   useEffect(() => {
     if (dogs) {
       setRelevantDogsValues(

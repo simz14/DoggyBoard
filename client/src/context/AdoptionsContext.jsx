@@ -13,28 +13,28 @@ export const AdoptionsContext = createContext({
 });
 
 export const AdoptionsProvider = ({ children }) => {
-  const [adoptions, setAdoptions] = useState([]);
-  const [adopters, setAdopters] = useState([]);
+  const [adoptions, setAdoptions] = useState(null);
+  const [adopters, setAdopters] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const { dogs, loading: load } = useDogs();
+  const { dogs } = useDogs();
 
   const setDogsInfo = () => {
-    if (dogs) {
+    if (dogs && adopters) {
       setAdoptions(
         adopters.map((adopter) => {
           return {
             id: adopter.id,
+            date: adopter.date,
             adopter: {
               age: adopter.age,
               email: adopter.email,
-              firstName: adopter?.firstName,
+              firstName: adopter.firstName,
               lastName: adopter.lastName,
               petId: adopter.petId,
               phone: adopter.phone,
               reasonForAdopting: adopter.reasonForAdopting,
               status: adopter.status,
-              date: adopter.date,
             },
             dog: dogs.find((dog) => dog.petId === adopter.petId),
           };

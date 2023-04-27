@@ -5,7 +5,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const ChartWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.darkBlue};
+  background-color: white;
   border-radius: ${({ theme }) => theme.border.radius.m};
   display: flex;
   flex-direction: column;
@@ -20,7 +20,7 @@ const ChartWrapper = styled.div`
     justify-content: space-between;
     padding: ${({ theme }) => theme.spacing.padding.m};
     h2 {
-      color: white;
+      color: black;
     }
     p {
       color: ${({ theme }) => theme.colors.grey};
@@ -28,7 +28,7 @@ const ChartWrapper = styled.div`
   }
 `;
 
-const ChartComponent = ({
+const BasicChartComponent = ({
   title,
   subTitle,
   unit,
@@ -63,32 +63,20 @@ const ChartComponent = ({
     },
 
     grid: {
-      position: "back",
-      borderColor: "#28364e",
       xaxis: {
         lines: {
-          show: true,
+          show: false,
         },
       },
       yaxis: {
         lines: {
-          show: true,
+          show: false,
         },
       },
     },
     xaxis: {
-      floating: true,
       labels: {
-        show: true,
-        hideOverlappingLabels: true,
-        maxHeight: 120,
-        style: {
-          colors: "white",
-          fontSize: "12px",
-          fontFamily: "Helvetica, Arial, sans-serif",
-          fontWeight: 400,
-        },
-        offsetY: -20,
+        show: false,
       },
       categories: [
         "Jan",
@@ -106,7 +94,7 @@ const ChartComponent = ({
       ],
     },
     yaxis: {
-      show: true,
+      show: false,
     },
   };
 
@@ -133,14 +121,14 @@ const ChartComponent = ({
         options={options}
         type="area"
         width="100%"
-        height="250px"
+        height="100px"
         series={series}
       />
     </ChartWrapper>
   );
 };
 
-ChartComponent.porpTypes = {
+BasicChartComponent.porpTypes = {
   title: PropTypes.string,
   subTitle: PropTypes.string,
   unit: PropTypes.string,
@@ -149,4 +137,4 @@ ChartComponent.porpTypes = {
   shadowColor: PropTypes.string,
 };
 
-export default ChartComponent;
+export default BasicChartComponent;
