@@ -34,6 +34,7 @@ export const AdoptionsProvider = ({ children }) => {
               phone: adopter.phone,
               reasonForAdopting: adopter.reasonForAdopting,
               status: adopter.status,
+              date: adopter.date,
             },
             dog: dogs.find((dog) => dog.petId === adopter.petId),
           };
