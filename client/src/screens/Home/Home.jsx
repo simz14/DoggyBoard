@@ -6,6 +6,7 @@ import ChartComponent from "../../components/ChartComponent";
 import PawsBcg from "../../components/PawsBcg";
 import useDogs from "../../hooks/useDogs";
 import useAdoptions from "../../hooks/useAdoptions";
+import useDonations from "../../hooks/useDonations";
 import BasicChartComponent from "../../components/BasicChartComponent";
 
 const HomeWrapper = styled.div`
@@ -18,12 +19,19 @@ const HomeWrapper = styled.div`
     .intro {
       margin: 1rem 0;
     }
+
+    .chartsWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
   }
 `;
 
 const Home = () => {
   const { dogs } = useDogs();
   const { adoptions } = useAdoptions();
+  const { donations } = useDonations();
 
   const getDataForChart = (data) => {
     if (data) {
@@ -32,6 +40,7 @@ const Home = () => {
       return datesCopy;
     }
   };
+
   return (
     <Layout>
       <HomeWrapper>
@@ -42,22 +51,32 @@ const Home = () => {
                 <h1>Welcome to DoggyBoard</h1>
                 <span>Here are overviews of how is the shelter doing</span>
               </div>
-              <ChartComponent
-                unit="Dogs"
-                title="Dogs Overview"
-                subTitle="Number of dogs"
-                data={getDataForChart(dogs)}
-                lineColor="#7a83f1"
-                shadowColor="#3730a3"
-              />
-              <BasicChartComponent
-                unit="Adoptions"
-                title="Adoptions Overview"
-                subTitle="Number of adoptions"
-                data={getDataForChart(adoptions)}
-                lineColor="#f67c73"
-                shadowColor="#f44336"
-              />
+              <div className="chartsWrapper">
+                <ChartComponent
+                  unit="Dogs"
+                  title="Dogs Overview"
+                  subTitle="Number of dogs"
+                  data={getDataForChart(dogs)}
+                  lineColor="#7a83f1"
+                  shadowColor="#3730a3"
+                />
+                <BasicChartComponent
+                  unit="Adoptions"
+                  title="Adoptions Overview"
+                  subTitle="Number of adoptions"
+                  data={getDataForChart(adoptions)}
+                  lineColor="#f67c73"
+                  shadowColor="#f44336"
+                />
+                <BasicChartComponent
+                  unit="Donations"
+                  title="Donations Overview"
+                  subTitle="Number of donations"
+                  data={getDataForChart(donations)}
+                  lineColor="#488e4b"
+                  shadowColor="#2e7d32"
+                />
+              </div>
             </div>
           </Container>
         </PawsBcg>

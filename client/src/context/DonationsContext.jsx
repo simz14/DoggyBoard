@@ -12,7 +12,7 @@ export const DonationsContext = createContext({
 });
 
 export const DonationsProvider = ({ children }) => {
-  const [donations, setDonations] = useState([]);
+  const [donations, setDonations] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -35,7 +35,7 @@ export const DonationsProvider = ({ children }) => {
               ":" +
               dateFormat.getMinutes();
 
-            return { ...donation, date: date };
+            return { ...donation, dateInFormat: date };
           })
         );
         setLoading(false);

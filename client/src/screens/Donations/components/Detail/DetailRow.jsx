@@ -16,7 +16,7 @@ const DetailRow = ({ item }) => {
       <TableCell>{item?.lastname}</TableCell>
       <TableCell>{item?.phone}</TableCell>
       <TableCell>{item?.amount}$</TableCell>
-      <TableCell>{item?.date}</TableCell>
+      <TableCell>{item?.dateInFormat}</TableCell>
     </TableRow>
   );
 };
