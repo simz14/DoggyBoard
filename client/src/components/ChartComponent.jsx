@@ -1,4 +1,20 @@
 import Chart from "react-apexcharts";
+import styled from "styled-components";
+
+const ChartWrapper = styled.div`
+  background-color: ${({ theme }) => theme.colors.darkBlue};
+  border-radius: ${({ theme }) => theme.border.radius.m};
+
+  .description {
+    padding: ${({ theme }) => theme.spacing.padding.m};
+    h2 {
+      color: white;
+    }
+    p {
+      color: ${({ theme }) => theme.colors.grey};
+    }
+  }
+`;
 
 const ChartComponent = ({ lineColor, shadowColor }) => {
   const series = [
@@ -9,8 +25,6 @@ const ChartComponent = ({ lineColor, shadowColor }) => {
   ];
   const options = {
     chart: {
-      height: 350,
-      width: "100%",
       toolbar: { show: false },
       zoom: {
         enabled: false,
@@ -28,15 +42,23 @@ const ChartComponent = ({ lineColor, shadowColor }) => {
     },
 
     grid: {
-      row: {
-        colors: ["#1e293b"],
-        opacity: 1,
+      position: "back",
+      borderColor: "#28364e",
+      xaxis: {
+        lines: {
+          show: true,
+        },
+      },
+      yaxis: {
+        lines: {
+          show: true,
+        },
       },
     },
     xaxis: {
+      floating: true,
       labels: {
         show: true,
-
         hideOverlappingLabels: true,
         maxHeight: 120,
         style: {
@@ -63,7 +85,21 @@ const ChartComponent = ({ lineColor, shadowColor }) => {
       show: false,
     },
   };
-  return <Chart options={options} type="area" series={series} />;
+  return (
+    <ChartWrapper>
+      <div className="description">
+        <h2>Adoptions Overview </h2>
+        <p>Number of adoptions</p>
+      </div>
+      <Chart
+        options={options}
+        type="area"
+        width="100%"
+        height="250px"
+        series={series}
+      />
+    </ChartWrapper>
+  );
 };
 
 export default ChartComponent;
