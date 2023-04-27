@@ -1,16 +1,20 @@
-import { BsArrowLeft } from "react-icons/bs";
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { PropTypes } from "prop-types";
 
 const Wrapper = styled.span`
-  display: flex;
+  display: grid;
   align-items: center;
   transition: 0.5s ease;
   cursor: pointer;
   span {
     display: flex;
     align-items: center;
+  }
+  .getTo {
+    justify-self: end;
+    color: ${({ theme }) => theme.colors.darkPurple};
   }
   :hover {
     span {
@@ -20,13 +24,14 @@ const Wrapper = styled.span`
   }
 `;
 
-const GetBack = ({ naviageTo, backPage }) => {
+const GetBack = ({ naviageTo, backPage, backArrow, toArrow }) => {
   const navigate = useNavigate();
   return (
-    <Wrapper onClick={() => navigate(naviageTo)} className="backTo">
-      <span>
-        <BsArrowLeft />
+    <Wrapper onClick={() => navigate(naviageTo)}>
+      <span className={backArrow ? "backTo" : "getTo"}>
+        {backArrow && <BsArrowLeft />}
         {backPage}
+        {toArrow && <BsArrowRight />}
       </span>
     </Wrapper>
   );

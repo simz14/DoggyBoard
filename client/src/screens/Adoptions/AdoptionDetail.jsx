@@ -10,7 +10,7 @@ import { Container } from "../../components/Container";
 import BasicButton from "../../components/BasicButton";
 import { handleClickDelete } from "../../utils/deleteFunction";
 import { useForm } from "react-hook-form";
-import GetBack from "../../components/getBack";
+import GetBack from "../../components/GetBack";
 import AdoptionDetailForm from "./components/Detail/AdoptionForm";
 import Swal from "sweetalert2";
 import TableWrapper from "../../components/TableWrapper";
@@ -105,7 +105,11 @@ const AdoptionDetail = () => {
               <Container>
                 <div className="intro">
                   <div className="introInfo">
-                    <GetBack naviageTo="/adoptions" backPage="Adoptions" />
+                    <GetBack
+                      backArrow={true}
+                      naviageTo="/adoptions"
+                      backPage="Adoptions"
+                    />
                     <h3>Adoption id: {id}</h3>
                   </div>
                   <div className="buttons">

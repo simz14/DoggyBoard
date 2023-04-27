@@ -59,6 +59,7 @@ const Home = () => {
                   data={getDataForChart(dogs)}
                   lineColor="#7a83f1"
                   shadowColor="#3730a3"
+                  navigateTo="/dogs"
                 />
                 <BasicChartComponent
                   unit="Adoptions"
@@ -67,6 +68,7 @@ const Home = () => {
                   data={getDataForChart(adoptions)}
                   lineColor="#f67c73"
                   shadowColor="#f44336"
+                  navigateTo="/adoptions"
                 />
                 <BasicChartComponent
                   unit="Donations"
@@ -75,6 +77,7 @@ const Home = () => {
                   data={getDataForChart(donations)}
                   lineColor="#488e4b"
                   shadowColor="#2e7d32"
+                  navigateTo="/donations"
                 />
               </div>
             </div>

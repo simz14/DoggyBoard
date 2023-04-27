@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { CircularProgress, Table } from "@mui/material";
 import { Container } from "../../components/Container";
-import GetBack from "../../components/getBack";
+import GetBack from "../../components/GetBack";
 import PawsBcg from "../../components/PawsBcg";
 import useDonation from "../../hooks/useDonation";
 import useDonations from "../../hooks/useDonations";
@@ -98,7 +98,11 @@ const DonationDetail = () => {
               <Container>
                 <div className="intro">
                   <div className="infoWrap">
-                    <GetBack naviageTo="/donations" backPage="Donations" />
+                    <GetBack
+                      backArrow={true}
+                      naviageTo="/donations"
+                      backPage="Donations"
+                    />
                     <div className="info">
                       <span className="id">Donation id:{donation?.id}</span>
                       <p>

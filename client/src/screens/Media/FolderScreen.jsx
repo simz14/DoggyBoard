@@ -91,7 +91,11 @@ const FolderScreen = () => {
                 <div className="boxWrapper">
                   <div className="introWrap">
                     <div>
-                      <GetBack naviageTo="/media" backPage="Back to media" />
+                      <GetBack
+                        backArrow={true}
+                        naviageTo="/media"
+                        backPage="Back to media"
+                      />
                       <div className="titleIcon">
                         <h2>Media</h2>
                         <span>

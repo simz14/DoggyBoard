@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Chart from "react-apexcharts";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import GetBack from "./GetBack";
 
 const ChartWrapper = styled.div`
   background-color: white;
@@ -35,6 +36,7 @@ const BasicChartComponent = ({
   data,
   lineColor,
   shadowColor,
+  navigateTo,
 }) => {
   const [total, setTotal] = useState(0);
 
@@ -107,24 +109,27 @@ const BasicChartComponent = ({
   }, [data]);
 
   return (
-    <ChartWrapper>
-      <div className="description">
-        <div>
-          <h2>{title}</h2>
-          <p>{subTitle}</p>
+    <>
+      <ChartWrapper>
+        <div className="description">
+          <div>
+            <h2>{title}</h2>
+            <p>{subTitle}</p>
+          </div>
+          <h2>{total}</h2>
         </div>
-        <h2>{total}</h2>
-      </div>
-      <div className="loading">{!data && <CircularProgress />}</div>
+        <div className="loading">{!data && <CircularProgress />}</div>
 
-      <Chart
-        options={options}
-        type="area"
-        width="100%"
-        height="100px"
-        series={series}
-      />
-    </ChartWrapper>
+        <Chart
+          options={options}
+          type="area"
+          width="100%"
+          height="100px"
+          series={series}
+        />
+      </ChartWrapper>
+      <GetBack naviageTo={navigateTo} backPage={unit} toArrow={true} />
+    </>
   );
 };
 

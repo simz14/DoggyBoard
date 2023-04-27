@@ -12,7 +12,7 @@ import { handleClickDelete } from "../../utils/deleteFunction";
 import { useForm } from "react-hook-form";
 import DogDetailForm from "./components/Table/DogForm";
 import Swal from "sweetalert2";
-import GetBack from "../../components/getBack";
+import GetBack from "../../components/GetBack";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -105,7 +105,7 @@ const DogDetail = () => {
             <Container>
               <div className="intro">
                 <div>
-                  <GetBack naviageTo="/dogs" backPage="Dogs" />
+                  <GetBack backArrow={true} naviageTo="/dogs" backPage="Dogs" />
                   <h2>{dog?.name}</h2>
                 </div>
                 <div className="buttons">

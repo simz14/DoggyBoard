@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Container } from "../../components/Container";
 import Layout from "../../components/Layout";
 import PawsBcg from "../../components/PawsBcg";
-import GetBack from "../../components/getBack";
+import GetBack from "../../components/GetBack";
 import NewDogForm from "./components/NewDog/NewDogForms";
 import BasicButton from "../../components/BasicButton";
 import { useForm } from "react-hook-form";
@@ -66,7 +66,7 @@ const NewDog = () => {
             <div className="content">
               <div className="head">
                 <div className="intro">
-                  <GetBack naviageTo="/dogs" backPage="Dogs" />
+                  <GetBack backArrow={true} naviageTo="/dogs" backPage="Dogs" />
                   <h2>New Dog</h2>
                 </div>
 
