@@ -2,53 +2,31 @@ import React from "react";
 import styled from "styled-components";
 import Layout from "../../components/Layout";
 import { Container } from "../../components/Container";
-import Chart from "react-apexcharts";
+import ChartComponent from "../../components/ChartComponent";
+import PawsBcg from "../../components/PawsBcg";
 
-const HomeWrapper = styled.div``;
-
-const series = [
-  {
-    name: "Desktops",
-    data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
-  },
-];
-const options = {
-  chart: {
-    height: 350,
-    type: "line",
-    zoom: {
-      enabled: false,
-    },
-  },
-  dataLabels: {
-    enabled: false,
-  },
-  stroke: {
-    curve: "smooth",
-  },
-  title: {
-    text: "Product Trends by Month",
-    align: "left",
-  },
-  grid: {
-    row: {
-      colors: ["#f3f3f3", "transparent"],
-      opacity: 0.5,
-    },
-  },
-  xaxis: {
-    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
-  },
-};
+const HomeWrapper = styled.div`
+  background-color: ${({ theme }) => theme.colors.lightBcgBlue};
+  position: relative;
+  min-height: 100vh;
+  .screenWrapper {
+    padding-top: 48px;
+    width: 100%;
+  }
+`;
 
 const Home = () => {
   return (
     <Layout>
-      <Container>
-        <HomeWrapper>
-          <Chart options={options} series={series} />
-        </HomeWrapper>
-      </Container>
+      <HomeWrapper>
+        <PawsBcg>
+          <Container>
+            <div className="screenWrapper">
+              <ChartComponent lineColor="#7a83f1" shadowColor="#3730a3" />
+            </div>
+          </Container>
+        </PawsBcg>
+      </HomeWrapper>
     </Layout>
   );
 };
