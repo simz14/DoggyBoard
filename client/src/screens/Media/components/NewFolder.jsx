@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { TextField } from "@mui/material";
+import React from "react";
+import { Modal, TextField } from "@mui/material";
 import styled from "styled-components";
 import BasicButton from "../../../components/BasicButton";
 import { useForm } from "react-hook-form";
@@ -8,28 +8,21 @@ import Swall from "sweetalert2";
 
 const NewFolderWrapper = styled.div`
   position: absolute;
-  top: 0px;
-  left: 0px;
-  background-color: #0000003c;
-  height: 100vh;
-  width: 100%;
-  z-index: 99999999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    padding: ${({ theme }) => theme.spacing.padding.l};
-    border-radius: ${({ theme }) => theme.border.radius.s};
-    gap: 1rem;
-  }
+  flex-direction: column;
+  background-color: white;
+  padding: ${({ theme }) => theme.spacing.padding.l};
+  border-radius: ${({ theme }) => theme.border.radius.s};
+  gap: 1rem;
+  width: 50%;
 `;
 
-const NewFolder = ({ setShowFolder }) => {
+const NewFolder = ({ showAddFolder, setShowFolder }) => {
   const { folders, setFolders } = useFolders();
-  const ref = useRef();
   const {
     register,
     formState: { errors },
@@ -37,10 +30,8 @@ const NewFolder = ({ setShowFolder }) => {
     getValues,
   } = useForm();
 
-  const handleClickAway = (e) => {
-    if (!ref.current.contains(e.target)) {
-      setShowFolder(false);
-    }
+  const handleClose = () => {
+    setShowFolder(false);
   };
 
   const handleClickAdd = () => {
@@ -55,8 +46,13 @@ const NewFolder = ({ setShowFolder }) => {
   };
 
   return (
-    <NewFolderWrapper onClick={(e) => handleClickAway(e)}>
-      <div ref={ref} className="wrapper">
+    <Modal
+      open={showAddFolder}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <NewFolderWrapper>
         <TextField
           {...register("name", { required: "Name is required!" })}
           label="Folder name"
@@ -65,8 +61,8 @@ const NewFolder = ({ setShowFolder }) => {
           helperText={errors.name?.message}
         />
         <BasicButton onClick={handleSubmit(handleClickAdd)} title="Add" />
-      </div>
-    </NewFolderWrapper>
+      </NewFolderWrapper>
+    </Modal>
   );
 };
 

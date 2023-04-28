@@ -90,7 +90,12 @@ const MeidaScreen = () => {
                 </div>
               )}
             </div>
-            {showAddFolder && <NewFolder setShowFolder={setShowFolder} />}
+            {showAddFolder && (
+              <NewFolder
+                showAddFolder={showAddFolder}
+                setShowFolder={setShowFolder}
+              />
+            )}
           </Container>
         </PawsBcg>
       </Wrapper>

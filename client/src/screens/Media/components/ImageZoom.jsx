@@ -8,7 +8,7 @@ const ImageWrap = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400;
+    width: 400px;
     background-color: "background.paper";
     border: "2px solid #000";
     box-shadow: 24;
@@ -16,7 +16,6 @@ const ImageWrap = styled.div`
 `;
 
 const ImageZoom = ({ setShowZoom, showZoom }) => {
-  console.log(Boolean(showZoom));
   const handleClose = () => setShowZoom(null);
   return (
     <Modal
