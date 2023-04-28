@@ -9,9 +9,7 @@ const ImageWrap = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    background-color: "background.paper";
-    border: "2px solid #000";
-    box-shadow: 24;
+    max-height: 40rem;
   }
 `;
 

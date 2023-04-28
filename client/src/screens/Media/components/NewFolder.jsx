@@ -18,7 +18,6 @@ const NewFolderWrapper = styled.div`
   padding: ${({ theme }) => theme.spacing.padding.l};
   border-radius: ${({ theme }) => theme.border.radius.s};
   gap: 1rem;
-  width: 50%;
 `;
 
 const NewFolder = ({ showAddFolder, setShowFolder }) => {
