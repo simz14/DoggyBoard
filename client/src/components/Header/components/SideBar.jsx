@@ -85,12 +85,8 @@ const SideBar = ({ handleClickMenu }) => {
         <IoClose />
       </IconButton>
       <User>
-        <img
-          src="https://react-material.fusetheme.com/assets/images/avatars/brian-hughes.jpg"
-          alt="user"
-        />
-        <p>Abbott Keitch</p>
-        <span>admin@fusetheme.com</span>
+        <p>James Smith</p>
+        <span>jsmith@gmail.com</span>
       </User>
       <List
         sx={{
