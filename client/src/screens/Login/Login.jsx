@@ -74,7 +74,7 @@ const Login = () => {
       <div className="coloredSide">
         <img className="paws" src={bcgPaws} alt="paws" />
         <div className="introText">
-          <h1>Welcome to Happytails dashboard</h1>
+          <h1>Welcome to DoggyBoard</h1>
           <p>Please sign in to continue</p>
         </div>
       </div>
