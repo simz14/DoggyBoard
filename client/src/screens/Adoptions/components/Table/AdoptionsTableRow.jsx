@@ -15,7 +15,7 @@ import {
 
 const IconsWrapper = styled.div`
   display: flex;
-  justify-content: space-evenly;
+
   .delete {
     color: red;
     cursor: pointer;

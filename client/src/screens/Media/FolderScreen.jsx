@@ -13,7 +13,7 @@ import useMediaByFodlerId from "../../hooks/useMediaByFolderId";
 import Masonry from "@mui/lab/Masonry";
 import { HiUpload } from "react-icons/hi";
 import StyledLabel from "../../components/StyledLabel";
-import SwiperComp from "../../components/SwiperCompo";
+import ImageZoom from "./components/ImageZoom";
 
 const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightBcgBlue};
@@ -61,6 +61,7 @@ const Wrapper = styled.div`
       background-color: white;
       padding: ${({ theme }) => theme.spacing.padding.s};
       border-radius: ${({ theme }) => theme.border.radius.m};
+      cursor: pointer;
     }
   }
   @media (max-width: 600px) {
@@ -79,7 +80,7 @@ const FolderScreen = () => {
   const { id } = useParams();
   const { folder } = useFolder(id);
   const { mediaById } = useMediaByFodlerId(id);
-  const [showSwiper, setShowSwiper] = useState(null);
+  const [showZoom, setShowZoom] = useState(null);
 
   return (
     <Layout>
@@ -120,7 +121,7 @@ const FolderScreen = () => {
                             {mediaById.map((item, index) => {
                               return (
                                 <img
-                                  onClick={() => setShowSwiper(index + 1)}
+                                  onClick={() => setShowZoom(item.src)}
                                   className="image"
                                   key={item.id}
                                   src={item.src}
@@ -136,15 +137,10 @@ const FolderScreen = () => {
                 </div>
               )}
             </div>
-            {showSwiper && (
-              <SwiperComp
-                imageIndex={showSwiper - 1}
-                setShowSwiper={setShowSwiper}
-                images={mediaById}
-                swiperName={`gallery${showSwiper}`}
-              />
-            )}
           </Container>
+          {showZoom && (
+            <ImageZoom setShowZoom={setShowZoom} showZoom={showZoom} />
+          )}
         </PawsBcg>
       </Wrapper>
     </Layout>

@@ -40,6 +40,7 @@ const Wrapper = styled.div`
       grid-template-columns: 1fr 1fr 1fr;
       display: grid;
       align-items: center;
+      justify-items: end;
     }
     .field {
       grid-column: 1/3;
