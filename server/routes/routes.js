@@ -10,6 +10,7 @@ router.post("/newdog", dogController.addDog);
 router.post("/newadoption", adoptionController.addAdoption);
 
 router.put("/editdog", dogController.editDog);
+router.put("/editadoption", adoptionController.editAdoption);
 
 router.delete("/removedog", dogController.removeDog);
 router.delete("/removeadoption", adoptionController.removeAdoptions);
