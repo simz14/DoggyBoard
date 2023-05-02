@@ -15,5 +15,6 @@ router.delete("/removedog", dogController.removeDog);
 
 router.get("/dogs", dogController.getDogs);
 router.get("/donations", donationCotroller.getDonations);
+router.get("/adoptions", adoptionController.getAdoptions);
 
 module.exports = router;

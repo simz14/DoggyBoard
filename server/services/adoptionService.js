@@ -5,4 +5,9 @@ const addAdoptionService = async (adoptionData) => {
   return newAdoption;
 };
 
-module.exports = { addAdoptionService };
+const getAdoptionsService = async () => {
+  const adoptions = await Adoption.findAll();
+  return adoptions;
+};
+
+module.exports = { addAdoptionService, getAdoptionsService };
