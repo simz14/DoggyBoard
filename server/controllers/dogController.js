@@ -3,6 +3,7 @@ const {
   getDogService,
   addDogService,
   editDogService,
+  removeDogService,
 } = require("../services/dogService");
 
 const dogController = {
@@ -41,6 +42,21 @@ const dogController = {
       validateJWT(req.headers.authorization);
       try {
         const serviceResult = await editDogService(updatedDog);
+        res.status(200).json(serviceResult);
+      } catch (err) {
+        res.status(400).json({ message: err.message });
+      }
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  },
+
+  async removeDog(req, res) {
+    const dogToRemoveId = req.body.id;
+    try {
+      validateJWT(req.headers.authorization);
+      try {
+        const serviceResult = await removeDogService(dogToRemoveId);
         res.status(200).json(serviceResult);
       } catch (err) {
         res.status(400).json({ message: err.message });

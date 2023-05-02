@@ -17,4 +17,16 @@ const editDogService = async (dogData) => {
   return dogData;
 };
 
-module.exports = { getDogService, addDogService, editDogService };
+const removeDogService = async (dogId) => {
+  const removedDog = await Dog.destroy({
+    where: { id: dogId },
+  });
+  return removedDog;
+};
+
+module.exports = {
+  getDogService,
+  addDogService,
+  editDogService,
+  removeDogService,
+};
