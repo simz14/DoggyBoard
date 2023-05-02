@@ -10,4 +10,11 @@ const addDogService = async (dogData) => {
   return newDog;
 };
 
-module.exports = { getDogService, addDogService };
+const editDogService = async (dogData) => {
+  const updatedDog = await Dog.update(dogData, {
+    where: { id: dogData.id },
+  });
+  return dogData;
+};
+
+module.exports = { getDogService, addDogService, editDogService };

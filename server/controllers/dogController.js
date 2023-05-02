@@ -1,5 +1,9 @@
 const { validateJWT } = require("../middlewares/validateJWT");
-const { getDogService, addDogService } = require("../services/dogService");
+const {
+  getDogService,
+  addDogService,
+  editDogService,
+} = require("../services/dogService");
 
 const dogController = {
   async getDogs(req, res) {
@@ -22,6 +26,21 @@ const dogController = {
       validateJWT(req.headers.authorization);
       try {
         const serviceResult = await addDogService(dogData);
+        res.status(200).json(serviceResult);
+      } catch (err) {
+        res.status(400).json({ message: err.message });
+      }
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  },
+
+  async editDog(req, res) {
+    const updatedDog = req.body;
+    try {
+      validateJWT(req.headers.authorization);
+      try {
+        const serviceResult = await editDogService(updatedDog);
         res.status(200).json(serviceResult);
       } catch (err) {
         res.status(400).json({ message: err.message });

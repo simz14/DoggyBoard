@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.post("/login", userController.checkUser);
 router.post("/newdog", dogController.addDog);
+router.put("/editdog", dogController.editDog);
 
 router.get("/dogs", dogController.getDogs);
 
