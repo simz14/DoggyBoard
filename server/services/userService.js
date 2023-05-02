@@ -1,5 +1,7 @@
 const { User } = require("../models/user");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const checkUserService = async (data) => {
   const { email, password } = data;
@@ -10,7 +12,10 @@ const checkUserService = async (data) => {
   if (user) {
     const correctPassword = await bcrypt.compare(password, user.password);
     if (correctPassword) {
-      return "success";
+      const { id, firstName, lastName, email } = user;
+      const key = process.env.SECRET_KEY;
+      const token = jwt.sign({ id, firstName, lastName, email }, key);
+      return token;
     } else {
       throw new Error("Incorrect password");
     }

@@ -3,7 +3,7 @@ const { userController } = require("../controllers/userController");
 const { dogController } = require("../controllers/dogController");
 const router = express.Router();
 
-router.post("/test", userController.checkUser);
+router.post("/login", userController.checkUser);
 
 router.get("/dogs", dogController.getDogs);
 
