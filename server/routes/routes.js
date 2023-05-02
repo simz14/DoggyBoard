@@ -4,6 +4,7 @@ const { dogController } = require("../controllers/dogController");
 const router = express.Router();
 
 router.post("/login", userController.checkUser);
+router.post("/newdog", dogController.addDog);
 
 router.get("/dogs", dogController.getDogs);
 

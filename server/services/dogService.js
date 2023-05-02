@@ -5,4 +5,9 @@ const getDogService = async () => {
   return dogs;
 };
 
-module.exports = { getDogService };
+const addDogService = async (dogData) => {
+  const newDog = await Dog.create(dogData);
+  return newDog;
+};
+
+module.exports = { getDogService, addDogService };
