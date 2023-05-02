@@ -12,6 +12,7 @@ router.post("/newadoption", adoptionController.addAdoption);
 router.put("/editdog", dogController.editDog);
 
 router.delete("/removedog", dogController.removeDog);
+router.delete("/removeadoption", adoptionController.removeAdoptions);
 
 router.get("/dogs", dogController.getDogs);
 router.get("/donations", donationCotroller.getDonations);

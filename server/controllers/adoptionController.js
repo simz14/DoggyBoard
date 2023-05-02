@@ -2,6 +2,7 @@ const { validateJWT } = require("../middlewares/validateJWT");
 const {
   addAdoptionService,
   getAdoptionsService,
+  removeAdoptionsService,
 } = require("../services/adoptionService");
 
 const adoptionController = {
@@ -25,6 +26,21 @@ const adoptionController = {
       validateJWT(req.headers.authorization);
       try {
         const serviceResult = await getAdoptionsService();
+        res.status(200).json(serviceResult);
+      } catch (err) {
+        res.status(400).json({ message: err.message });
+      }
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  },
+
+  async removeAdoptions(req, res) {
+    const adoptionId = req.body.id;
+    try {
+      validateJWT(req.headers.authorization);
+      try {
+        const serviceResult = await removeAdoptionsService(adoptionId);
         res.status(200).json(serviceResult);
       } catch (err) {
         res.status(400).json({ message: err.message });

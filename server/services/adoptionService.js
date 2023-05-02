@@ -10,4 +10,13 @@ const getAdoptionsService = async () => {
   return adoptions;
 };
 
-module.exports = { addAdoptionService, getAdoptionsService };
+const removeAdoptionsService = async (adoptionId) => {
+  const removedAdoption = await Adoption.destroy({ where: { id: adoptionId } });
+  return removedAdoption;
+};
+
+module.exports = {
+  addAdoptionService,
+  getAdoptionsService,
+  removeAdoptionsService,
+};
