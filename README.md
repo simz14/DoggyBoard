@@ -2,7 +2,6 @@
 - https://doggy-board.vercel.app/
 
 <h2 align="left">Project description:</h2>
-<h3>Project description:</h3>
 
 - Application for managing all aspects of a dog shelter. With features for managing dogs, adoptions, donations, and media, the app makes it easy to keep track of all the important information you need to run your shelter efficiently. It is intuitive and easy to use.
 
