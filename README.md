@@ -4,15 +4,7 @@
 <h2 align="left">Project description:</h2>
 <h3>Project description:</h3>
 
-- The Dog Shelter Administration app is a tool for managing all aspects of a dog shelter. With features for managing dogs, adoptions, donations, and media, the app makes it easy to keep track of all the important information you need to run your shelter efficiently.
-
-- The app's intuitive interface makes it simple to add new dogs, adoptions, and donations to the system. You can also edit or delete existing records. With the app's search and filter features, you can quickly find the records you need nad sort each column.
-
-- Each dog in the system has a detailed profile, with information on their name, breed, age, petId, sex, location, color and size.
-
-- The adoption table includes information on the adopter, the date of the adoption, and any follow-up information that may be relevant. The donations table tracks all the donations that the shelter has received, including the amount, the donor's name, and the date of the donation.
-
-- Finally, the media table allows you to keep track of all the photos, and other media assets related to your shelter. You can easily upload new media, delete old media, or edit existing records as needed.
+- Application for managing all aspects of a dog shelter. With features for managing dogs, adoptions, donations, and media, the app makes it easy to keep track of all the important information you need to run your shelter efficiently. It is intuitive and easy to use.
 
 <h3 align="left">Tools and technologies used in this project:</h3>
 <p align="left"> 
@@ -49,6 +41,8 @@
 - ScrollReveal: a library to animate elements as they scroll into view.
 
 - react-helmet-async: a library for adding metadata to React applications for improved SEO.
+
+- ApexCharts: JavaScript charting library for creating interactive and customizable charts and graphs in web applications.
 
 </p>
 
